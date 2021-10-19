@@ -1,0 +1,28 @@
+@font-face
+    font-family: Roboto
+    src: url("../../assets/fonts/Roboto/Roboto-Bold.ttf")
+    font-weight: bold
+    font-display: fallback
+
+@font-face
+    font-family: Roboto
+    src: url("../../assets/fonts/Roboto/Roboto-Regular.ttf")
+    font-weight: normal
+    font-display: fallback
+
+@font-face
+    font-family: Poppins
+    src: url("../../assets/fonts/Poppins/Poppins-Bold.ttf")
+    font-weight: bold
+    font-display: fallback
+
+%h2
+    @include typography(Roboto, 5rem, bold)
+%h3
+    @include typography(Roboto, 2.5rem, bold)
+%text
+    @include typography(Roboto, 1.25rem, normal)
+%button
+    @include typography(Roboto, 1.5rem, bold)
+%home
+    @include typography(Poppins, 6rem, bold)

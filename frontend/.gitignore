@@ -4,7 +4,6 @@
 /node_modules
 /.pnp
 .pnp.js
-tiempos.txt
 
 # testing
 /coverage
@@ -13,7 +12,6 @@ tiempos.txt
 /build
 
 # misc
-.env
 .DS_Store
 .env.local
 .env.development.local
