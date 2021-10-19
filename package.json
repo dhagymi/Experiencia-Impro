@@ -1,0 +1,32 @@
+{
+	"name": "exp-impro-site",
+	"version": "1.0.0",
+	"type": "module",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node --experimental-modules backend/server.js",
+		"build": "cd frontend && yarn install && yarn build",
+		"dev": "nodemon --experimental-modules backend/server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/dhagymi/Experiencia-Impro.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/dhagymi/Experiencia-Impro/issues"
+	},
+	"homepage": "https://github.com/dhagymi/Experiencia-Impro#readme",
+	"dependencies": {
+		"express": "^4.17.1",
+		"morgan": "^1.10.0",
+		"node-emoji": "^1.11.0",
+		"nodemailer": "^6.7.0"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.13"
+	}
+}
