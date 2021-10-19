@@ -1,0 +1,243 @@
+/*-Animation Section Home -Teatro sin guiones-*/
+
+section.welcome{
+    background:$background;
+    height: 100vh;
+    position: relative;
+    text-align: center;
+    }
+
+h1.glitch {
+    font-size: 9vw;
+    line-height: 1;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    text-decoration: none;
+    color: $white;
+    text-align: center;
+    &:before,
+    &:after{
+    display: block;
+    content: 'Teatro sin guiones';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: .8;
+    }
+    &:after {
+    color: $blue_animation;
+    z-index: -2;
+        animation: glitch-left-2 .3s cubic-bezier(.25, .46, .45, .94) reverse both infinite
+    }
+    &:before {
+    color:  $ligthblue;
+    z-index: -1;
+        animation: glitch-left .3s cubic-bezier(.25, .46, .45, .94) both infinite
+    }
+  }
+
+@keyframes glitch-small {
+    0%  {transform: translate(0)}
+    33% {transform: translate(2px, 1px)}
+    66% {transform: translate(-1px, -1px)}
+    to  {transform: translate(0)}
+    }
+@keyframes glitch-medium {
+    0%  {transform: translate(0)}
+    20% {transform: translate(-2px, 2px)}
+    40% {transform: translate(-2px, -2px)}
+    60% {transform: translate(2px, 2px)}
+    80% {transform: translate(2px, -2px)}
+    to {transform: translate(0)}
+    }
+@keyframes glitch-left {
+    0% {transform: translate(0)}
+    33% {transform: translate(-5px, 3px)}
+    66% {transform: translate(5px, -3px)}
+    to {transform: translate(0)}
+    }
+@keyframes glitch-left-2 {
+    0% {transform: translate(0)}
+    33% {transform: translate(-5px, -3px)}
+    66% {transform: translate(5px, 2px)}
+    to {transform: translate(0)}
+    }
+
+    @media only screen and (max-width: 600px)
+
+    { h1.glitch {
+        width:90%;
+        font-size:  20vw;
+        text-align: center;
+    }}
+
+    @media only screen and (max-width: 768px) {
+        h1.glitch {
+          width: 90%;
+          font-size: 15vw;
+          text-align: center; } }   
+
+/* Animación Sestion Nosotros - About Us */
+
+section.content-section-animation div {
+    background:$background;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+    margin-top: 10px;
+    }
+
+h3.animation {margin: 0px 0px 30px 0px;
+    text-align: center;
+    padding-top: 160px;
+    font-size: 25px;
+    font-weight: 300;
+    letter-spacing: -.1vw;
+    color:  $ligthblue;
+    letter-spacing: -.1vw;
+    line-height: 125%; }
+    
+div#animation {    
+    color:$white;
+    text-transform: none;
+    font-size: 12vh;
+    font-weight:bold;
+    text-align: center;
+    display:block;
+    height: 100vh;
+    letter-spacing: -.1vw;
+    line-height: 110%;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    }
+ 
+#flip {
+    height:110px;
+    overflow:hidden;
+    }
+        
+#flip > div > div {
+    color:$white;
+    height:120px;
+    padding-left: 6%;
+    padding-right: 6%;
+    display:inline-block;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    letter-spacing: -.1vw;
+    line-height: 125%
+    } 
+        
+#flip div:first-child {
+    animation: show 8s linear infinite;
+    }
+        
+#flip div div {
+    color: $blue_animation;
+    }
+    
+#flip div:first-child div {
+    color:  $ligthblue;
+    }
+    
+#flip div:last-child div {
+    color: $violet_animation;
+    }
+        
+@keyframes show {
+    0% {margin-top:-360px;}
+    5% {margin-top:-240px;}
+    33% {margin-top:-240px;}
+    38% {margin-top:-120px;}
+    66% {margin-top:-120px;}
+    71% {margin-top:0px;}
+    99% {margin-top:0px;}
+    100% {margin-top:-360px;}
+    }
+
+    @media only screen and (max-width: 600px) 
+    {  
+        h3.animation {margin: 0px 0px 30px 0px;
+        text-align: center;
+        padding-top: 160px;
+        font-size:  6vw;
+        padding-left: 10vw;
+        padding-right: 10vw;
+        font-weight: 300;
+        letter-spacing: -.1vw;
+        color: $ligthblue;
+        line-height: 110%; }
+        
+    div#animation {    
+        color: $white;
+        text-transform: none;
+        font-size: 5vh;
+        font-weight:bold;
+        text-align: center;
+        display:block;
+        height: 100vh;
+        width: auto;
+        letter-spacing: -.1vw;
+        justify-items: center;
+        align-content: center;
+        align-items: center;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        h3.animation {
+          margin: 0px 0px 30px 0px;
+          padding-top: 160px;
+          font-size: 4vw;  
+        }
+
+        div#animation {
+          font-size: 9vh;
+          height: 80vh;
+          line-height: 110%;
+         } 
+
+      }
+
+/*-Animation Section Shows - Integrantes-*/
+
+    .integrantes {
+        position: relative; /*Para poder ubicar la info dentro de la caja integrantes*/
+        }
+    
+        .info {
+        position: absolute; /*Nombres sobre la imagen*/
+        top: 60%;
+        bottom: 40%;
+        left:25%; /*Desplazamos a partir de la esquina superior izquierda*/
+        right: 25%;
+        zoom: 3.5;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        line-height: 125%;
+        text-align: center;
+        filter: alpha(opacity=0); 
+        opacity: 0; /*Inicialmente transparente */
+        color:$white;
+        -moz-transition:all ease .6s; /*transición*/
+        -webkit-transition:all ease .6s ;
+        transition:all ease .6s;
+        }
+        .integrantes:hover .info {
+        filter: alpha(opacity=80);
+        opacity: .8; /*Al hacer hover sobre la caja hacemos visible los datos*/
+        }
+    
+    
+    

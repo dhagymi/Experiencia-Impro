@@ -1,0 +1,9 @@
+@mixin titles{
+    letter-spacing: -.1vw;
+    line-height: 125%;
+}
+
+@mixin titles_mobile {
+    margin-left: 50px;
+    width: 75%;
+}
