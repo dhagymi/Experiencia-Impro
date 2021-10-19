@@ -35,12 +35,10 @@
     &__floatTitle
         position: relative
         height: 7rem
-        width: 100vw
         left: -17.5vmax
         white-space: nowrap
         &Text
             display: flex
-            gap: 3rem
             position: absolute
             @extend %homeTitle
             text-transform: uppercase
@@ -55,20 +53,25 @@
             &--right
                 -webkit-text-stroke-width: 1px
                 -webkit-text-stroke-color: $lightBlue
-                animation: translateToRight 15s linear infinite
+                animation: translateToRight 8s linear infinite
 
-        &Word
+        &Span
             display: inline-block
             line-height: 1em
+
+            &--left
+                width: 90rem
+            &--right
+                width: 77rem
 
 @keyframes translateToLeft
     0%
         transform: translateX(0)
     100%
-        transform: translateX(calc(-50.25%))
+        transform: translateX(-90rem)
 
 @keyframes translateToRight
     0%
-        transform: translateX(-50.25%)
+        transform: translateX(-77rem)
     100%
         transform: translateX(0)

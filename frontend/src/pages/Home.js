@@ -1,9 +1,7 @@
 const Home = () => {
-	const titleOne =
-		"Comedia en español Comedia en español Comedia en español Comedia en español ";
+	const titleOne = "Comedia en español";
 
-	const titleTwo =
-		"Clases de teatro sin guión Clases de teatro sin guión teatro sin guión teatro sin guión ";
+	const titleTwo = "Clases de teatro";
 
 	return (
 		<section className="home">
@@ -20,12 +18,34 @@ const Home = () => {
 			</div>
 			<div className="home__floatTitle">
 				<p className="home__floatTitleText home__floatTitleText--left">
-					{titleOne}
+					<span className="home__floatTitleSpan home__floatTitleSpan--left">
+						{titleOne}
+					</span>
+					<span className="home__floatTitleSpan home__floatTitleSpan--left">
+						{titleOne}
+					</span>
+					<span className="home__floatTitleSpan home__floatTitleSpan--left">
+						{titleOne}
+					</span>
+					<span className="home__floatTitleSpan home__floatTitleSpan--left">
+						{titleOne}
+					</span>
 				</p>
 			</div>
 			<div className="home__floatTitle">
 				<p className="home__floatTitleText home__floatTitleText--right">
-					{titleTwo}
+					<span className="home__floatTitleSpan home__floatTitleSpan--right">
+						{titleTwo}
+					</span>
+					<span className="home__floatTitleSpan home__floatTitleSpan--right">
+						{titleTwo}
+					</span>
+					<span className="home__floatTitleSpan home__floatTitleSpan--right">
+						{titleTwo}
+					</span>
+					<span className="home__floatTitleSpan home__floatTitleSpan--right">
+						{titleTwo}
+					</span>
 				</p>
 			</div>
 		</section>
