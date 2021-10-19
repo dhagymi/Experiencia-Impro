@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 const NavBar = () => {
 	const links = [
 		{ to: "/", exact: true, innerText: "Home" },
-		{ to: "/aboutus", exact: true, innerText: "Nosotros" },
 		{ to: "/classes", exact: true, innerText: "Clases" },
 		{ to: "/podcast", exact: true, innerText: "Podcast" },
 		{ to: "/shows", exact: true, innerText: "Shows" },
