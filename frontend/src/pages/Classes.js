@@ -1,3 +1,5 @@
-export default function Classes() {
-	return <div>Classes</div>;
-}
+const Classes = () => {
+	return <section>Classes</section>;
+};
+
+export default Classes;

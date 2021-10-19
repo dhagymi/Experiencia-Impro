@@ -16,6 +16,12 @@
     font-weight: bold
     font-display: fallback
 
+@font-face
+    font-family: Poppins
+    src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf")
+    font-weight: normal
+    font-display: fallback
+
 %h2
     @include typography(Roboto, 5rem, bold)
 %h3
@@ -24,5 +30,7 @@
     @include typography(Roboto, 1.25rem, normal)
 %button
     @include typography(Roboto, 1.5rem, bold)
-%home
-    @include typography(Poppins, 6rem, bold)
+%homeTitle
+    @include typography(Poppins, 7rem, bold)
+%homeText
+    @include typography(Poppins, 1.5rem, normal)

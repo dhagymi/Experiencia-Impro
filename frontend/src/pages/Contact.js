@@ -1,3 +1,5 @@
-export default function Contact() {
-	return <div>Contact</div>;
-}
+const Contact = () => {
+	return <section>Contact</section>;
+};
+
+export default Contact;
