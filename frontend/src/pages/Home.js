@@ -1,6 +1,3 @@
-import { useState } from "react";
-import HomeTitleWord from "../components/HomeTitleWord";
-
 const Home = () => {
 	const titleOne = [
 		"Comedia ",
@@ -50,23 +47,15 @@ const Home = () => {
 			</div>
 			<div className="home__floatTitle">
 				<p className="home__floatTitleText home__floatTitleText--left">
-					{titleOne.map((text, index) => {
-						return (
-							<HomeTitleWord key={index} direction="left">
-								{text}
-							</HomeTitleWord>
-						);
+					{titleOne.map((text) => {
+						return <span className={`home__floatTitleWord `}>{text}</span>;
 					})}
 				</p>
 			</div>
 			<div className="home__floatTitle">
 				<p className="home__floatTitleText home__floatTitleText--right">
-					{titleTwo.map((text, index) => {
-						return (
-							<HomeTitleWord key={index} direction="right">
-								{text}
-							</HomeTitleWord>
-						);
+					{titleTwo.map((text) => {
+						return <span className={`home__floatTitleWord`}>{text}</span>;
 					})}
 				</p>
 			</div>
