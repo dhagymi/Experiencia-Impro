@@ -51,7 +51,7 @@
             &--left
                 -webkit-text-stroke-width: 1px
                 -webkit-text-stroke-color: $pink
-                animation: translateToLeft 12s linear infinite
+                animation: translateToLeft 8s linear infinite
             &--right
                 -webkit-text-stroke-width: 1px
                 -webkit-text-stroke-color: $lightBlue
@@ -65,10 +65,10 @@
     0%
         transform: translateX(0)
     100%
-        transform: translateX(-50%)
+        transform: translateX(calc(-50.25%))
 
 @keyframes translateToRight
     0%
-        transform: translateX(-50%)
+        transform: translateX(-50.25%)
     100%
         transform: translateX(0)

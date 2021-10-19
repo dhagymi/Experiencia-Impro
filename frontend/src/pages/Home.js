@@ -1,36 +1,9 @@
 const Home = () => {
-	const titleOne = [
-		"Comedia ",
-		"en ",
-		"español ",
-		"Comedia ",
-		"en ",
-		"español ",
-		"Comedia ",
-		"en ",
-		"español ",
-		"Comedia ",
-		"en ",
-		"español ",
-	];
-	const titleTwo = [
-		"Clases ",
-		"de ",
-		"teatro ",
-		"sin ",
-		"guión ",
-		"Clases ",
-		"de ",
-		"teatro ",
-		"sin ",
-		"guión ",
-		"teatro ",
-		"sin ",
-		"guión ",
-		"teatro ",
-		"sin ",
-		"guión ",
-	];
+	const titleOne =
+		"Comedia en español Comedia en español Comedia en español Comedia en español ";
+
+	const titleTwo =
+		"Clases de teatro sin guión Clases de teatro sin guión teatro sin guión teatro sin guión ";
 
 	return (
 		<section className="home">
@@ -47,16 +20,12 @@ const Home = () => {
 			</div>
 			<div className="home__floatTitle">
 				<p className="home__floatTitleText home__floatTitleText--left">
-					{titleOne.map((text) => {
-						return <span className={`home__floatTitleWord `}>{text}</span>;
-					})}
+					{titleOne}
 				</p>
 			</div>
 			<div className="home__floatTitle">
 				<p className="home__floatTitleText home__floatTitleText--right">
-					{titleTwo.map((text) => {
-						return <span className={`home__floatTitleWord`}>{text}</span>;
-					})}
+					{titleTwo}
 				</p>
 			</div>
 		</section>
