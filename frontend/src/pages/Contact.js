@@ -9,7 +9,7 @@ const Contact = () => {
 					<p className="contact__cardInfo">1234567890</p>
 					<h3 className="contact__cardSubtitle">Clases</h3>
 					<p className="contact__cardInfo">info@gmail.com</p>
-					<h3 className="contact__cardSubtitle">Porcast</h3>
+					<h3 className="contact__cardSubtitle">Podcast</h3>
 					<p className="contact__cardInfo">info@gmail.com</p>
 					<div className="contact__cardDots">
 						<div className="contact__cardDot"></div>
