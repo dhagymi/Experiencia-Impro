@@ -1,10 +1,22 @@
 *
     margin: 0
     padding: 0
+    box-sizing: content-box
 
 body
     background: $background
     color: $white
+    position: relative
+    overflow-x: hidden
+
+.App
+    overflow-x: hidden
+
+section
+    width: 65vmax
+    max-width: 90%
+    margin-top: calc(4.5vh + 2.2rem)
+    height: calc(100vh - 4.5vh - 2.2rem)
 
 a
     &:link
@@ -18,4 +30,4 @@ ul
     list-style: none
 
 button
-    border: solid 1px $ligthBlue
+    border: solid 1px $lightBlue

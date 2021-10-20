@@ -24,7 +24,15 @@
         @include typography(Roboto, 1.1rem, bold)
         justify-content: center
         line-height: 2rem
+        transition: font-size .3s
         &--active
+            font-size: 1.5rem
+            background: linear-gradient($white, $white)
+            background-repeat: no-repeat
+            background-size: 100% .15rem
+            background-position: 50% 100%
+
+        &:hover
             font-size: 1.5rem
             background: linear-gradient($white, $white)
             background-repeat: no-repeat

@@ -1,0 +1,85 @@
+.home
+    display: flex
+    flex-flow: column nowrap
+    justify-content: center
+    gap: 3vh
+
+    &__heading
+        display: grid
+        grid-template-columns: repeat(12, 1fr)
+        column-gap: 1.37vw
+
+    &__title
+        @extend %homeTitle
+        grid-column: 1/10
+        white-space: nowrap
+
+        &Smile
+            color: $lightBlue
+
+    &__nextShowInfo
+        grid-column: 10/13
+        display: flex
+        flex-flow: column nowrap
+        justify-content: center
+        gap: 1rem
+
+    &__nextShowText
+        @extend %homeText
+        white-space: nowrap
+        text-transform: uppercase
+
+        &--pink
+            color: $pink
+
+    &__floatTitle
+        position: relative
+        height: 7rem
+        left: -17.5vmax
+        white-space: nowrap
+        &Text
+            display: flex
+            position: absolute
+            @extend %homeTitle
+            text-transform: uppercase
+            color: transparent
+            line-height: 1em
+            text-align: center
+            font-size: 8rem
+            &--left
+                -webkit-text-stroke-width: 1px
+                -webkit-text-stroke-color: $pink
+                animation: translateToLeft 10s linear infinite
+            &--right
+                -webkit-text-stroke-width: 1px
+                -webkit-text-stroke-color: $lightBlue
+                animation: translateToRight 15s linear infinite
+
+        &Span
+            display: inline-block
+            line-height: 1em
+
+            &--left
+                width: 95.5rem
+            &--right
+                width: 182.5rem
+
+@media ( max-width: 700px )
+    .home
+        &__heading
+            display: flex
+            flex-flow: column nowrap
+            justify-content: center
+            gap: 1rem
+
+@keyframes translateToLeft
+    0%
+        transform: translateX(0)
+    100%
+        transform: translateX(-95.5rem)
+
+@keyframes translateToRight
+    0%
+        transform: translateX(-182.5rem)
+    100%
+        transform: translateX(0)

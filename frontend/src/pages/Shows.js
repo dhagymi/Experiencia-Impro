@@ -1,3 +1,5 @@
-export default function Shows() {
-	return <div>Shows</div>;
-}
+const Shows = () => {
+	return <section>Shows</section>;
+};
+
+export default Shows;
