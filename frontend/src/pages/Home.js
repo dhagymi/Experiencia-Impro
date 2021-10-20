@@ -10,9 +10,9 @@ const Home = () => {
 					improv<span className="home__titleSmile"> =)</span>
 				</h1>
 				<div className="home__nextShowInfo">
-					<p className="home__nextShowText home__nextShowText--pink">
+					<h2 className="home__nextShowText home__nextShowText--pink">
 						Proximo show
-					</p>
+					</h2>
 					<p className="home__nextShowText">25.10.21 - MUNICH</p>
 				</div>
 			</div>
