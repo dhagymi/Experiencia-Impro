@@ -5,12 +5,14 @@ const Contact = () => {
 			<div className="contact__body">
 				<div className="contact__card">
 					<h2 className="contact__cardTitle">En qué podemos ayudarte?</h2>
-					<h3 className="contact__cardSubtitle">WhatsApp</h3>
-					<p className="contact__cardInfo">1234567890</p>
-					<h3 className="contact__cardSubtitle">Clases</h3>
-					<p className="contact__cardInfo">info@gmail.com</p>
-					<h3 className="contact__cardSubtitle">Podcast</h3>
-					<p className="contact__cardInfo">info@gmail.com</p>
+					<div className="contact__cardInfoContainer">
+						<h3 className="contact__cardSubtitle">WhatsApp</h3>
+						<p className="contact__cardInfo">1234567890</p>
+						<h3 className="contact__cardSubtitle">Clases</h3>
+						<p className="contact__cardInfo">info@gmail.com</p>
+						<h3 className="contact__cardSubtitle">Podcast</h3>
+						<p className="contact__cardInfo">info@gmail.com</p>
+					</div>
 					<div className="contact__cardDots">
 						<div className="contact__cardDot"></div>
 						<div className="contact__cardDot"></div>

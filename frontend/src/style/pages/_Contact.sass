@@ -1,11 +1,10 @@
 .contact
     display: flex
     flex-flow: column nowrap
-    justify-content: center
-    gap: 3rem
-    margin-top: 12vh
-    height: 88vh
-
+    justify-content: flex-start
+    gap: 6vh
+    margin-top: 15vh
+    height: 85vh
     &__title
         @extend %h2
         text-transform: uppercase
@@ -13,7 +12,7 @@
 
     &__body
         display: grid
-        height: 55vh
+        min-height: 55vh
         grid-template-columns: repeat(12, 1fr)
         column-gap: 1.37vw
 
@@ -22,15 +21,24 @@
         background: $white
         display: flex
         flex-flow: column nowrap
-        justify-content: space-between
-        gap: 1vh
-        padding: 3rem
+        justify-content: center
+        align-items: center
+        gap: 2vmin
         margin-right: 4.11vw
+        padding: 2rem 0
+
+        &InfoContainer
+            display: flex
+            flex-flow: column nowrap
+            justify-content: space-between
+            gap: 2vmin
+            width: 80%
 
         &Title
             @extend %h3
             color: black
             margin-bottom: 5%
+            width: 80%
 
         &Subtitle
             @extend %text
@@ -48,6 +56,7 @@
             align-items: center
             gap: 1.5rem
             margin-top: 5%
+            width: 80%
 
         &Dot
             width: 3rem
@@ -67,6 +76,7 @@
             display: flex
             flex-flow: column nowrap
             justify-content: space-between
+            gap: 1rem
 
         &Label
             display: flex
@@ -103,15 +113,13 @@
     .contact
         justify-content: flex-start
         gap: 5vh
+        margin-top: 15vh
+        height: 85vh
 
         &__body
             display: flex
             flex-flow: column nowrap
             gap: 5vh
-            height: 70vh
 
         &__card
             margin-right: 0
-
-        &__form
-            height: 30vh
