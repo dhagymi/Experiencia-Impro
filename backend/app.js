@@ -3,7 +3,6 @@ import morgan from "morgan";
 import { dirname, resolve } from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
-import history from "connect-history-api-fallback";
 
 import mailRouter from "./src/routers/mail.router.js";
 
@@ -19,14 +18,9 @@ app.set("PORT", PORT);
 app.use(json());
 app.use(urlencoded({ extended: true }));
 app.use(morgan("dev"));
-app.use(
-	history({
-		rewrites: [{ from: /\/.*/, to: "/" }],
-	})
-);
 
 // Public
-app.use("/", express.static(resolve(__dirname, "../frontend/build")));
+app.use(express.static(resolve(__dirname, "../frontend/build")));
 
 // Routes
 app.use("/api/mail", mailRouter);
