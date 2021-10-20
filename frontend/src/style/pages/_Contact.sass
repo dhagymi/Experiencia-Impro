@@ -17,8 +17,42 @@
         column-gap: 1.37vw
 
     &__card
-        grid-column: 1/6
+        grid-column: 1/7
         background: $white
+        display: flex
+        flex-flow: column nowrap
+        justify-content: space-between
+        gap: 1rem
+        padding: 3rem
+        margin-right: 4.11vw
+
+        &Title
+            @extend %h3
+            color: black
+            margin-bottom: 5%
+
+        &Subtitle
+            @extend %text
+            font-weight: bold
+            text-transform: uppercase
+            color: $lightBlue
+
+        &Info
+            @extend %text
+            color: black
+
+        &Dots
+            display: flex
+            flex-wrap: nowrap
+            align-items: center
+            gap: 1.5rem
+            margin-top: 5%
+
+        &Dot
+            width: 3rem
+            height: 3rem
+            border-radius: 50%
+            background: $lightBlue
 
     &__form
         grid-column: 7/13
@@ -48,7 +82,7 @@
             line-height: 2em
             background: transparent
             @extend %text
-            padding-left: .3em
+            padding: 0 .3em
 
             &--textArea
                 height: 80%
@@ -63,3 +97,21 @@
             line-height: 2em
             width: 50%
             text-transform: uppercase
+
+@media ( max-width: 700px )
+    .contact
+        justify-content: flex-start
+        gap: 5vh
+        margin-top: 12vh
+
+        &__body
+            display: flex
+            flex-flow: column nowrap
+            gap: 5vh
+            height: 70vh
+
+        &__card
+            margin-right: 0
+
+        &__form
+            height: 30vh
