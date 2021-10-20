@@ -49,29 +49,29 @@
             &--left
                 -webkit-text-stroke-width: 1px
                 -webkit-text-stroke-color: $pink
-                animation: translateToLeft 8s linear infinite
+                animation: translateToLeft 7s linear infinite
             &--right
                 -webkit-text-stroke-width: 1px
                 -webkit-text-stroke-color: $lightBlue
-                animation: translateToRight 8s linear infinite
+                animation: translateToRight 12s linear infinite
 
         &Span
             display: inline-block
             line-height: 1em
 
             &--left
-                width: 90rem
+                width: 95.5rem
             &--right
-                width: 77rem
+                width: 182.5rem
 
 @keyframes translateToLeft
     0%
         transform: translateX(0)
     100%
-        transform: translateX(-90rem)
+        transform: translateX(-95.5rem)
 
 @keyframes translateToRight
     0%
-        transform: translateX(-77rem)
+        transform: translateX(-182.5rem)
     100%
         transform: translateX(0)

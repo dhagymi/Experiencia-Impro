@@ -1,7 +1,7 @@
 const Home = () => {
-	const titleOne = "Comedia en español";
+	const titleOne = "Comedia en español -";
 
-	const titleTwo = "Clases de teatro";
+	const titleTwo = "Teatro sin guiones - no existen errores -";
 
 	return (
 		<section className="home">
@@ -24,19 +24,10 @@ const Home = () => {
 					<span className="home__floatTitleSpan home__floatTitleSpan--left">
 						{titleOne}
 					</span>
-					<span className="home__floatTitleSpan home__floatTitleSpan--left">
-						{titleOne}
-					</span>
-					<span className="home__floatTitleSpan home__floatTitleSpan--left">
-						{titleOne}
-					</span>
 				</p>
 			</div>
 			<div className="home__floatTitle">
 				<p className="home__floatTitleText home__floatTitleText--right">
-					<span className="home__floatTitleSpan home__floatTitleSpan--right">
-						{titleTwo}
-					</span>
 					<span className="home__floatTitleSpan home__floatTitleSpan--right">
 						{titleTwo}
 					</span>
