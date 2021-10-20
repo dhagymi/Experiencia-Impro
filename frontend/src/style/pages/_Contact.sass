@@ -1,10 +1,11 @@
 .contact
     display: flex
     flex-flow: column nowrap
-    justify-content: flex-start
+    justify-content: center
     gap: 6vh
-    margin-top: 15vh
-    height: 85vh
+    margin-top: calc(4.5vh + 2.2rem)
+    height: calc(100vh - 4.5vh - 2.2rem - 4rem)
+    padding: 2rem 0
     &__title
         @extend %h2
         text-transform: uppercase
@@ -15,6 +16,7 @@
         min-height: 55vh
         grid-template-columns: repeat(12, 1fr)
         column-gap: 1.37vw
+        padding-bottom: 1rem
 
     &__card
         grid-column: 1/7
@@ -111,10 +113,9 @@
 
 @media ( max-width: 700px )
     .contact
-        justify-content: flex-start
         gap: 5vh
-        margin-top: 15vh
-        height: 85vh
+        min-height: calc(100vh - 4.5vh - 2.2rem)
+        height: unset
 
         &__body
             display: flex
