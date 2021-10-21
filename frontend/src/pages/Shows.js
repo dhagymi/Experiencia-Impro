@@ -4,6 +4,7 @@ import { Timestamp } from "firebase/firestore";
 
 import ShowCard from "../components/ShowCard";
 import Loading from "../components/Loading";
+import Message from "../components/Message";
 
 const Shows = () => {
 	const [months, setMonths] = useState([]);
@@ -117,7 +118,10 @@ const Shows = () => {
 				<p className="shows__subtitle">
 					Un show en donde todo puede pasar. Por medio de las sugerencias del
 					publico, los actores realizaran escenas completamente improvisadas. De
-					la mano de 6 improvisadores, te invitamos a que nos conozcas.
+					la mano de 6 improvisadores,{" "}
+					<span className="shows__subtitleFinal">
+						te invitamos a que nos conozcas.
+					</span>
 				</p>
 			</div>
 
@@ -143,10 +147,10 @@ const Shows = () => {
 							<ShowCard key={index} date={date} stock={stock} place={place} />
 						))
 					) : (
-						"No hay shows en este mes."
+						<Message>No hay shows en este mes.</Message>
 					)}
+					<button className="shows__reserveButton">Reservar</button>
 				</div>
-				<button className="shoes__reserveButton">Reservar</button>
 			</div>
 		</section>
 	);
