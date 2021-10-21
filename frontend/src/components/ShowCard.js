@@ -1,4 +1,4 @@
-const ShowCard = ({ date, stock, place }) => {
+const ShowCard = ({ date, stock, place, city }) => {
 	const jsDate = date.toDate();
 
 	const day = jsDate.getDate();
@@ -24,7 +24,9 @@ const ShowCard = ({ date, stock, place }) => {
 					<p className="showCard__stockText">Entradas disponibles</p>
 				</div>
 			</div>
-			<p className="showCard__place">{place}</p>
+			<p className="showCard__place">
+				{place} - {city}
+			</p>
 		</div>
 	);
 };

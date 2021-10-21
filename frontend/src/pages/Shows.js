@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { getFirestoreData } from "../utils/firebase";
-import { Timestamp } from "firebase/firestore";
+import { where } from "firebase/firestore";
 
 import ShowCard from "../components/ShowCard";
 import Loading from "../components/Loading";
 import Message from "../components/Message";
+
+import { getFirestoreData } from "../utils/firebase";
+import { getMonthBeginingAndFinishingDate } from "../utils/auxFuntions";
 
 const Shows = () => {
 	const [months, setMonths] = useState([]);
@@ -64,44 +66,15 @@ const Shows = () => {
 
 	/* Get shows from firebase */
 	useEffect(() => {
-		/* Get begining and finishing date of current month */
-		const getMonthBeginingAndFinishingDate = () => {
-			const date = new Date();
-			const currentMonth = date.getMonth();
-
-			const year =
-				month < currentMonth + 1 ? date.getFullYear() + 1 : date.getFullYear();
-			const monthBegining = new Date(year, month - 1, 1, 0, 0);
-			const monthFinishing = new Date(
-				month === 12 ? year + 1 : year,
-				month === 12 ? 0 : month,
-				1,
-				0,
-				0
-			);
-
-			return {
-				begin: Timestamp.fromDate(monthBegining),
-				finish: Timestamp.fromDate(monthFinishing),
-			};
-		};
 		const getShows = async () => {
 			try {
 				setIsLoading(true);
-				const { begin, finish } = getMonthBeginingAndFinishingDate();
+				const { begin, finish } = getMonthBeginingAndFinishingDate(month);
 
 				const data = await getFirestoreData(
 					"shows",
-					{
-						field: "date",
-						compare: ">=",
-						value: begin,
-					},
-					{
-						field: "date",
-						compare: "<",
-						value: finish,
-					}
+					where("date", ">=", begin),
+					where("date", "<", finish)
 				);
 
 				setShows(data);
@@ -151,8 +124,14 @@ const Shows = () => {
 					{isLoading ? (
 						<Loading />
 					) : shows.length ? (
-						shows.map(({ date, stock, place }, index) => (
-							<ShowCard key={index} date={date} stock={stock} place={place} />
+						shows.map(({ date, stock, place, city }, index) => (
+							<ShowCard
+								key={index}
+								date={date}
+								stock={stock}
+								place={place}
+								city={city}
+							/>
 						))
 					) : (
 						<Message>No hay shows en este mes.</Message>

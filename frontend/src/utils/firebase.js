@@ -1,11 +1,5 @@
 import * as firebase from "firebase/app";
-import {
-	getFirestore,
-	collection,
-	query,
-	where,
-	getDocs,
-} from "firebase/firestore";
+import { getFirestore, collection, query, getDocs } from "firebase/firestore";
 
 const firebaseConfig = {
 	apiKey: "AIzaSyB54itmWB70n_gQ3q7008bogMnWH2nI9Ts",
@@ -20,18 +14,13 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
-export const getFirestoreData = async (collectionName, ...queries) => {
+export const getFirestoreData = async (collectionName, ...options) => {
 	const collectionGetted = collection(db, collectionName);
 
 	let dataGetted;
 
-	if (queries.length) {
-		const finalQuery = query(
-			collectionGetted,
-			...queries.map(({ field, compare, value }) => {
-				return where(field, compare, value);
-			})
-		);
+	if (options.length) {
+		const finalQuery = query(collectionGetted, ...options);
 
 		const snapshotGetted = await getDocs(finalQuery);
 		dataGetted = snapshotGetted.docs.map((doc) => doc.data());
