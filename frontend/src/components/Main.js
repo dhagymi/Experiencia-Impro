@@ -1,3 +1,4 @@
-export default function Main({ children }) {
+const Main = ({ children }) => {
 	return <main className="main">{children}</main>;
-}
+};
+export default Main;
