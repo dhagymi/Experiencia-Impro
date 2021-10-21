@@ -1,14 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getFirestoreData } from "../utils/firebase";
+import { Timestamp } from "firebase/firestore";
+
+import ShowCard from "../components/ShowCard";
+import Loading from "../components/Loading";
 
 const Shows = () => {
 	const [months, setMonths] = useState([]);
+	const [month, setMonth] = useState(new Date().getMonth() + 1);
 	const [shows, setShows] = useState([]);
+	const [isLoading, setIsLoading] = useState(false);
 
 	/* Set next 6 months when component is mount */
 
 	useState(() => {
 		const getMonths = () => {
-			const monthsToWord = [
+			const monthsToObject = [
 				{ number: 1, word: "ene" },
 				{ number: 2, word: "feb" },
 				{ number: 3, word: "mar" },
@@ -38,36 +45,108 @@ const Shows = () => {
 				}
 			}
 
-			const monthsInWord = monthsInNumber.map((month) => {
-				const monthObject = monthsToWord.find((item) => item.number === month);
-				return monthObject.word;
+			const monthsInObject = monthsInNumber.map((month) => {
+				const monthObject = monthsToObject.find(
+					(item) => item.number === month
+				);
+				return monthObject;
 			});
-			setMonths(monthsInWord);
+			setMonths(monthsInObject);
 		};
 
 		getMonths();
 	}, []);
 
+	/* Get shows from firebase */
+	useEffect(() => {
+		/* Get begining and finishing date of current month */
+		const getMonthBeginingAndFinishingDate = () => {
+			const date = new Date();
+			const currentMonth = date.getMonth();
+
+			const year =
+				month < currentMonth + 1 ? date.getFullYear() + 1 : date.getFullYear();
+			const monthBegining = new Date(year, month - 1, 1, 0, 0);
+			const monthFinishing = new Date(
+				month === 12 ? year + 1 : year,
+				month === 12 ? 0 : month,
+				1,
+				0,
+				0
+			);
+
+			return {
+				begin: Timestamp.fromDate(monthBegining),
+				finish: Timestamp.fromDate(monthFinishing),
+			};
+		};
+		const getShows = async () => {
+			try {
+				setIsLoading(true);
+				const { begin, finish } = getMonthBeginingAndFinishingDate();
+
+				const data = await getFirestoreData(
+					"shows",
+					{
+						field: "date",
+						compare: ">=",
+						value: begin,
+					},
+					{
+						field: "date",
+						compare: "<",
+						value: finish,
+					}
+				);
+
+				setShows(data);
+				setIsLoading(false);
+			} catch (error) {
+				setIsLoading(false);
+				console.log(error);
+			}
+		};
+
+		getShows();
+	}, [month]);
+
 	return (
 		<section className="shows">
 			<div className="shows__heading">
 				<h1 className="shows__title">Próximos shows</h1>
-				<p className="shows__subtitle"></p>
+				<p className="shows__subtitle">
+					Un show en donde todo puede pasar. Por medio de las sugerencias del
+					publico, los actores realizaran escenas completamente improvisadas. De
+					la mano de 6 improvisadores, te invitamos a que nos conozcas.
+				</p>
 			</div>
 
 			<div className="shows__body">
 				<h2 className="shows__bodyTitle">Dónde y qué hora</h2>
 				<div className="shows__months">
 					{months.length &&
-						months.map((month) => (
-							<button className="shows__monthButton">{month}</button>
+						months.map((item) => (
+							<button
+								key={item.number}
+								className="shows__monthButton"
+								onClick={() => setMonth(item.number)}
+							>
+								{item.word}
+							</button>
 						))}
 				</div>
 				<div className="shows__showInfo">
-					<div className="shows__bodyDot"></div>
-					<div className="shows__bodyDot"></div>
-					<div className="shows__bodyDot"></div>
+					{isLoading ? (
+						<Loading />
+					) : shows.length ? (
+						shows.map(({ date, stock, place }, index) => (
+							<ShowCard key={index} date={date} stock={stock} place={place} />
+						))
+					) : (
+						"No hay shows en este mes."
+					)}
 				</div>
+				<button className="shoes__reserveButton">Reservar</button>
 			</div>
 		</section>
 	);
