@@ -56,6 +56,10 @@ const Shows = () => {
 		};
 
 		getMonths();
+
+		return () => {
+			setMonths([]);
+		};
 	}, []);
 
 	/* Get shows from firebase */
@@ -109,6 +113,10 @@ const Shows = () => {
 		};
 
 		getShows();
+
+		return () => {
+			setShows([]);
+		};
 	}, [month]);
 
 	return (
