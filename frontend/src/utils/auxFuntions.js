@@ -146,7 +146,7 @@ export const createOrderEmailTemplate = (
 											/>
 										</tr>
 										<tr align="center" style="padding: 36px 30px 42px 30px">
-											<td style="padding: 0 0 36px 0; color: #153643">
+											<td style="padding: 0 0 0 0; color: #153643">
 												<b
 													style="
 														margin: 0 0 12px 0;
@@ -154,7 +154,20 @@ export const createOrderEmailTemplate = (
 														line-height: 24px;
 														font-family: Arial, sans-serif;
 													"
-													>Gracias! Su código de reserva es: ${orderId}
+													>Gracias! Su código de reserva es:
+												</b>
+											</td>											
+										</tr>										
+										<tr align="center" style="padding: 36px 30px 42px 30px">
+											<td style="padding: 0 0 0 0; color: #153643">
+												<b
+													style="
+														margin: 0 0 12px 0;
+														font-size: 16px;
+														line-height: 24px;
+														font-family: Arial, sans-serif;
+													"
+													>${orderId}
 												</b>
 											</td>
 										</tr>
