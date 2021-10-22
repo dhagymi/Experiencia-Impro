@@ -23,11 +23,21 @@ const Contact = () => {
 					<fieldset className="contact__formFieldset">
 						<label className="contact__formLabel" htmlFor="name">
 							Nombre y apellido
-							<input className="contact__formInput" id="name" name="name" />
+							<input
+								className="contact__formInput"
+								id="name"
+								name="name"
+								required
+							/>
 						</label>
 						<label className="contact__formLabel" htmlFor="email">
 							Correo electrónico
-							<input className="contact__formInput" id="email" name="email" />
+							<input
+								className="contact__formInput"
+								id="email"
+								name="email"
+								required
+							/>
 						</label>
 						<label
 							className="contact__formLabel contact__formLabel--textArea"
@@ -38,10 +48,11 @@ const Contact = () => {
 								className="contact__formInput contact__formInput--textArea"
 								id="message"
 								name="message"
+								required
 							/>
 						</label>
 						<button className="contact__formButton" type="submit">
-							Reservar
+							Enviar
 						</button>
 					</fieldset>
 				</form>

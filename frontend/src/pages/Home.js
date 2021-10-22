@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import { where, orderBy, limit } from "firebase/firestore";
 
 import { getFirestoreData } from "../utils/firebase";
-import { getMonthBeginingAndFinishingDate } from "../utils/auxFuntions";
+import {
+	getMonthBeginingAndFinishingDate,
+	getUsefulDate,
+} from "../utils/auxFuntions";
 
 const Home = () => {
 	const [nextShow, setNextShow] = useState({});
@@ -25,10 +28,7 @@ const Home = () => {
 					limit(1)
 				);
 
-				const jsDate = date.toDate();
-				const day = jsDate.getDate();
-				const month = jsDate.getMonth() + 1;
-				const year = jsDate.getFullYear();
+				const { day, month, year } = getUsefulDate(date);
 
 				setNextShow({ day, month, year, city });
 			} catch (error) {

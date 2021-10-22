@@ -17,17 +17,15 @@ export const db = getFirestore(app);
 export const getFirestoreData = async (collectionName, ...options) => {
 	const collectionGetted = collection(db, collectionName);
 
-	let dataGetted;
+	let finalQuery = query(collectionGetted, ...options);
 
-	if (options.length) {
-		const finalQuery = query(collectionGetted, ...options);
+	const snapshotGetted = await getDocs(finalQuery);
 
-		const snapshotGetted = await getDocs(finalQuery);
-		dataGetted = snapshotGetted.docs.map((doc) => doc.data());
-	} else {
-		const finalQuery = query(collectionGetted);
-		const snapshotGetted = await getDocs(finalQuery);
-		dataGetted = snapshotGetted.docs.map((doc) => doc.data());
-	}
+	const dataGetted = snapshotGetted.docs.map((doc) => {
+		const info = { id: doc.id, ...doc.data() };
+
+		return info;
+	});
+
 	return dataGetted;
 };

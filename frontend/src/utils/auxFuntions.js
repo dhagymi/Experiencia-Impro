@@ -21,3 +21,19 @@ export const getMonthBeginingAndFinishingDate = (month) => {
 		finish: Timestamp.fromDate(monthFinishing),
 	};
 };
+
+export const getUsefulDate = (firebaseTimestamp) => {
+	const jsDate = firebaseTimestamp.toDate();
+
+	const day = jsDate.getDate();
+	const month = jsDate.getMonth() + 1;
+	const year = jsDate.getFullYear();
+	const hours =
+		jsDate.getHours() < 10 ? `0${jsDate.getHours()}` : jsDate.getHours();
+	const minutes =
+		jsDate.getMinutes() < 10 ? `0${jsDate.getMinutes()}` : jsDate.getMinutes();
+	const seconds =
+		jsDate.getSeconds() < 10 ? `0${jsDate.getSeconds()}` : jsDate.getSeconds();
+
+	return { day, month, year, hours, minutes, seconds };
+};

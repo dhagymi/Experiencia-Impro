@@ -1,12 +1,6 @@
+import { getUsefulDate } from "../utils/auxFuntions";
 const ShowCard = ({ date, stock, place, city }) => {
-	const jsDate = date.toDate();
-
-	const day = jsDate.getDate();
-	const month = jsDate.getMonth() + 1;
-	const year = jsDate.getFullYear();
-	const hours = jsDate.getHours();
-	const minutes =
-		jsDate.getMinutes() < 10 ? `0${jsDate.getMinutes()}` : jsDate.getMinutes();
+	const { day, month, year, hours, minutes } = getUsefulDate(date);
 
 	return (
 		<div className="showCard">

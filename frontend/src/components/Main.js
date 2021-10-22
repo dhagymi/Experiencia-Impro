@@ -1,4 +1,10 @@
+import { ModalContextProvider } from "../contexts/ModalContext";
+
 const Main = ({ children }) => {
-	return <main className="main">{children}</main>;
+	return (
+		<ModalContextProvider>
+			<main className="main">{children}</main>
+		</ModalContextProvider>
+	);
 };
 export default Main;

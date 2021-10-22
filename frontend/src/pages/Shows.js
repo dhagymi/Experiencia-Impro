@@ -4,6 +4,9 @@ import { where } from "firebase/firestore";
 import ShowCard from "../components/ShowCard";
 import Loading from "../components/Loading";
 import Message from "../components/Message";
+import Modal from "../components/Modal";
+
+import { useModalContext } from "../contexts/ModalContext";
 
 import { getFirestoreData } from "../utils/firebase";
 import { getMonthBeginingAndFinishingDate } from "../utils/auxFuntions";
@@ -13,6 +16,7 @@ const Shows = () => {
 	const [month, setMonth] = useState(new Date().getMonth() + 1);
 	const [shows, setShows] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
+	const { isModalVisible, setIsModalVisible } = useModalContext();
 
 	/* Set next 6 months when component is mount */
 
@@ -136,9 +140,15 @@ const Shows = () => {
 					) : (
 						<Message>No hay shows en este mes.</Message>
 					)}
-					<button className="shows__reserveButton">Reservar</button>
+					<button
+						className="shows__reserveButton"
+						onClick={() => setIsModalVisible(true)}
+					>
+						Reservar
+					</button>
 				</div>
 			</div>
+			{isModalVisible && <Modal />}
 		</section>
 	);
 };
