@@ -78,7 +78,8 @@ const Shows = () => {
 				const data = await getFirestoreData(
 					"shows",
 					where("date", ">=", begin),
-					where("date", "<", finish)
+					where("date", "<", finish),
+					where("stock", ">", 0)
 				);
 
 				setShows(data);

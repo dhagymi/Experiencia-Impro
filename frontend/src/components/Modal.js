@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { where } from "firebase/firestore";
 import axios from "axios";
 
 import ShowOption from "./ShowOption";
@@ -97,7 +98,7 @@ const Modal = () => {
 	useEffect(() => {
 		try {
 			const getShows = async () => {
-				const data = await getFirestoreData("shows");
+				const data = await getFirestoreData("shows", where("stock", ">", 0));
 
 				setShows(data);
 			};

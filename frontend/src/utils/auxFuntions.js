@@ -1,8 +1,5 @@
 import { Timestamp } from "firebase/firestore";
 
-import logo from "../assets/images/logoei.svg";
-import checkMark from "../assets/images/check-mark-blue.png";
-
 /* Get begining and finishing date of current month */
 export const getMonthBeginingAndFinishingDate = (month) => {
 	const date = new Date();
@@ -105,10 +102,10 @@ export const createOrderEmailTemplate = (
 						<tr>
 							<td
 								align="left"
-								style="padding: 40px 0 30px 0; background: #000000; width: 100%"
+								style="padding: 30px 0 30px 30px; background: #000000; width: 100%"
 							>
 								<img
-									src="${logo}"
+									src="https://imagizer.imageshack.com/img924/3868/BjziyE.png"
 									alt="Experiencia impro"
 									width="150"
 									style="height: auto; display: block"
@@ -142,7 +139,7 @@ export const createOrderEmailTemplate = (
 									>
 										<tr align="center" >
 											<img
-												src="${checkMark}"
+												src="https://imagizer.imageshack.com/img923/7952/5xsW8p.png"
 												alt="Reserva exitosa"
 												width="100"
 												style="height: auto"

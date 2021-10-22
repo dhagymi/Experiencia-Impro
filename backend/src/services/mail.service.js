@@ -21,28 +21,32 @@ class Mailer {
 		text = "",
 		html = "",
 	}) => {
-		const mailOptions = {
-			from,
-			to,
-			subject,
-			text,
-			html,
-		};
+		try {
+			const mailOptions = {
+				from,
+				to,
+				subject,
+				text,
+				html,
+			};
 
-		const promise = new Promise((res, rej) => {
-			this.transporter.sendMail(mailOptions, (error, info) => {
-				if (error) {
-					console.log(error);
-					rej(error);
-				} else {
-					console.log("Email sent: " + info.response);
-					res(info.messageId);
-				}
+			const promise = new Promise((res, rej) => {
+				this.transporter.sendMail(mailOptions, (error, info) => {
+					if (error) {
+						console.log(error);
+						rej(error);
+					} else {
+						console.log("Email sent: " + info.response);
+						res(info.messageId);
+					}
+				});
 			});
-		});
 
-		const info = await promise;
-		return info;
+			const info = await promise;
+			return info;
+		} catch (error) {
+			console.log(error);
+		}
 	};
 }
 
