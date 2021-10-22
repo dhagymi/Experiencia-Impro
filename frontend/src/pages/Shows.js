@@ -90,13 +90,16 @@ const Shows = () => {
 				console.log(error);
 			}
 		};
-
-		getShows();
+		if (!isModalVisible) {
+			getShows();
+		}
 
 		return () => {
-			setShows([]);
+			if (isModalVisible) {
+				setShows([]);
+			}
 		};
-	}, [month]);
+	}, [month, isModalVisible]);
 
 	return (
 		<section className="shows">
@@ -119,7 +122,9 @@ const Shows = () => {
 						months.map((item) => (
 							<button
 								key={item.number}
-								className="shows__monthButton"
+								className={`shows__monthButton ${
+									item.number === month ? "shows__monthButton--active" : ""
+								}`}
 								onClick={() => setMonth(item.number)}
 							>
 								{item.word}
