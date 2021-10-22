@@ -1,19 +1,76 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 import ShowOption from "./ShowOption";
 
 import { useModalContext } from "../contexts/ModalContext";
 
-import { getFirestoreData } from "../utils/firebase";
+import { createOrderEmailTemplate } from "../utils/auxFuntions";
+
+import {
+	getFirestoreData,
+	addFirestoreData,
+	getDocRef,
+	setFirestoreData,
+} from "../utils/firebase";
 
 const Modal = () => {
 	const [shows, setShows] = useState([]);
 	const [currentShow, setCurrentShow] = useState("");
 	const [currentShowStock, setCurrentShowStock] = useState(0);
-	const [quantity, setQuantity] = useState(0);
+	const [quantity, setQuantity] = useState(1);
 	const [modalClassVisibility, setModalClassVisibility] = useState("modal");
+
 	const { modalClass, toggleIsModalVisible } = useModalContext();
 
+	const submitFormHandler = async (event) => {
+		try {
+			event.preventDefault();
+
+			const formData = new FormData(event.target);
+			const documentRefId = formData.get("show");
+
+			const docuementRef = getDocRef("shows", documentRefId);
+
+			const newDocument = {
+				name: formData.get("name"),
+				email: formData.get("email"),
+				quantity: parseInt(formData.get("quantity")),
+				show: docuementRef,
+			};
+
+			const id = await addFirestoreData("orders", newDocument);
+
+			const showObject = shows?.find((show) => show.id === documentRefId);
+
+			if (id) {
+				const oldStock = showObject.stock;
+				setFirestoreData("shows", { stock: oldStock - quantity }, currentShow);
+			}
+
+			const htmlTemplate = createOrderEmailTemplate(
+				id,
+				newDocument.quantity,
+				showObject
+			);
+
+			const response = await axios.post("/api/mail", {
+				to: newDocument.email,
+				subject: "Tu reserva - Experiencia Impro",
+				html: htmlTemplate,
+			});
+
+			if (response.status === 200) {
+				alert("Enviamos tu reserva por correo electrónico!");
+			} else {
+				alert("La reserva no pudo realizarse");
+			}
+
+			toggleIsModalVisible();
+		} catch (error) {
+			console.log(error);
+		}
+	};
 	useEffect(() => {
 		try {
 			const getStock = () => {
@@ -25,7 +82,7 @@ const Modal = () => {
 
 				setCurrentShowStock(stock ?? 0);
 
-				quantity > stock && setQuantity(stock);
+				currentShow && quantity > stock && setQuantity(stock);
 			};
 
 			getStock();
@@ -57,7 +114,6 @@ const Modal = () => {
 
 	useEffect(() => {
 		setModalClassVisibility(modalClass);
-		console.log(modalClass);
 	}, [modalClass]);
 	return (
 		<div
@@ -67,6 +123,7 @@ const Modal = () => {
 			<form
 				className="modal__form"
 				onClick={(event) => event.stopPropagation()}
+				onSubmit={submitFormHandler}
 			>
 				<fieldset className="modal__fieldset">
 					<legend className="modal__legend">Reservá tu entrada</legend>
@@ -94,9 +151,10 @@ const Modal = () => {
 						required
 						type="number"
 						value={quantity}
+						disabled={currentShow === ""}
 						onChange={({ target: { value } }) => {
 							const newValue =
-								value > currentShowStock
+								value > currentShowStock && value
 									? currentShowStock
 									: value < 1
 									? 1

@@ -1,5 +1,13 @@
 import * as firebase from "firebase/app";
-import { getFirestore, collection, query, getDocs } from "firebase/firestore";
+import {
+	getFirestore,
+	collection,
+	query,
+	getDocs,
+	addDoc,
+	doc,
+	setDoc,
+} from "firebase/firestore";
 
 const firebaseConfig = {
 	apiKey: "AIzaSyB54itmWB70n_gQ3q7008bogMnWH2nI9Ts",
@@ -15,9 +23,9 @@ const app = firebase.initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
 export const getFirestoreData = async (collectionName, ...options) => {
-	const collectionGetted = collection(db, collectionName);
+	const collectionRef = collection(db, collectionName);
 
-	let finalQuery = query(collectionGetted, ...options);
+	let finalQuery = query(collectionRef, ...options);
 
 	const snapshotGetted = await getDocs(finalQuery);
 
@@ -28,4 +36,23 @@ export const getFirestoreData = async (collectionName, ...options) => {
 	});
 
 	return dataGetted;
+};
+
+export const addFirestoreData = async (collectionName, newDocument) => {
+	const collectionRef = collection(db, collectionName);
+	const docRef = await addDoc(collectionRef, newDocument);
+
+	return docRef.id;
+};
+
+export const setFirestoreData = async (collectionName, newProperties, id) => {
+	const documentRef = getDocRef(collectionName, id);
+	await setDoc(documentRef, newProperties, { merge: true });
+
+	return true;
+};
+
+export const getDocRef = (collectionName, id) => {
+	const documentRef = doc(db, collectionName, id);
+	return documentRef;
 };
