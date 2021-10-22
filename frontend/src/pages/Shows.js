@@ -16,7 +16,7 @@ const Shows = () => {
 	const [month, setMonth] = useState(new Date().getMonth() + 1);
 	const [shows, setShows] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
-	const { isModalVisible, setIsModalVisible } = useModalContext();
+	const { isModalVisible, toggleIsModalVisible } = useModalContext();
 
 	/* Set next 6 months when component is mount */
 
@@ -142,7 +142,7 @@ const Shows = () => {
 					)}
 					<button
 						className="shows__reserveButton"
-						onClick={() => setIsModalVisible(true)}
+						onClick={() => toggleIsModalVisible()}
 					>
 						Reservar
 					</button>

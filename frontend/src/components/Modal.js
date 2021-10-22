@@ -11,7 +11,8 @@ const Modal = () => {
 	const [currentShow, setCurrentShow] = useState("");
 	const [currentShowStock, setCurrentShowStock] = useState(0);
 	const [quantity, setQuantity] = useState(0);
-	const { setIsModalVisible } = useModalContext();
+	const [modalClassVisibility, setModalClassVisibility] = useState("modal");
+	const { modalClass, toggleIsModalVisible } = useModalContext();
 
 	useEffect(() => {
 		try {
@@ -54,8 +55,15 @@ const Modal = () => {
 		}
 	}, []);
 
+	useEffect(() => {
+		setModalClassVisibility(modalClass);
+		console.log(modalClass);
+	}, [modalClass]);
 	return (
-		<div className="modal" onClick={() => setIsModalVisible(false)}>
+		<div
+			className={modalClassVisibility}
+			onClick={() => toggleIsModalVisible()}
+		>
 			<form
 				className="modal__form"
 				onClick={(event) => event.stopPropagation()}
