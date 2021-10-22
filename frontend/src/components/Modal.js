@@ -142,6 +142,32 @@ const Modal = () => {
 						required
 						type="email"
 					/>
+					<label className="modal__label" htmlFor="show">
+						Fecha y horario
+					</label>
+					<select
+						className="modal__input"
+						name="show"
+						id="show"
+						required
+						value={currentShow}
+						onChange={({ target: { value } }) => {
+							setCurrentShow(value);
+						}}
+					>
+						<option className="modal__showOption" value="">
+							Elegí el show
+						</option>
+						{shows.map(({ date, id, place }) => (
+							<ShowOption
+								key={id}
+								date={date}
+								id={id}
+								place={place}
+								className="modal__showOption"
+							/>
+						))}
+					</select>
 					<label className="modal__label" htmlFor="quantity">
 						Cantidad
 					</label>
@@ -163,32 +189,6 @@ const Modal = () => {
 							return setQuantity(newValue);
 						}}
 					/>
-					<label className="modal__label" htmlFor="show">
-						Fecha y horario
-					</label>
-					<select
-						className="modal__input"
-						name="show"
-						id="show"
-						required
-						value={currentShow}
-						onChange={({ target: { value } }) => {
-							setCurrentShow(value);
-						}}
-					>
-						<option className="modal__showOption" value="">
-							Show
-						</option>
-						{shows.map(({ date, id, place }) => (
-							<ShowOption
-								key={id}
-								date={date}
-								id={id}
-								place={place}
-								className="modal__showOption"
-							/>
-						))}
-					</select>
 					<div className="modal__info">
 						<p className="modal__infoTitle">Importante</p>
 						<p className="modal__infoBody">
