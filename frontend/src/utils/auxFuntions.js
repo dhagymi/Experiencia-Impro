@@ -128,7 +128,8 @@ export const createOrderEmailTemplate = (
 							</tr>
 							<tr style="padding: 36px 30px 42px 30px">
 								<td>
-									<table
+									<table 
+										align="center"
 										role="presentation"
 										style="
 											width: 100%;
@@ -137,35 +138,40 @@ export const createOrderEmailTemplate = (
 											border-spacing: 0;
 										"
 									>
-										<tr align="center" >
-											<img
-												src="https://imagizer.imageshack.com/img923/7952/5xsW8p.png"
-												alt="Reserva exitosa"
-												width="100"
-												style="height: auto"
-											/>
+										<tr align="center" style="width: 100%">
+											<td align="center" style="width: 100%">
+												<img
+													src="https://imagizer.imageshack.com/img923/7952/5xsW8p.png"
+													alt="Reserva exitosa"
+													width="100"
+													style="height: auto; text-align: center;"
+													align="center"
+												/>
+											</td>
 										</tr>
-										<tr align="center" style="padding: 36px 30px 42px 30px">
-											<td style="padding: 0 0 0 0; color: #153643">
+										<tr align="center" style="padding: 36px 30px 42px 30px; width: 100%;">
+											<td style="padding: 0 0 0 0; margin: auto; color: #153643; width: 100%;">
 												<b
 													style="
 														margin: 0 0 12px 0;
 														font-size: 16px;
 														line-height: 24px;
 														font-family: Arial, sans-serif;
+														text-align: center;
 													"
 													>Gracias! Su código de reserva es:
 												</b>
 											</td>											
 										</tr>										
-										<tr align="center" style="padding: 36px 30px 42px 30px">
-											<td style="padding: 0 0 0 0; color: #153643">
+										<tr align="center" style="padding: 36px 30px 42px 30px; width: 100%;">
+											<td style="padding: 0 0 0 0; margin: auto; color: #153643; width: 100%;">
 												<b
 													style="
 														margin: 0 0 12px 0;
 														font-size: 16px;
 														line-height: 24px;
 														font-family: Arial, sans-serif;
+														text-align: center;
 													"
 													>${orderId}
 												</b>
