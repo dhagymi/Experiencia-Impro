@@ -1,0 +1,108 @@
+.why
+    display: grid
+    grid-template-columns: repeat( 12 , 1fr )
+    gap: 2.15%
+    height: calc(100vh - 4.5vh - 2.2rem - 4rem)
+    padding: 2rem 0
+    align-content: center
+    z-index: 1
+
+    &__questionMarks
+        position: absolute
+        height: 100vh
+        width: 100vw
+        top: 0
+        left: 0
+        overflow: hidden
+        z-index: 0
+
+    &__mark
+        position: absolute
+        @extend %homeTitle
+        font-size: 60rem
+        text-transform: uppercase
+        color: transparent
+        -webkit-text-stroke-width: 1px
+        opacity: .6
+        line-height: .5em
+        user-select: none
+
+        &--open
+            -webkit-text-stroke-color: $lightBlue
+            top: 0
+            left: -5vmax
+        &--close
+            -webkit-text-stroke-color: $pink
+            bottom: 0
+            right: -5vmax
+
+    &__titleContainer
+        height: 90%
+        grid-column: 1/7
+        display: flex
+        align-items: flex-end
+
+    &__title
+        @extend %homeTitle
+        letter-spacing: .01rem
+        line-height: 1.3em
+        font-size: 6rem
+        text-transform: uppercase
+
+    &__listContainer
+        height: 80vh
+        grid-column: 8/13
+
+    &__list
+        display: flex
+        flex-flow: column nowrap
+        gap: 3vh
+        justify-content: flex-end
+        height: 100%
+
+    &__listItem
+        height: 17vh
+        display: flex
+        flex-flow: column nowrap
+        gap: 3vh
+
+    &__itemHeading
+        display: flex
+        gap: 1rem
+        align-items: center
+
+    &__dot
+        width: 3vw
+        height: 3vw
+
+        &--red
+            background: #ff0178
+
+        &--purple
+            background: #8200aa
+
+        &--pink
+            background: #ce00b3
+
+        &--blue
+            background: #005864
+
+    &__itemTitle
+        @extend %h3
+        text-transform: uppercase
+
+    &__itemBody
+        @extend %tinyText
+        line-height: 2em
+
+    &__finalText
+        white-space: nowrap
+
+@media (max-width: 500px)
+    .why
+
+        &__mark
+            font-size: 50rem
+
+        &__itemTitle
+            font-size: 2rem

@@ -1,0 +1,61 @@
+.shows
+    display: flex
+    flex-flow: column nowrap
+    justify-content: center
+    gap: 6vh
+    height: calc(100vh - 4.5vh - 2.2rem - 4rem)
+    padding: 2rem 0
+
+    &__heading
+        display: flex
+        flex-flow: column nowrap
+        justify-content: center
+        gap: 3vh
+
+    &__title
+        @extend %h2
+        text-transform: uppercase
+        color: $lightBlue
+
+    &__subtitle
+        @extend  %tinyText
+        letter-spacing: .05em
+        line-height: 2em
+
+        &Final
+            white-space: nowrap
+
+    &__body
+        display: flex
+        flex-flow: column nowrap
+        gap: 5vh
+
+        &Title
+            @extend %h3
+            text-transform: uppercase
+
+    &__months
+        display: flex
+        flex-wrap: nowrap
+        justify-content: space-between
+
+    &__monthButton
+        @extend %button
+        width: 15%
+        font-weight: normal
+
+        &--active
+            background: $lightBlue
+
+    &__showInfo
+        min-height: 15vh
+        padding: 0 5.48vw
+        display: flex
+        flex-flow: column nowrap
+        height: calc(17vh + 5vh + 1em + 3.6em)
+        justify-content: space-between
+
+    &__reserveButton
+        @extend %button
+        width: 20.5vw
+        line-height: 3em

@@ -15,30 +15,40 @@ class Mailer {
 	}
 
 	sendEmail = async ({
-		from = "dhadesigners@gmail.com",
+		from = "amandreacchi@gmail.com",
 		to = "dhadesigners@gmail.com",
 		subject,
 		text = "",
 		html = "",
 	}) => {
-		const mailOptions = {
-			from,
-			to,
-			subject,
-			text,
-			html,
-		};
-		const info = this.transporter.sendMail(mailOptions, (error, info) => {
-			if (error) {
-				console.log(error);
-			} else {
-				console.log("Email sent: " + info.response);
-			}
-		});
+		try {
+			const mailOptions = {
+				from,
+				to,
+				subject,
+				text,
+				html,
+			};
 
-		return info;
+			const promise = new Promise((res, rej) => {
+				this.transporter.sendMail(mailOptions, (error, info) => {
+					if (error) {
+						console.log(error);
+						rej(error);
+					} else {
+						console.log("Email sent: " + info.response);
+						res(info.messageId);
+					}
+				});
+			});
+
+			const info = await promise;
+			return info;
+		} catch (error) {
+			console.log(error);
+		}
 	};
 }
 
-const mailer = new Mailer("gmail", "dhadesigners@gmail.com", "Penny1989!");
+const mailer = new Mailer("gmail", "amandreacchi@gmail.com", "giladon95");
 export default mailer;

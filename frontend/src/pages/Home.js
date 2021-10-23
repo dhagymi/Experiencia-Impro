@@ -1,7 +1,47 @@
-const Home = () => {
-	const titleOne = "Comedia en español -";
+import { useEffect, useState } from "react";
+import { where, orderBy, limit } from "firebase/firestore";
 
+import { getFirestoreData } from "../utils/firebase";
+import {
+	getMonthBeginingAndFinishingDate,
+	getUsefulDate,
+} from "../utils/auxFuntions";
+
+const Home = () => {
+	const [nextShow, setNextShow] = useState({});
+
+	const titleOne = "Comedia en español -";
 	const titleTwo = "Teatro sin guiones - no existen errores -";
+
+	useEffect(() => {
+		const getNextShow = async () => {
+			try {
+				const { begin, finish } = getMonthBeginingAndFinishingDate(
+					new Date().getMonth() + 1
+				);
+
+				const [{ date, city }] = await getFirestoreData(
+					"shows",
+					where("date", ">=", begin),
+					where("date", "<", finish),
+					orderBy("date"),
+					limit(1)
+				);
+
+				const { day, month, year } = getUsefulDate(date);
+
+				setNextShow({ day, month, year, city });
+			} catch (error) {
+				console.log(error);
+			}
+		};
+
+		getNextShow();
+
+		return () => {
+			setNextShow({});
+		};
+	}, []);
 
 	return (
 		<section className="home">
@@ -9,12 +49,17 @@ const Home = () => {
 				<h1 className="home__title">
 					improv<span className="home__titleSmile"> =)</span>
 				</h1>
-				<div className="home__nextShowInfo">
-					<h2 className="home__nextShowText home__nextShowText--pink">
-						Proximo show
-					</h2>
-					<p className="home__nextShowText">25.10.21 - MUNICH</p>
-				</div>
+				{nextShow?.day && (
+					<div className="home__nextShowInfo">
+						<h2 className="home__nextShowText home__nextShowText--pink">
+							Proximo show
+						</h2>
+
+						<p className="home__nextShowText">
+							{nextShow.day}.{nextShow.month}.{nextShow.year} - {nextShow.city}
+						</p>
+					</div>
+				)}
 			</div>
 			<div className="home__floatTitle">
 				<p className="home__floatTitleText home__floatTitleText--left">
@@ -28,9 +73,6 @@ const Home = () => {
 			</div>
 			<div className="home__floatTitle">
 				<p className="home__floatTitleText home__floatTitleText--right">
-					<span className="home__floatTitleSpan home__floatTitleSpan--right">
-						{titleTwo}
-					</span>
 					<span className="home__floatTitleSpan home__floatTitleSpan--right">
 						{titleTwo}
 					</span>

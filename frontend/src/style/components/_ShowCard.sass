@@ -1,0 +1,60 @@
+.showCard
+    display: flex
+    flex-flow: column nowrap
+    gap: 3.5vh
+    height: 17.5vh
+
+    &__mainInfo
+        align-content: center
+        display: grid
+        grid-template-columns: repeat(10, 1fr)
+        gap: 1.7%
+        height: 12vh
+
+    &__date
+        grid-column: 1/5
+        display: flex
+        flex-flow: column nowrap
+        justify-content: center
+        height: 100%
+        &Item
+            @include typography(Roboto, 2rem, bold)
+
+    &__stock
+        display: flex
+        gap: .4rem
+        grid-column: 5/11
+        justify-content: center
+        align-items: center
+        position: relative
+        height: 100%
+        &:before
+            content: ""
+            width: 2px
+            height: 75%
+            position: absolute
+            background: $lightBlue
+            left: 0
+
+        &Number
+            @include typography(Roboto, 6rem, bold, $lightBlue)
+
+        &Text
+            @include typography(Roboto, 2rem, bold)
+            text-transform: uppercase
+            width: 11ch
+
+    &__place
+        @extend  %tinyText
+        letter-spacing: .05em
+        text-transform: uppercase
+        line-height: 2vh
+        height: 2vh
+
+@media (max-width: 500px)
+    .showCard
+        &__stock
+            &Number
+                font-size: 5rem
+            &Text
+                font-size: 1.8rem

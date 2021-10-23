@@ -2,14 +2,15 @@ import emoji from "node-emoji";
 
 import mailer from "../services/mail.service.js";
 
-export const sendFormEmail = (req, res) => {
+export const sendFormEmail = async (req, res) => {
 	try {
 		const { body } = req;
-		const info = mailer.sendEmail(body);
-		if (info.messageId) {
+
+		const info = await mailer.sendEmail(body);
+		if (info) {
 			console.log(
 				emoji.get("heavy_check_mark"),
-				` E-mail sended with success: ${info.messageId}`
+				` E-mail sended with success: ${info}`
 			);
 			return res.status(200).send(info);
 		} else {
