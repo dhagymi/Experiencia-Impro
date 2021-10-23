@@ -9,7 +9,7 @@ const About = () => {
 				<img
 					alt="background-map"
 					src={map_image}
-					className="about__backgroundImage about__backgroundImage--map"
+					className="about__backgroundImage"
 				/>
 				<img
 					alt="background-line"
@@ -19,7 +19,7 @@ const About = () => {
 				<img
 					alt="background-icons"
 					src={icons_image}
-					className="about__backgroundImage about__backgroundImage--icons"
+					className="about__backgroundImage"
 				/>
 			</div>
 		</section>

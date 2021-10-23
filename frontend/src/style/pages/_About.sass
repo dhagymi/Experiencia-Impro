@@ -6,27 +6,42 @@
     padding: 2rem 0
     align-content: center
     z-index: 1
+    overflow: hidden
 
     &__background
-        position: flex
-
+        position: absolute
         height: 100vh
         width: 100vw
         top: 0
-        left: 0
+        right: 0
         overflow: hidden
         z-index: 1
 
     &__backgroundImage
         position: absolute
-        left: 0
+        right: 0
         top: 0
-        width: 100vw
-        max-width: 100vw
-        object-fit: contain
+        min-height: 100vh
+        min-width: 100vw
+        object-fit: cover
         z-index: 2
-        &--map
 
-        &--line
+@media (max-width: 100vh)
+    .about
+        &__backgroundImage
+            min-height: 170vh
+            &--line
+                display: none
 
-        &--icon
+@media (min-width: 150vh)
+    .about
+        &__background
+            max-height: 100vh
+            max-width: 80rem
+            left: calc((100vw - 80rem )/2)
+            border: solid 1px #05c5d31a
+        &__backgroundImage
+            left: 0
+            max-height: 60vw
+            min-width: 150vh
+            object-fit: contain
