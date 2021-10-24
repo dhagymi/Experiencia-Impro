@@ -11,7 +11,7 @@ import {
 } from "../utils/auxFuntions";
 const Home = () => {
 	const [nextShow, setNextShow] = useState({});
-	const { setIsHome } = useHomeContext();
+	const { setIsHome, setPageActive } = useHomeContext();
 
 	const titleOne = "Comedia en español -";
 	const titleTwo = "Teatro sin guiones - no existen errores -";
@@ -45,8 +45,9 @@ const Home = () => {
 		return () => {
 			setIsHome(false);
 			setNextShow({});
+			setPageActive(1);
 		};
-	}, [setIsHome]);
+	}, [setIsHome, setPageActive]);
 
 	return (
 		<section className="home">
