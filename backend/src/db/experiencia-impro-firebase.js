@@ -1,11 +1,13 @@
+import dotenv from "dotenv";
+dotenv.config();
+const { PORJECT_ID, PRIVATE_KEY_ID, PRIVATE_KEY, CLIENTE_EMAIL } = process.env;
+
 export default {
 	type: "service_account",
-	project_id: "experiencia-impro",
-	private_key_id: "516ca95f11c4b4fc34ecc0ec5801810305afc358",
-	private_key:
-		"-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQClvJ0I55xeFQJi\nLHWfuWaSfswXamdCqrIi+MycthtORmT0mchm2bFZNl+j7o4qVzSF5UAxQ+OSv7HL\nKIvToS6LAr3eNKuPH5w3NvFvIPwx97eIdkGrruhjgB7Xzj5aWNHG/qXfsZzEFMzQ\nkYgyujCDrx/BRKImgP9pGezBCzJj+U/P3ofkNlFnQcTKJ66m8+R/RF4eBXwWeamO\nww+DurUq9eW6fr3yKDWfzHYU+VM5vdj0ukvqHhURn2B5rB3Lju6MnpPRiIacBS8H\n8IGgQkAiu+MKY2D8J5wIU0xzdpIyAWAQFuPn9QHMOw1AvmeF7tJNtP6v9mLyU5gz\nndnsgubzAgMBAAECggEAR1z2lQ39g3kyZIlWQGc5ZlzYjkCPo+ISAAL3P4ceLM8c\ny0GoS7jyp0JFXjXq2wpfoEO9JzlfNSH7cUnNI1vkyZBtps8xC9iFkDTFMp+WWAGc\n8lJRJpaSk71oCm5Q5OAXu8KMM8yrfraiFjCD36vSFfGDD9n4o/GpiFzUV671jJvs\ns5r8hrw5gI1uiFrNKAk/OqcQBttH5H05IkWHXMfhHIlg80iLMGCCI0K7Cj6G8b+H\nE24L5kx5788/82OgR+SwTLmrDLKWfZ6OibR0jYrPfMhN96/n9GONCLy5eoVaScJV\nB4QLvFraOYL/DBUAWdaQqM89ZFonZG8M0BDJXukuEQKBgQDTMeDJXxcTwb4gkFvC\nAKBh0BEn4ebaHjsfinKaoxN/i+x3dA70ufPpmO5jn4QrzVLFfrgYgajuHWgzZgtH\nvdYVpOxb/BjwMjbbwoPI4h5hSUMwtAjnhQ4FV7bXrBPQjit6FkpXO8AGET4EO4QS\n57AImyD7wFDKXmAyPML+I01YCwKBgQDI5eE4kRu4AFVpCujzKjEUiMTRnCuP+3IU\nfGJLlFaPrJqc8a62qL51Fp4TgJfApTs22dEJhRpwqRuJQnFwPnc118sdCoTVDYtW\nQOOItQBc4UsYLbZimfMaDrdX5EWxF4F303zZvnH6P5ckxUnk3OMz2DDxyOxLsDAG\nCXS5Haw1uQKBgQCFeiSjoKGpLu3HDvWvK04yA5qUJkYM3MZpLMs5yI9uMTUGWieJ\nrGzn2mvwMsUKGf6SK4CWnHvz4koVEg1XDjfb/hwUFsR8KoBZbBp2P9MLkY4Rnfdy\nu7kcz08UCAGN8gywYJ4je/Pk4cjcS/ExMZUkG0dBVU66V+NcXOKwVAdx+QKBgQCi\nOYchv4NrlNFjbkzntsVFOJ/+RyaiMMBRLJPPRiyT/iQn4b1cgGyzbh0d0HQ6OvLS\n+xaiolnUaanzr7Scl8R5tRSuEcVrqXE/qExUIxz043RZROiHPJujCgkhLxLbywhf\n82ZZCkFNe7YYGjvuVDQftE7pn364K8DLzyzzIrPh+QKBgQDGULxbbQQOa00mrlL3\nJUks7dZaOr8WP+yADqi9EfGchvBiwW59iluumzzzsasZJ8vikIimomcrIbD99dSC\nUwUr4ceGIDFGDLb+Oo0VL0FCvhtvmUkqTfQsMVUvZ51JCT894xVNRIEFHryXDfbx\nRHMm+a6RJbUky80RLVGThF4Vmw==\n-----END PRIVATE KEY-----\n",
-	client_email:
-		"firebase-adminsdk-91kvh@experiencia-impro.iam.gserviceaccount.com",
+	project_id: PORJECT_ID,
+	private_key_id: PRIVATE_KEY_ID,
+	private_key: PRIVATE_KEY,
+	client_email: CLIENTE_EMAIL,
 	client_id: "103050868448959942766",
 	auth_uri: "https://accounts.google.com/o/oauth2/auth",
 	token_uri: "https://oauth2.googleapis.com/token",
