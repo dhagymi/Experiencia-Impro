@@ -25,7 +25,7 @@ function App() {
 
 				switch (
 					viewportHeight &&
-					(distanceMainToViewportTop / viewportHeight).toFixed(0)
+					(distanceMainToViewportTop / ((viewportHeight / 3) * 2)).toFixed(0)
 				) {
 					case "0":
 						setPageActive(1);
