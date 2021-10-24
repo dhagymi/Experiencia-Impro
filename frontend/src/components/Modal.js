@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { where } from "firebase/firestore";
 import axios from "axios";
 
 import ShowOption from "./ShowOption";
@@ -7,13 +6,6 @@ import ShowOption from "./ShowOption";
 import { useModalContext } from "../contexts/ModalContext";
 
 import { createOrderEmailTemplate } from "../utils/auxFuntions";
-
-import {
-	getFirestoreData,
-	addFirestoreData,
-	getDocRef,
-	setFirestoreData,
-} from "../utils/firebase";
 
 const Modal = () => {
 	const [shows, setShows] = useState([]);
@@ -31,22 +23,22 @@ const Modal = () => {
 			const formData = new FormData(event.target);
 			const documentRefId = formData.get("show");
 
-			const docuementRef = getDocRef("shows", documentRefId);
-
 			const newDocument = {
 				name: formData.get("name"),
 				email: formData.get("email"),
 				quantity: parseInt(formData.get("quantity")),
-				show: docuementRef,
+				show: { ref: documentRefId },
 			};
 
-			const id = await addFirestoreData("orders", newDocument);
+			const { data: id } = await axios.post("/api/orders", newDocument);
 
 			const showObject = shows?.find((show) => show.id === documentRefId);
 
 			if (id) {
 				const oldStock = showObject.stock;
-				setFirestoreData("shows", { stock: oldStock - quantity }, currentShow);
+				await axios.put(`/api/shows/${currentShow}`, {
+					stock: oldStock - quantity,
+				});
 			}
 
 			const htmlTemplate = createOrderEmailTemplate(
@@ -98,7 +90,9 @@ const Modal = () => {
 	useEffect(() => {
 		try {
 			const getShows = async () => {
-				const data = await getFirestoreData("shows", where("stock", ">", 0));
+				const { data } = await axios.post("/api/shows", {
+					where: [{ field: "stock", operator: ">", value: 0 }],
+				});
 
 				setShows(data);
 			};
@@ -116,6 +110,7 @@ const Modal = () => {
 	useEffect(() => {
 		setModalClassVisibility(modalClass);
 	}, [modalClass]);
+
 	return (
 		<div
 			className={modalClassVisibility}

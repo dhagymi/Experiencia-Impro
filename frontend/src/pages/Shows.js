@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { where } from "firebase/firestore";
+import axios from "axios";
 
 import ShowCard from "../components/ShowCard";
 import Loading from "../components/Loading";
@@ -8,7 +8,6 @@ import Modal from "../components/Modal";
 
 import { useModalContext } from "../contexts/ModalContext";
 
-import { getFirestoreData } from "../utils/firebase";
 import { getMonthBeginingAndFinishingDate } from "../utils/auxFuntions";
 
 const Shows = () => {
@@ -75,11 +74,12 @@ const Shows = () => {
 				setIsLoading(true);
 				const { begin, finish } = getMonthBeginingAndFinishingDate(month);
 
-				const data = await getFirestoreData(
-					"shows",
-					where("date", ">=", begin),
-					where("date", "<", finish)
-				);
+				const { data } = await axios.post("/api/shows", {
+					where: [
+						{ field: "date", operator: ">=", value: begin },
+						{ field: "date", operator: "<", value: finish },
+					],
+				});
 
 				const showsWithStock = data.filter((show) => show.stock > 0);
 

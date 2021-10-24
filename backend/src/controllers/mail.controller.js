@@ -1,12 +1,12 @@
 import emoji from "node-emoji";
 
-import mailer from "../services/mail.service.js";
+import mailService from "../services/mail.service.js";
 
 export const sendFormEmail = async (req, res) => {
 	try {
 		const { body } = req;
 
-		const info = await mailer.sendEmail(body);
+		const info = await mailService.sendEmail(body);
 		if (info) {
 			console.log(
 				emoji.get("heavy_check_mark"),

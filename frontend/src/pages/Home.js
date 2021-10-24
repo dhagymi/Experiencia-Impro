@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import { where, orderBy, limit } from "firebase/firestore";
-
-import { getFirestoreData } from "../utils/firebase";
+import axios from "axios";
 
 import { useHomeContext } from "../contexts/HomeContext";
 
@@ -24,13 +22,16 @@ const Home = () => {
 					new Date().getMonth() + 1
 				);
 
-				const [{ date, city }] = await getFirestoreData(
-					"shows",
-					where("date", ">=", begin),
-					where("date", "<", finish),
-					orderBy("date"),
-					limit(1)
-				);
+				const {
+					data: [{ date, city }],
+				} = await axios.post("/api/shows", {
+					where: [
+						{ field: "date", operator: ">=", value: begin },
+						{ field: "date", operator: "<", value: finish },
+					],
+					limit: 1,
+					orderBy: [{ field: "date" }],
+				});
 
 				const { day, month, year } = getUsefulDate(date);
 
