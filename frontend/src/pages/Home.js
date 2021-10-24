@@ -2,18 +2,22 @@ import { useEffect, useState } from "react";
 import { where, orderBy, limit } from "firebase/firestore";
 
 import { getFirestoreData } from "../utils/firebase";
+
+import { useHomeContext } from "../contexts/HomeContext";
+
 import {
 	getMonthBeginingAndFinishingDate,
 	getUsefulDate,
 } from "../utils/auxFuntions";
-
 const Home = () => {
 	const [nextShow, setNextShow] = useState({});
+	const { setIsHome } = useHomeContext();
 
 	const titleOne = "Comedia en español -";
 	const titleTwo = "Teatro sin guiones - no existen errores -";
 
 	useEffect(() => {
+		setIsHome(true);
 		const getNextShow = async () => {
 			try {
 				const { begin, finish } = getMonthBeginingAndFinishingDate(
@@ -39,9 +43,10 @@ const Home = () => {
 		getNextShow();
 
 		return () => {
+			setIsHome(false);
 			setNextShow({});
 		};
-	}, []);
+	}, [setIsHome]);
 
 	return (
 		<section className="home">
@@ -63,6 +68,9 @@ const Home = () => {
 			</div>
 			<div className="home__floatTitle">
 				<p className="home__floatTitleText home__floatTitleText--left">
+					<span className="home__floatTitleSpan home__floatTitleSpan--left">
+						{titleOne}
+					</span>
 					<span className="home__floatTitleSpan home__floatTitleSpan--left">
 						{titleOne}
 					</span>
