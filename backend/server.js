@@ -1,5 +1,8 @@
-import app from "./app.js";
 import emoji from "node-emoji";
+
+import app from "./app.js";
+
+import "./src/db/initializate.js";
 
 const PORT = app.get("PORT");
 

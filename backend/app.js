@@ -4,7 +4,7 @@ import { dirname, resolve } from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 
-import mailRouter from "./src/routers/mail.router.js";
+import router from "./src/routers/index.js";
 
 dotenv.config();
 const app = express();
@@ -23,6 +23,6 @@ app.use(morgan("dev"));
 app.use(express.static(resolve(__dirname, "../frontend/build")));
 
 // Routes
-app.use("/api/mail", mailRouter);
+app.use("/api", router);
 
 export default app;

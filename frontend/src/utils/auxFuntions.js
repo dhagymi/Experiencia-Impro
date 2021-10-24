@@ -1,5 +1,3 @@
-import { Timestamp } from "firebase/firestore";
-
 /* Get begining and finishing date of current month */
 export const getMonthBeginingAndFinishingDate = (month) => {
 	const date = new Date();
@@ -17,17 +15,18 @@ export const getMonthBeginingAndFinishingDate = (month) => {
 	);
 
 	return {
-		begin: Timestamp.fromDate(monthBegining),
-		finish: Timestamp.fromDate(monthFinishing),
+		begin: monthBegining,
+		finish: monthFinishing,
 	};
 };
 
-export const getUsefulDate = (firebaseTimestamp) => {
-	const jsDate = firebaseTimestamp.toDate();
+export const getUsefulDate = (date) => {
+	const jsDate = new Date(date);
 
 	const day = jsDate.getDate();
 	const month = jsDate.getMonth() + 1;
 	const year = jsDate.getFullYear();
+
 	const hours =
 		jsDate.getHours() < 10 ? `0${jsDate.getHours()}` : jsDate.getHours();
 	const minutes =

@@ -1,12 +1,13 @@
 import nodemailer from "nodemailer";
 
 class Mailer {
-	constructor(service, user, pass) {
-		this.service = service;
+	constructor(user, pass) {
 		this.user = user;
 		this.pass = pass;
 		this.transporter = nodemailer.createTransport({
-			service,
+			host: "smtp.gmail.com",
+			port: 465,
+			secure: true,
 			auth: {
 				user,
 				pass,
@@ -50,5 +51,5 @@ class Mailer {
 	};
 }
 
-const mailer = new Mailer("gmail", "amandreacchi@gmail.com", "giladon95");
+const mailer = new Mailer("amandreacchi@gmail.com", "giladon95");
 export default mailer;

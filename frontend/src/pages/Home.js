@@ -1,32 +1,37 @@
 import { useEffect, useState } from "react";
-import { where, orderBy, limit } from "firebase/firestore";
+import axios from "axios";
 
-import { getFirestoreData } from "../utils/firebase";
+import { useHomeContext } from "../contexts/HomeContext";
+
 import {
 	getMonthBeginingAndFinishingDate,
 	getUsefulDate,
 } from "../utils/auxFuntions";
-
 const Home = () => {
 	const [nextShow, setNextShow] = useState({});
+	const { setIsHome, setPageActive } = useHomeContext();
 
 	const titleOne = "Comedia en español -";
 	const titleTwo = "Teatro sin guiones - no existen errores -";
 
 	useEffect(() => {
+		setIsHome(true);
 		const getNextShow = async () => {
 			try {
 				const { begin, finish } = getMonthBeginingAndFinishingDate(
 					new Date().getMonth() + 1
 				);
 
-				const [{ date, city }] = await getFirestoreData(
-					"shows",
-					where("date", ">=", begin),
-					where("date", "<", finish),
-					orderBy("date"),
-					limit(1)
-				);
+				const {
+					data: [{ date, city }],
+				} = await axios.post("/api/shows", {
+					where: [
+						{ field: "date", operator: ">=", value: begin },
+						{ field: "date", operator: "<", value: finish },
+					],
+					limit: 1,
+					orderBy: [{ field: "date" }],
+				});
 
 				const { day, month, year } = getUsefulDate(date);
 
@@ -39,9 +44,11 @@ const Home = () => {
 		getNextShow();
 
 		return () => {
+			setIsHome(false);
 			setNextShow({});
+			setPageActive(1);
 		};
-	}, []);
+	}, [setIsHome, setPageActive]);
 
 	return (
 		<section className="home">
@@ -63,6 +70,9 @@ const Home = () => {
 			</div>
 			<div className="home__floatTitle">
 				<p className="home__floatTitleText home__floatTitleText--left">
+					<span className="home__floatTitleSpan home__floatTitleSpan--left">
+						{titleOne}
+					</span>
 					<span className="home__floatTitleSpan home__floatTitleSpan--left">
 						{titleOne}
 					</span>
