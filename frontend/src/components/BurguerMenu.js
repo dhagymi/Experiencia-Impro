@@ -10,10 +10,13 @@ const BurguerMenu = () => {
 			setNavBarClassActive(" navbar--closing");
 			setTimeout(() => {
 				setNavBarClassActive(" navbar--final");
-			}, 500);
+			}, 300);
 			setOpen(!open);
 		} else {
-			setNavBarClassActive(" navbar--open");
+			setNavBarClassActive("");
+			setTimeout(() => {
+				setNavBarClassActive(" navbar--open");
+			}, 1);
 			setOpen(!open);
 		}
 	};

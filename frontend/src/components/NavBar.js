@@ -6,11 +6,11 @@ const NavBar = () => {
 	const { navBarClassActive, setNavBarClassActive, setOpen, open } =
 		useMenuContext();
 
-	const navBarClickHandler = () => {
+	const navBarClickHandler = async () => {
 		setNavBarClassActive(" navbar--closing");
 		setTimeout(() => {
 			setNavBarClassActive(" navbar--final");
-		}, 500);
+		}, 300);
 		setOpen(!open);
 	};
 
