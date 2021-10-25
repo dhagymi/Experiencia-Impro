@@ -1,9 +1,9 @@
 import { getUsefulDate } from "../utils/auxFuntions";
-const ShowCard = ({ date, stock, place, city }) => {
+const ShowCard = ({ date, stock, place, city, style }) => {
 	const { day, month, year, hours, minutes } = getUsefulDate(date);
 
 	return (
-		<div className="showCard">
+		<div className="showCard" style={style}>
 			<div className="showCard__mainInfo">
 				<div className="showCard__date">
 					<p className="showCard__dateItem">

@@ -1,25 +1,26 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import ShowCard from "../components/ShowCard";
 import Loading from "../components/Loading";
 import Message from "../components/Message";
 import Modal from "../components/Modal";
 
 import { useModalContext } from "../contexts/ModalContext";
+import { useShowsContext } from "../contexts/ShowsContext";
 
 import { getMonthBeginingAndFinishingDate } from "../utils/auxFuntions";
+import ShowsCarousel from "../components/ShowsCarousel";
 
 const Shows = () => {
-	const [months, setMonths] = useState([]);
-	const [month, setMonth] = useState(new Date().getMonth() + 1);
-	const [shows, setShows] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
+
 	const { isModalVisible, toggleIsModalVisible } = useModalContext();
+	const { months, setMonths, month, setMonth, shows, setShows } =
+		useShowsContext();
 
 	/* Set next 6 months when component is mount */
 
-	useState(() => {
+	useEffect(() => {
 		const getMonths = () => {
 			const monthsToObject = [
 				{ number: 1, word: "ene" },
@@ -65,7 +66,7 @@ const Shows = () => {
 		return () => {
 			setMonths([]);
 		};
-	}, []);
+	}, [setMonths]);
 
 	/* Get shows from firebase */
 	useEffect(() => {
@@ -99,7 +100,7 @@ const Shows = () => {
 				setShows([]);
 			}
 		};
-	}, [month, isModalVisible]);
+	}, [isModalVisible, month, setShows]);
 
 	return (
 		<section className="shows">
@@ -135,15 +136,7 @@ const Shows = () => {
 					{isLoading ? (
 						<Loading />
 					) : shows.length ? (
-						shows.map(({ date, stock, place, city }, index) => (
-							<ShowCard
-								key={index}
-								date={date}
-								stock={stock}
-								place={place}
-								city={city}
-							/>
-						))
+						<ShowsCarousel />
 					) : (
 						<Message>No hay shows en este mes.</Message>
 					)}
