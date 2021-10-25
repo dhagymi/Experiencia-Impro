@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import routes from "./utils/routes";
 
 import { useHomeContext, HomeContextProvider } from "./contexts/HomeContext";
+import { MenuContextProvider } from "./contexts/MenuContext";
 
 function App() {
 	const { containerReference, mainReference, setPageActive } = useHomeContext();
@@ -50,20 +51,22 @@ function App() {
 	return (
 		<Router>
 			<div className="App">
-				<Header />
-				<Main>
-					{/* Se mapean todas las rutas traídas del fichero */}
-					<Switch>
-						{routes.map(({ component, path, exact }) => {
-							return (
-								<Route key={path} path={path} exact={exact}>
-									{component}
-								</Route>
-							);
-						})}
-					</Switch>
-				</Main>
-				<Footer />
+				<MenuContextProvider>
+					<Header />
+					<Main>
+						{/* Se mapean todas las rutas traídas del fichero */}
+						<Switch>
+							{routes.map(({ component, path, exact }) => {
+								return (
+									<Route key={path} path={path} exact={exact}>
+										{component}
+									</Route>
+								);
+							})}
+						</Switch>
+					</Main>
+					<Footer />
+				</MenuContextProvider>
 			</div>
 		</Router>
 	);

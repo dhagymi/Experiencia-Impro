@@ -1,6 +1,19 @@
 import { NavLink } from "react-router-dom";
 
+import { useMenuContext } from "../contexts/MenuContext";
+
 const NavBar = () => {
+	const { navBarClassActive, setNavBarClassActive, setOpen, open } =
+		useMenuContext();
+
+	const navBarClickHandler = () => {
+		setNavBarClassActive(" navbar--closing");
+		setTimeout(() => {
+			setNavBarClassActive(" navbar--final");
+		}, 500);
+		setOpen(!open);
+	};
+
 	const links = [
 		{ to: "/", exact: true, innerText: "Home" },
 		{ to: "/classes", exact: true, innerText: "Clases" },
@@ -10,12 +23,13 @@ const NavBar = () => {
 	];
 
 	return (
-		<nav className="navbar">
+		<nav className={`navbar ${navBarClassActive}`}>
 			<ul className="navbar__list">
 				{links.map(({ to, exact, innerText }) => {
 					return (
 						<li className="navbar__listItem" key={to}>
 							<NavLink
+								onClick={navBarClickHandler}
 								className="navbar__link"
 								activeClassName="navbar__link navbar__link--active"
 								to={to}
