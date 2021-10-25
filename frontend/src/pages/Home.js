@@ -7,8 +7,10 @@ import {
 	getMonthBeginingAndFinishingDate,
 	getUsefulDate,
 } from "../utils/auxFuntions";
+import Message from "../components/Message";
 const Home = () => {
 	const [nextShow, setNextShow] = useState({});
+	const [isLoading, setIsLoading] = useState(false);
 	const { setIsHome, setPageActive } = useHomeContext();
 
 	const titleOne = "Comedia en español -";
@@ -16,6 +18,7 @@ const Home = () => {
 
 	useEffect(() => {
 		setIsHome(true);
+		setIsLoading(true);
 		const getNextShow = async () => {
 			try {
 				const { begin, finish } = getMonthBeginingAndFinishingDate(
@@ -28,6 +31,7 @@ const Home = () => {
 					where: [
 						{ field: "date", operator: ">=", value: begin },
 						{ field: "date", operator: "<", value: finish },
+						{ field: "date", operator: ">=", value: new Date() },
 					],
 					limit: 1,
 					orderBy: [{ field: "date" }],
@@ -36,7 +40,9 @@ const Home = () => {
 				const { day, month, year } = getUsefulDate(date);
 
 				setNextShow({ day, month, year, city });
+				setIsLoading(false);
 			} catch (error) {
+				setIsLoading(false);
 				console.log(error);
 			}
 		};
@@ -56,17 +62,22 @@ const Home = () => {
 				<h1 className="home__title">
 					improv<span className="home__titleSmile"> =)</span>
 				</h1>
-				{nextShow?.day && (
-					<div className="home__nextShowInfo">
-						<h2 className="home__nextShowText home__nextShowText--pink">
-							Proximo show
-						</h2>
+				<div className="home__nextShowInfo">
+					{isLoading ? null : nextShow?.day ? (
+						<>
+							<h2 className="home__nextShowText home__nextShowText--pink">
+								Proximo show
+							</h2>
 
-						<p className="home__nextShowText">
-							{nextShow.day}.{nextShow.month}.{nextShow.year} - {nextShow.city}
-						</p>
-					</div>
-				)}
+							<p className="home__nextShowText">
+								{nextShow.day}.{nextShow.month}.{nextShow.year} -{" "}
+								{nextShow.city}
+							</p>
+						</>
+					) : (
+						<Message>No hay shows programados</Message>
+					)}
+				</div>
 			</div>
 			<div className="home__floatTitle">
 				<p className="home__floatTitleText home__floatTitleText--left">

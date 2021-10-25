@@ -4,12 +4,12 @@ import axios from "axios";
 import Loading from "../components/Loading";
 import Message from "../components/Message";
 import Modal from "../components/Modal";
+import ShowsCarousel from "../components/ShowsCarousel";
 
 import { useModalContext } from "../contexts/ModalContext";
 import { useShowsContext } from "../contexts/ShowsContext";
 
 import { getMonthBeginingAndFinishingDate } from "../utils/auxFuntions";
-import ShowsCarousel from "../components/ShowsCarousel";
 
 const Shows = () => {
 	const [isLoading, setIsLoading] = useState(false);
@@ -79,6 +79,7 @@ const Shows = () => {
 					where: [
 						{ field: "date", operator: ">=", value: begin },
 						{ field: "date", operator: "<", value: finish },
+						{ field: "date", operator: ">=", value: new Date() },
 					],
 				});
 
