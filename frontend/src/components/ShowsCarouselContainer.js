@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import ShowsCarousel from "../components/ShowsCarousel";
+import Arrow from "../components/Arrow";
 
 import { useModalContext } from "../contexts/ModalContext";
 import { useShowsContext } from "../contexts/ShowsContext";
@@ -11,15 +12,12 @@ import {
 	CarouselContextProvider,
 	useCarouselContext,
 } from "../contexts/CarouselContext";
-
-import leftArrow from "../assets/icons/left_arrow.svg";
-import rightArrow from "../assets/icons/right_arrow.svg";
 const ShowsCarouselContainer = () => {
 	const [isLoading, setIsLoading] = useState(false);
 
 	const { isModalVisible, toggleIsModalVisible } = useModalContext();
 	const { month, setShows, shows } = useShowsContext();
-	const { position, setPosition } = useCarouselContext();
+	const { position } = useCarouselContext();
 
 	/* Get shows from firebase */
 	useEffect(() => {
@@ -66,21 +64,11 @@ const ShowsCarouselContainer = () => {
 			>
 				Reservar
 			</button>
-			{position === 0 || (
-				<img
-					src={leftArrow}
-					alt="left"
-					onClick={() => setPosition(position - 1)}
-					className="showsCarouselContainer__arrow showsCarouselContainer__arrow--left"
-				/>
-			)}
-			{position === shows.length - 1 || (
-				<img
-					src={rightArrow}
-					alt="right"
-					onClick={() => setPosition(position + 1)}
-					className="showsCarouselContainer__arrow showsCarouselContainer__arrow--right"
-				/>
+			{shows?.length > 0 && (
+				<>
+					{position === 0 || <Arrow direction="left" />}
+					{position === shows.length - 1 || <Arrow direction="right" />}
+				</>
 			)}
 		</div>
 	);

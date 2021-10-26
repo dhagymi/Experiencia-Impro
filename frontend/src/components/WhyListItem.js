@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 const WhyListItem = ({ dotClassModifier }) => {
 	return (
 		<li className="whyListItem">
@@ -16,4 +18,4 @@ const WhyListItem = ({ dotClassModifier }) => {
 		</li>
 	);
 };
-export default WhyListItem;
+export default memo(WhyListItem);

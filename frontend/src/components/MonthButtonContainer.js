@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { memo, useEffect } from "react";
 
 import MonthButton from "./MonthButton";
 
@@ -64,4 +64,4 @@ const MonthButtonContainer = () => {
 		</div>
 	);
 };
-export default MonthButtonContainer;
+export default memo(MonthButtonContainer);

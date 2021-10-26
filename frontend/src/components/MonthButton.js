@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 import { useShowsContext } from "../contexts/ShowsContext";
 
 const MonthButton = ({ item: { number, word } }) => {
@@ -11,4 +13,4 @@ const MonthButton = ({ item: { number, word } }) => {
 		</button>
 	);
 };
-export default MonthButton;
+export default memo(MonthButton);
