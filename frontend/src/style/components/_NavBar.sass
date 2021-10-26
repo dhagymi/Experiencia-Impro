@@ -42,7 +42,7 @@
 
 @media (max-width: 780px)
     .navbar
-        display: block
+        display: none
         position: fixed
         top: calc(4.4rem + 4.5vh)
         left: 0
@@ -52,17 +52,18 @@
         opacity: 0
         z-index: 0
 
+        &--init
+            display: block
+
         &--open
+            display: block
             opacity: 1
             z-index: 5
 
         &--closing
+            display: block
             opacity: 0
             z-index: 5
-
-        &--final
-            display: none
-            z-index: 0
 
         &__list
             display: flex

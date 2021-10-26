@@ -9,7 +9,7 @@ const NavBar = () => {
 	const navBarClickHandler = async () => {
 		setNavBarClassActive(" navbar--closing");
 		setTimeout(() => {
-			setNavBarClassActive(" navbar--final");
+			setNavBarClassActive("");
 		}, 300);
 		setOpen(!open);
 	};

@@ -9,11 +9,11 @@ const BurguerMenu = () => {
 		if (open) {
 			setNavBarClassActive(" navbar--closing");
 			setTimeout(() => {
-				setNavBarClassActive(" navbar--final");
+				setNavBarClassActive("");
 			}, 300);
 			setOpen(!open);
 		} else {
-			setNavBarClassActive("");
+			setNavBarClassActive(" navbar--init");
 			setTimeout(() => {
 				setNavBarClassActive(" navbar--open");
 			}, 1);
