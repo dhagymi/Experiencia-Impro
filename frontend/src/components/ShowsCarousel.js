@@ -1,58 +1,26 @@
-import { useEffect, useState } from "react";
+import Message from "./Message";
+import Loading from "./Loading";
+import CarouselDotContainer from "./CarouselDotContainer";
+import ShowCardContainer from "./ShowCardContainer";
 
 import { useShowsContext } from "../contexts/ShowsContext";
-
-import ShowCard from "./ShowCard";
-import Loading from "./Loading";
 
 const ShowsCarousel = ({ isLoading }) => {
 	const { shows } = useShowsContext();
 
-	const [position, setPosition] = useState(0);
-	const [showsContainerStyle, setSlidesContainerStyle] = useState({
-		width: `${shows.length * 100}%`,
-		transform: `translateX(${-(100 / shows.length) * position}%)`,
-	});
-
-	useEffect(() => {
-		setSlidesContainerStyle({
-			width: `${shows.length * 100}%`,
-			transform: `translateX(${-(100 / shows.length) * position}%)`,
-		});
-	}, [position, shows.length]);
-
-	const slideStyle = { width: `${100 / shows.length}%` };
-
 	return (
 		<div className="showsCarousel">
-			<div className="showsCarousel__mainContainer">
-				{isLoading ? (
-					<Loading />
-				) : (
-					<div
-						className="showsCarousel__showsContainer"
-						style={showsContainerStyle}
-					>
-						{shows.map((show) => {
-							return <ShowCard key={show.id} {...show} style={slideStyle} />;
-						})}
-					</div>
-				)}
-			</div>
-			{shows?.length > 1 && (
-				<div className="showsCarousel__dotsContainer">
-					{shows.map((slide, index) => {
-						return (
-							<button
-								key={index}
-								className={`showsCarousel__dot ${
-									position === index && "showsCarousel__dot--active"
-								}`}
-								onClick={() => setPosition(index)}
-							/>
-						);
-					})}
-				</div>
+			{isLoading ? (
+				<Loading />
+			) : shows.length ? (
+				<>
+					<ShowCardContainer />
+					{shows?.length > 1 && <CarouselDotContainer />}
+				</>
+			) : (
+				<Message style={{ lineHeight: "5rem" }}>
+					No hay shows en este mes.
+				</Message>
 			)}
 		</div>
 	);

@@ -24,38 +24,3 @@
 
         &Final
             white-space: nowrap
-
-    &__body
-        display: flex
-        flex-flow: column nowrap
-        gap: 5vh
-
-        &Title
-            @extend %h3
-            text-transform: uppercase
-
-    &__months
-        display: flex
-        flex-wrap: nowrap
-        justify-content: space-between
-
-    &__monthButton
-        @extend %button
-        width: 15%
-        font-weight: normal
-
-        &--active
-            background: $lightBlue
-
-    &__showInfo
-        min-height: 15vmin
-        padding: 0 5.48vw
-        display: flex
-        flex-flow: column nowrap
-        height: calc(17vmin + 5vh + 1em + 3.6em)
-        justify-content: space-between
-
-    &__reserveButton
-        @extend %button
-        width: 20.5vw
-        line-height: 3em
