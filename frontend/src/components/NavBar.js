@@ -29,7 +29,7 @@ const NavBar = () => {
 					return (
 						<li className="navbar__listItem" key={to}>
 							<NavLink
-								onClick={navBarClickHandler}
+								onClick={open ? navBarClickHandler : null}
 								className="navbar__link"
 								activeClassName="navbar__link navbar__link--active"
 								to={to}

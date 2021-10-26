@@ -139,7 +139,9 @@ const Shows = () => {
 					) : shows.length ? (
 						<ShowsCarousel />
 					) : (
-						<Message>No hay shows en este mes.</Message>
+						<Message style={{ lineHeight: "5rem" }}>
+							No hay shows en este mes.
+						</Message>
 					)}
 					<button
 						className="shows__reserveButton"
