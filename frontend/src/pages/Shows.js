@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import Loading from "../components/Loading";
 import Message from "../components/Message";
 import Modal from "../components/Modal";
 import ShowsCarousel from "../components/ShowsCarousel";
@@ -134,10 +133,8 @@ const Shows = () => {
 						))}
 				</div>
 				<div className="shows__showInfo">
-					{isLoading ? (
-						<Loading />
-					) : shows.length ? (
-						<ShowsCarousel />
+					{shows.length ? (
+						<ShowsCarousel isLoading={isLoading} />
 					) : (
 						<Message style={{ lineHeight: "5rem" }}>
 							No hay shows en este mes.

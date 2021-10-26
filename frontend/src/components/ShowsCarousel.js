@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import { useShowsContext } from "../contexts/ShowsContext";
 
 import ShowCard from "./ShowCard";
+import Loading from "./Loading";
 
-const ShowsCarousel = () => {
+const ShowsCarousel = ({ isLoading }) => {
 	const { shows } = useShowsContext();
 
 	const [position, setPosition] = useState(0);
@@ -25,14 +26,18 @@ const ShowsCarousel = () => {
 	return (
 		<div className="showsCarousel">
 			<div className="showsCarousel__mainContainer">
-				<div
-					className="showsCarousel__showsContainer"
-					style={showsContainerStyle}
-				>
-					{shows.map((show) => {
-						return <ShowCard key={show.id} {...show} style={slideStyle} />;
-					})}
-				</div>
+				{isLoading ? (
+					<Loading />
+				) : (
+					<div
+						className="showsCarousel__showsContainer"
+						style={showsContainerStyle}
+					>
+						{shows.map((show) => {
+							return <ShowCard key={show.id} {...show} style={slideStyle} />;
+						})}
+					</div>
+				)}
 			</div>
 			{shows?.length > 1 && (
 				<div className="showsCarousel__dotsContainer">
