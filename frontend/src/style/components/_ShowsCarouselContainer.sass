@@ -1,4 +1,5 @@
 .showsCarouselContainer
+    position: relative
     min-height: 15vmin
     padding: 0 5.48vw
     display: flex
@@ -10,3 +11,16 @@
         @extend %button
         width: 20.5vw
         line-height: 3em
+
+    &__arrow
+        position: absolute
+        top: 4vmin
+        height: 4vmin
+        cursor: pointer
+        z-index: 2
+
+        &--left
+            left: 1rem
+
+        &--right
+            right: 1rem

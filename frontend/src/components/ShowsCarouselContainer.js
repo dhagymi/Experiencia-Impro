@@ -7,12 +7,19 @@ import { useModalContext } from "../contexts/ModalContext";
 import { useShowsContext } from "../contexts/ShowsContext";
 
 import { getMonthBeginingAndFinishingDate } from "../utils/auxFuntions";
-import { CarouselContextProvider } from "../contexts/CarouselContext";
+import {
+	CarouselContextProvider,
+	useCarouselContext,
+} from "../contexts/CarouselContext";
+
+import leftArrow from "../assets/icons/left_arrow.svg";
+import rightArrow from "../assets/icons/right_arrow.svg";
 const ShowsCarouselContainer = () => {
 	const [isLoading, setIsLoading] = useState(false);
 
 	const { isModalVisible, toggleIsModalVisible } = useModalContext();
-	const { month, setShows } = useShowsContext();
+	const { month, setShows, shows } = useShowsContext();
+	const { position, setPosition } = useCarouselContext();
 
 	/* Get shows from firebase */
 	useEffect(() => {
@@ -52,16 +59,39 @@ const ShowsCarouselContainer = () => {
 
 	return (
 		<div className="showsCarouselContainer">
-			<CarouselContextProvider>
-				<ShowsCarousel isLoading={isLoading} />
-				<button
-					className="showsCarouselContainer__reserveButton"
-					onClick={() => toggleIsModalVisible()}
-				>
-					Reservar
-				</button>
-			</CarouselContextProvider>
+			<ShowsCarousel isLoading={isLoading} />
+			<button
+				className="showsCarouselContainer__reserveButton"
+				onClick={() => toggleIsModalVisible()}
+			>
+				Reservar
+			</button>
+			{position === 0 || (
+				<img
+					src={leftArrow}
+					alt="left"
+					onClick={() => setPosition(position - 1)}
+					className="showsCarouselContainer__arrow showsCarouselContainer__arrow--left"
+				/>
+			)}
+			{position === shows.length - 1 || (
+				<img
+					src={rightArrow}
+					alt="right"
+					onClick={() => setPosition(position + 1)}
+					className="showsCarouselContainer__arrow showsCarouselContainer__arrow--right"
+				/>
+			)}
 		</div>
 	);
 };
-export default ShowsCarouselContainer;
+
+const CarouselContainerWrapper = () => {
+	return (
+		<CarouselContextProvider>
+			<ShowsCarouselContainer />
+		</CarouselContextProvider>
+	);
+};
+
+export default CarouselContainerWrapper;
