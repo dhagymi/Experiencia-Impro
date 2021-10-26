@@ -11,14 +11,14 @@ const ShowsCarousel = ({ isLoading }) => {
 	return (
 		<div className="showsCarousel">
 			{isLoading ? (
-				<Loading />
+				<Loading style={{ marginBottom: "5vh" }} />
 			) : shows.length ? (
 				<>
 					<ShowCardContainer />
 					{shows?.length > 1 && <CarouselDotContainer />}
 				</>
 			) : (
-				<Message style={{ lineHeight: "5rem" }}>
+				<Message style={{ marginBottom: "5vh" }}>
 					No hay shows en este mes.
 				</Message>
 			)}

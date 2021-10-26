@@ -5,12 +5,14 @@
     height: 100%
     width: 100%
     justify-content: center
-    gap: 1rem
+
+    &__wheelContainer
+        height: 70%
 
     &__wheel
         -webkit-animation: rotation 2s normal linear infinite
         animation: rotation 2s normal linear infinite
-        max-height: 50%
+        height: 100%
 
     &__text
         text-transform: uppercase
