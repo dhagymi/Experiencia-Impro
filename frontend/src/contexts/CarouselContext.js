@@ -12,6 +12,7 @@ export const CarouselContextProvider = ({ children }) => {
 	const { shows } = useShowsContext();
 
 	const [position, setPosition] = useState(0);
+	const [isLoading, setIsLoading] = useState(false);
 	const [showsContainerStyle, setShowsContainerStyle] = useState({
 		width: `${shows.length * 100}%`,
 		transform: `translateX(${-(100 / shows.length) * position}%)`,
@@ -24,6 +25,8 @@ export const CarouselContextProvider = ({ children }) => {
 				setPosition,
 				showsContainerStyle,
 				setShowsContainerStyle,
+				isLoading,
+				setIsLoading,
 			}}
 		>
 			{children}

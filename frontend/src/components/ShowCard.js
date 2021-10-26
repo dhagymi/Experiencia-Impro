@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 
 import { useShowsContext } from "../contexts/ShowsContext";
+import { useCarouselContext } from "../contexts/CarouselContext";
 
 import { getUsefulDate } from "../utils/auxFuntions";
 const ShowCard = ({ date, stock, place, city }) => {
 	const { day, month, year, hours, minutes } = getUsefulDate(date);
 	const { shows } = useShowsContext();
+	const { setPosition } = useCarouselContext();
 
 	const [slideStyle, setSlideStyle] = useState({
 		width: `${100 / shows?.length}%`,
@@ -15,8 +17,9 @@ const ShowCard = ({ date, stock, place, city }) => {
 		setSlideStyle({ width: `${100 / shows?.length}%` });
 		return () => {
 			setSlideStyle({});
+			setPosition(0);
 		};
-	}, [shows?.length]);
+	}, [setPosition, shows?.length]);
 
 	return (
 		<div className="showCard" style={slideStyle}>

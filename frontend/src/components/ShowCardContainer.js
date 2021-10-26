@@ -12,7 +12,7 @@ const ShowCardContainer = () => {
 
 	useEffect(() => {
 		setShowsContainerStyle({
-			width: `${shows.length * 100}%`,
+			width: `${shows.length * 100 + 1}%`,
 			transform: `translateX(${-(100 / shows.length) * position}%)`,
 		});
 	}, [position, setShowsContainerStyle, shows.length]);

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, memo } from "react";
 import axios from "axios";
 
 import ShowsCarousel from "../components/ShowsCarousel";
@@ -6,18 +6,16 @@ import Arrow from "../components/Arrow";
 
 import { useModalContext } from "../contexts/ModalContext";
 import { useShowsContext } from "../contexts/ShowsContext";
-
-import { getMonthBeginingAndFinishingDate } from "../utils/auxFuntions";
 import {
 	CarouselContextProvider,
 	useCarouselContext,
 } from "../contexts/CarouselContext";
-const ShowsCarouselContainer = () => {
-	const [isLoading, setIsLoading] = useState(false);
 
+import { getMonthBeginingAndFinishingDate } from "../utils/auxFuntions";
+const ShowsCarouselContainer = () => {
 	const { isModalVisible, toggleIsModalVisible } = useModalContext();
 	const { month, setShows, shows } = useShowsContext();
-	const { position } = useCarouselContext();
+	const { position, setIsLoading } = useCarouselContext();
 
 	/* Get shows from firebase */
 	useEffect(() => {
@@ -53,11 +51,11 @@ const ShowsCarouselContainer = () => {
 				setShows([]);
 			}
 		};
-	}, [isModalVisible, month, setShows]);
+	}, [isModalVisible, month, setIsLoading, setShows]);
 
 	return (
 		<div className="showsCarouselContainer">
-			<ShowsCarousel isLoading={isLoading} />
+			<ShowsCarousel />
 			<button
 				className="showsCarouselContainer__reserveButton"
 				onClick={() => toggleIsModalVisible()}
@@ -82,4 +80,4 @@ const CarouselContainerWrapper = () => {
 	);
 };
 
-export default CarouselContainerWrapper;
+export default memo(CarouselContainerWrapper);

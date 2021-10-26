@@ -13,9 +13,7 @@ const Arrow = ({ direction }) => {
 			onClick={() =>
 				setPosition(direction === "left" ? position - 1 : position + 1)
 			}
-			className={`showsCarouselContainer__arrow ${
-				direction && `showsCarouselContainer__arrow--${direction}`
-			}`}
+			className={`arrow ${direction && `arrow--${direction}`}`}
 		/>
 	);
 };

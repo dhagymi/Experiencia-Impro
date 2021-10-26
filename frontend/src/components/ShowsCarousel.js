@@ -4,9 +4,12 @@ import CarouselDotContainer from "./CarouselDotContainer";
 import ShowCardContainer from "./ShowCardContainer";
 
 import { useShowsContext } from "../contexts/ShowsContext";
+import { useCarouselContext } from "../contexts/CarouselContext";
 
-const ShowsCarousel = ({ isLoading }) => {
+const ShowsCarousel = () => {
 	const { shows } = useShowsContext();
+
+	const { isLoading } = useCarouselContext();
 
 	return (
 		<div className="showsCarousel">
