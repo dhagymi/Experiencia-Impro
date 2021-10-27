@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { NavLink } from "react-router-dom";
 
 import { useMenuContext } from "../contexts/MenuContext";
@@ -6,13 +7,13 @@ const NavBar = () => {
 	const { navBarClassActive, setNavBarClassActive, setOpen, open } =
 		useMenuContext();
 
-	const navBarClickHandler = async () => {
+	const navBarClickHandler = useCallback(async () => {
 		setNavBarClassActive(" navbar--closing");
 		setTimeout(() => {
 			setNavBarClassActive("");
 		}, 300);
 		setOpen(!open);
-	};
+	}, [open, setNavBarClassActive, setOpen]);
 
 	const links = [
 		{ to: "/", exact: true, innerText: "Home" },

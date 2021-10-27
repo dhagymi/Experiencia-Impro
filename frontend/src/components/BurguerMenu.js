@@ -1,3 +1,5 @@
+import { useCallback } from "react";
+
 import { useMenuContext } from "../contexts/MenuContext.js";
 
 import menuImg from "../assets/icons/burguer_menu.svg";
@@ -5,7 +7,7 @@ import menuImg from "../assets/icons/burguer_menu.svg";
 const BurguerMenu = () => {
 	const { open, setOpen, setNavBarClassActive } = useMenuContext();
 
-	const menuClickHandler = () => {
+	const menuClickHandler = useCallback(() => {
 		if (open) {
 			setNavBarClassActive(" navbar--closing");
 			setTimeout(() => {
@@ -19,7 +21,7 @@ const BurguerMenu = () => {
 			}, 1);
 			setOpen(!open);
 		}
-	};
+	}, [open, setNavBarClassActive, setOpen]);
 
 	return (
 		<div className="burguerMenu">

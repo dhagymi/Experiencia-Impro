@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 
 import { useShowsContext } from "../contexts/ShowsContext";
 import { useCarouselContext } from "../contexts/CarouselContext";
@@ -43,4 +43,6 @@ const ShowCard = ({ date, stock, place, city }) => {
 		</div>
 	);
 };
-export default ShowCard;
+export default memo(ShowCard, (prevProps, newProps) => {
+	return prevProps.id === newProps.id;
+});

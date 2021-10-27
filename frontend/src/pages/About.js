@@ -29,7 +29,7 @@ const About = () => {
 						ser alumnos y comenzar a enseñar comedia improvisada. La experiencia
 						fue tan bien recibida por los alumnos que cuando llegamos a Múnich
 						(y ante la inexistencia de espacios en donde practicar impro en
-						español) decidimos repertila. Nuevamente nos llevamos la sorpresa de
+						español) decidimos repetirla. Nuevamente nos llevamos la sorpresa de
 						una excelente{" "}
 						<span className="about__finalText">
 							recepción por parte de los alumnos.

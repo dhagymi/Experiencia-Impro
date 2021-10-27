@@ -1,7 +1,8 @@
 import axios from "axios";
+import { useCallback } from "react";
 
 const ContactForm = () => {
-	const formSubmitHandler = async (event) => {
+	const formSubmitHandler = useCallback(async (event) => {
 		try {
 			event.preventDefault();
 
@@ -32,7 +33,7 @@ const ContactForm = () => {
 		} catch (error) {
 			console.log(error);
 		}
-	};
+	}, []);
 	return (
 		<form className="contactForm" onSubmit={formSubmitHandler}>
 			<fieldset className="contactForm__fieldset">
