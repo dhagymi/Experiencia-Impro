@@ -5,7 +5,7 @@ import icons_image from "../assets/background/icons.svg";
 const About = () => {
 	return (
 		<section className="about">
-			<h1 className="about__title">De qué se trata?</h1>
+			<h1 className="about__title">¿De qué se trata?</h1>
 			<div className="about__body">
 				<div className="about__textContainer">
 					<p className="about__text">
