@@ -39,3 +39,66 @@
             background-repeat: no-repeat
             background-size: 100% .15rem
             background-position: 50% 100%
+
+@media (max-width: 780px)
+    .navbar
+        display: none
+        position: fixed
+        top: calc(4.4rem + 4.5vh)
+        left: 0
+        width: 100%
+        height: calc(100vh - 4.5vh - 4.4rem )
+        transition: opacity .3s
+        opacity: 0
+        z-index: 0
+
+        &--init
+            display: block
+
+        &--open
+            display: block
+            opacity: 1
+            z-index: 5
+
+        &--closing
+            display: block
+            opacity: 0
+            z-index: 5
+
+        &__list
+            display: flex
+            background: $background
+            flex-direction: column
+            justify-content: space-evenly
+            padding: 0 1rem 0 0
+            width: 100%
+            height: 100%
+            position: relative
+
+            &Item
+                width: 100%
+                &:active
+                    background: $black
+
+        &__link
+            width: 100%
+            position: relative
+            &:hover
+                background: none
+
+            &:focus-visible
+                outline: none
+            &:link
+                @include typography(Roboto, 2.2rem, normal, $white)
+                text-align: center
+
+            &:visited
+                @include typography(Roboto, 2.2rem, normal, $white)
+
+            &--active
+                background: none
+                &:link
+                    font-size: 2.6rem
+
+                &:visited
+                    font-size: 2.6rem

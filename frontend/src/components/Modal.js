@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 
 import ShowOption from "./ShowOption";
@@ -16,54 +16,57 @@ const Modal = () => {
 
 	const { modalClass, toggleIsModalVisible } = useModalContext();
 
-	const submitFormHandler = async (event) => {
-		try {
-			event.preventDefault();
+	const submitFormHandler = useCallback(
+		async (event) => {
+			try {
+				event.preventDefault();
 
-			const formData = new FormData(event.target);
-			const documentRefId = formData.get("show");
+				const formData = new FormData(event.target);
+				const documentRefId = formData.get("show");
 
-			const newDocument = {
-				name: formData.get("name"),
-				email: formData.get("email"),
-				quantity: parseInt(formData.get("quantity")),
-				show: { ref: documentRefId },
-			};
+				const newDocument = {
+					name: formData.get("name"),
+					email: formData.get("email"),
+					quantity: parseInt(formData.get("quantity")),
+					show: { ref: documentRefId },
+				};
 
-			const { data: id } = await axios.post("/api/orders", newDocument);
+				const { data: id } = await axios.post("/api/orders", newDocument);
 
-			const showObject = shows?.find((show) => show.id === documentRefId);
+				const showObject = shows?.find((show) => show.id === documentRefId);
 
-			if (id) {
-				const oldStock = showObject.stock;
-				await axios.put(`/api/shows/${currentShow}`, {
-					stock: oldStock - quantity,
+				if (id) {
+					const oldStock = showObject.stock;
+					await axios.put(`/api/shows/${currentShow}`, {
+						stock: oldStock - quantity,
+					});
+				}
+
+				const htmlTemplate = createOrderEmailTemplate(
+					id,
+					newDocument.quantity,
+					showObject
+				);
+
+				const response = await axios.post("/api/mail", {
+					to: newDocument.email,
+					subject: "Tu reserva - Experiencia Impro",
+					html: htmlTemplate,
 				});
+
+				if (response.status === 200) {
+					alert("Enviamos tu reserva por correo electrónico!");
+				} else {
+					alert("La reserva no pudo realizarse");
+				}
+
+				toggleIsModalVisible();
+			} catch (error) {
+				console.log(error);
 			}
-
-			const htmlTemplate = createOrderEmailTemplate(
-				id,
-				newDocument.quantity,
-				showObject
-			);
-
-			const response = await axios.post("/api/mail", {
-				to: newDocument.email,
-				subject: "Tu reserva - Experiencia Impro",
-				html: htmlTemplate,
-			});
-
-			if (response.status === 200) {
-				alert("Enviamos tu reserva por correo electrónico!");
-			} else {
-				alert("La reserva no pudo realizarse");
-			}
-
-			toggleIsModalVisible();
-		} catch (error) {
-			console.log(error);
-		}
-	};
+		},
+		[currentShow, quantity, shows, toggleIsModalVisible]
+	);
 	useEffect(() => {
 		try {
 			const getStock = () => {

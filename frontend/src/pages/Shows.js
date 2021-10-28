@@ -1,105 +1,10 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-
-import ShowCard from "../components/ShowCard";
-import Loading from "../components/Loading";
-import Message from "../components/Message";
 import Modal from "../components/Modal";
+import ShowsBody from "../components/ShowsBody";
 
 import { useModalContext } from "../contexts/ModalContext";
 
-import { getMonthBeginingAndFinishingDate } from "../utils/auxFuntions";
-
 const Shows = () => {
-	const [months, setMonths] = useState([]);
-	const [month, setMonth] = useState(new Date().getMonth() + 1);
-	const [shows, setShows] = useState([]);
-	const [isLoading, setIsLoading] = useState(false);
-	const { isModalVisible, toggleIsModalVisible } = useModalContext();
-
-	/* Set next 6 months when component is mount */
-
-	useState(() => {
-		const getMonths = () => {
-			const monthsToObject = [
-				{ number: 1, word: "ene" },
-				{ number: 2, word: "feb" },
-				{ number: 3, word: "mar" },
-				{ number: 4, word: "abr" },
-				{ number: 5, word: "may" },
-				{ number: 6, word: "jun" },
-				{ number: 7, word: "jul" },
-				{ number: 8, word: "ago" },
-				{ number: 9, word: "sep" },
-				{ number: 10, word: "oct" },
-				{ number: 11, word: "nov" },
-				{ number: 12, word: "dic" },
-			];
-
-			const date = new Date();
-			const currentMonth = date.getMonth() + 1;
-
-			const monthsInNumber = [currentMonth];
-
-			for (let i = 1; i < 6; i++) {
-				const newMonth = currentMonth + i;
-
-				if (newMonth <= 12) {
-					monthsInNumber.push(newMonth);
-				} else {
-					monthsInNumber.push(newMonth - 12);
-				}
-			}
-
-			const monthsInObject = monthsInNumber.map((month) => {
-				const monthObject = monthsToObject.find(
-					(item) => item.number === month
-				);
-				return monthObject;
-			});
-			setMonths(monthsInObject);
-		};
-
-		getMonths();
-
-		return () => {
-			setMonths([]);
-		};
-	}, []);
-
-	/* Get shows from firebase */
-	useEffect(() => {
-		const getShows = async () => {
-			try {
-				setIsLoading(true);
-				const { begin, finish } = getMonthBeginingAndFinishingDate(month);
-
-				const { data } = await axios.post("/api/shows", {
-					where: [
-						{ field: "date", operator: ">=", value: begin },
-						{ field: "date", operator: "<", value: finish },
-					],
-				});
-
-				const showsWithStock = data.filter((show) => show.stock > 0);
-
-				setShows(showsWithStock);
-				setIsLoading(false);
-			} catch (error) {
-				setIsLoading(false);
-				console.log(error);
-			}
-		};
-		if (!isModalVisible) {
-			getShows();
-		}
-
-		return () => {
-			if (isModalVisible) {
-				setShows([]);
-			}
-		};
-	}, [month, isModalVisible]);
+	const { isModalVisible } = useModalContext();
 
 	return (
 		<section className="shows">
@@ -114,47 +19,7 @@ const Shows = () => {
 					</span>
 				</p>
 			</div>
-
-			<div className="shows__body">
-				<h2 className="shows__bodyTitle">Dónde y qué hora</h2>
-				<div className="shows__months">
-					{months.length &&
-						months.map((item) => (
-							<button
-								key={item.number}
-								className={`shows__monthButton ${
-									item.number === month ? "shows__monthButton--active" : ""
-								}`}
-								onClick={() => setMonth(item.number)}
-							>
-								{item.word}
-							</button>
-						))}
-				</div>
-				<div className="shows__showInfo">
-					{isLoading ? (
-						<Loading />
-					) : shows.length ? (
-						shows.map(({ date, stock, place, city }, index) => (
-							<ShowCard
-								key={index}
-								date={date}
-								stock={stock}
-								place={place}
-								city={city}
-							/>
-						))
-					) : (
-						<Message>No hay shows en este mes.</Message>
-					)}
-					<button
-						className="shows__reserveButton"
-						onClick={() => toggleIsModalVisible()}
-					>
-						Reservar
-					</button>
-				</div>
-			</div>
+			<ShowsBody />
 			{isModalVisible && <Modal />}
 		</section>
 	);

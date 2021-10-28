@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 
 import { ModalContextProvider } from "../contexts/ModalContext";
+import { ShowsContextProvider } from "../contexts/ShowsContext";
 import { useHomeContext } from "../contexts/HomeContext";
 
 const Main = ({ children }) => {
@@ -13,11 +14,13 @@ const Main = ({ children }) => {
 	}, [setMainReference]);
 
 	return (
-		<ModalContextProvider>
-			<main ref={reference} className={`main ${isHome ? "main--home" : ""}`}>
-				{children}
-			</main>
-		</ModalContextProvider>
+		<ShowsContextProvider>
+			<ModalContextProvider>
+				<main ref={reference} className={`main ${isHome ? "main--home" : ""}`}>
+					{children}
+				</main>
+			</ModalContextProvider>
+		</ShowsContextProvider>
 	);
 };
 export default Main;

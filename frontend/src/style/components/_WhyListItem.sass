@@ -1,0 +1,48 @@
+.whyListItem
+    height: 17vh
+    display: flex
+    flex-flow: column nowrap
+    gap: 3vh
+
+    &__itemHeading
+        display: flex
+        gap: 1rem
+        align-items: center
+
+    &__dot
+        width: 3vw
+        height: 3vw
+
+        &--red
+            background: #ff0178
+
+        &--purple
+            background: #8200aa
+
+        &--pink
+            background: #ce00b3
+
+        &--blue
+            background: #005864
+
+    &__itemTitle
+        @extend %h3
+        text-transform: uppercase
+
+    &__itemBody
+        @extend %tinyText
+        line-height: 2em
+
+    &__finalText
+        white-space: nowrap
+
+@media (max-width: 500px)
+    .whyListItem
+
+        &__itemTitle
+            font-size: 2rem
+
+@media (max-width: 60vh)
+    .whyListItem
+        &__itemTitle
+            font-size: 1.8rem

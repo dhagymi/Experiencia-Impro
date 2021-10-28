@@ -1,9 +1,28 @@
+import { useState, useEffect, memo } from "react";
+
+import { useShowsContext } from "../contexts/ShowsContext";
+import { useCarouselContext } from "../contexts/CarouselContext";
+
 import { getUsefulDate } from "../utils/auxFuntions";
 const ShowCard = ({ date, stock, place, city }) => {
 	const { day, month, year, hours, minutes } = getUsefulDate(date);
+	const { shows } = useShowsContext();
+	const { setPosition } = useCarouselContext();
+
+	const [slideStyle, setSlideStyle] = useState({
+		width: `${100 / shows?.length}%`,
+	});
+
+	useEffect(() => {
+		setSlideStyle({ width: `${100 / shows?.length}%` });
+		return () => {
+			setSlideStyle({});
+			setPosition(0);
+		};
+	}, [setPosition, shows?.length]);
 
 	return (
-		<div className="showCard">
+		<div className="showCard" style={slideStyle}>
 			<div className="showCard__mainInfo">
 				<div className="showCard__date">
 					<p className="showCard__dateItem">
@@ -24,4 +43,6 @@ const ShowCard = ({ date, stock, place, city }) => {
 		</div>
 	);
 };
-export default ShowCard;
+export default memo(ShowCard, (prevProps, newProps) => {
+	return prevProps.id === newProps.id;
+});
