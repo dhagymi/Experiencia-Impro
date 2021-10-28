@@ -1,7 +1,6 @@
 import { Router } from "express";
 
 import {
-	/* 	getShowDocRef, */
 	getShows,
 	getShowsContional,
 	updateShow,
@@ -10,7 +9,6 @@ import {
 const router = Router();
 
 router.get("/", getShows);
-/* router.get("/ref/:id", getShowDocRef); */
 router.post("/", getShowsContional);
 router.put("/:id", updateShow);
 
