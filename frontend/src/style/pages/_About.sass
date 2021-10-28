@@ -1,6 +1,6 @@
 .about
     display: flex
-    height: calc(100vh - 4.5vh - 2.2rem)
+    max-height: calc(100vh - 4.5vh - 2.2rem)
     overflow-x: hidden
     gap: 5vh
     flex-flow: column nowrap
@@ -22,21 +22,20 @@
         z-index: 2
 
     &__textContainer
-        grid-column: 3/13
+        grid-column: 3/11
         display: flex
         flex-flow: column nowrap
-        min-height: 50vmin
         gap: 2rem
 
     &__text
         @extend %tinyText
-        line-height: 2em
+        line-height: 1.7em
 
     &__finalText
         white-space: nowrap
 
     &__subtitle
-        @extend %h3
+        @include typography(Roboto, 2rem, bold, $white)
 
     &__background
         position: absolute
@@ -59,28 +58,7 @@
         object-fit: contain
         z-index: 1
 
-//@media (max-width: 100vh)
-//    .about
-//        &__backgroundImage
-//            min-height: 170vh
-//            &--line
-//                display: none
-//
-//@media (min-width: 150vh)
-//    .about
-//        &__background
-//            max-height: 100vh
-//            max-width: 80rem
-//            left: calc((100vw - 80rem )/2)
-//            border: solid 1px #05c5d31a
-//            box-sizing: border-box
-//
-//        &__backgroundImage
-//            left: 0
-//            max-height: 60vw
-//            min-width: 150vh
-//            object-fit: contain
-//
+// Background MQ
 
 @media (min-width: 110vh )
     .about
@@ -111,3 +89,35 @@
             &--desktop
                 object-fit: cover
                 width: 100vw
+
+// General MQ
+
+@media (max-width: 700px)
+    .about
+        padding: 0 20vw
+        &__title
+            font-size: 2.5rem
+        &__body
+            display: block
+        &__subtitle
+            &--desktop
+                display: none
+
+        &__text
+            &--desktop
+                display: none
+
+@media (min-width: 700px)
+    .about
+        &__body
+            &--mobile
+                display: none
+
+        &__title
+            &--mobile
+                display: none
+
+@media (min-height: 170vw)
+    .about
+        &__text
+            font-size: 1.2rem

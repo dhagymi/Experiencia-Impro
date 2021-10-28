@@ -18,8 +18,11 @@ const About = () => {
 							lúdicas y por supuesto, el público.
 						</span>
 					</p>
-					<h2 className="about__subtitle">EN EL 2018...TODO EMPEZABA</h2>
-					<p className="about__text">
+					<h2 className="about__subtitle about__subtitle--desktop">
+						EN EL 2018...{" "}
+						<span className="about__finalText">TODO EMPEZABA</span>
+					</h2>
+					<p className="about__text about__text--desktop">
 						Hola! Somos Mica y Mati, nos encanta la comedia, el teatro y
 						enseñar. Si bien somos oriundos de Buenos Aires, durante el año 2018
 						vivimos una temporada en el sur de Argentina. Durante ese tiempo
@@ -33,6 +36,22 @@ const About = () => {
 						una excelente{" "}
 						<span className="about__finalText">
 							recepción por parte de los alumnos.
+						</span>
+					</p>
+				</div>
+			</div>
+			<h2 className="about__title about__title--mobile">La escuela</h2>
+			<div className="about__body about__body--mobile">
+				<div className="about__textContainer">
+					<p className="about__text">
+						ola, somos Mica y Mati (argentinos) y en el 2018 surgió la primer
+						aparición de Experiencia Impro en la Patagonia Argentina ante la
+						falta de este tipo de espacios. Creemos que es fundamental expandir
+						la improvisación por cada lugar en el que vivimos y es por eso que
+						dimos inicio a las clases en Múnich en el año 2019, siendo la primer
+						escuela{" "}
+						<span className="about__finalText">
+							hispanohablante en la ciudad.
 						</span>
 					</p>
 				</div>
