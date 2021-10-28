@@ -49,34 +49,65 @@
 
     &__backgroundImage
         position: absolute
-        right: 0
-        top: 0
+        left: 50%
+        top: 50%
+        transform: translate(-50%,-50%)
         min-height: 100vh
         min-width: 100vw
-        object-fit: cover
+        height: 100vh
+        width: 100vw
+        object-fit: contain
         z-index: 1
 
-        &--icons
-            opacity: .5
+//@media (max-width: 100vh)
+//    .about
+//        &__backgroundImage
+//            min-height: 170vh
+//            &--line
+//                display: none
+//
+//@media (min-width: 150vh)
+//    .about
+//        &__background
+//            max-height: 100vh
+//            max-width: 80rem
+//            left: calc((100vw - 80rem )/2)
+//            border: solid 1px #05c5d31a
+//            box-sizing: border-box
+//
+//        &__backgroundImage
+//            left: 0
+//            max-height: 60vw
+//            min-width: 150vh
+//            object-fit: contain
+//
 
-@media (max-width: 100vh)
+@media (min-width: 110vh )
     .about
         &__backgroundImage
-            min-height: 170vh
-            &--line
+            &--tablet
+                display: none
+            &--mobile
+                display: none
+@media (min-width: 60vh) and (max-width: 110vh )
+    .about
+        &__backgroundImage
+            height: unset
+            &--desktop
+                display: none
+            &--mobile
+                display: none
+@media (max-width: 60vh )
+    .about
+        &__backgroundImage
+            &--desktop
+                display: none
+            &--tablet
                 display: none
 
-@media (min-width: 150vh)
+@media  (min-width: 175vh)
     .about
-        &__background
-            max-height: 100vh
-            max-width: 80rem
-            left: calc((100vw - 80rem )/2)
-            border: solid 1px #05c5d31a
-            box-sizing: border-box
-
         &__backgroundImage
-            left: 0
-            max-height: 60vw
-            min-width: 150vh
-            object-fit: contain
+            &--desktop
+                object-fit: cover
+                width: 100vw

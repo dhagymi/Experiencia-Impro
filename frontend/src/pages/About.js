@@ -1,6 +1,6 @@
-import map_image from "../assets/background/map.svg";
-import line_image from "../assets/background/line.svg";
-import icons_image from "../assets/background/icons.svg";
+import desktop_map_image from "../assets/background/desktop_map.svg";
+import tablet_map_image from "../assets/background/tablet_map.svg";
+import mobile_map_image from "../assets/background/mobile_map.svg";
 
 const About = () => {
 	return (
@@ -40,18 +40,18 @@ const About = () => {
 			<div className="about__background">
 				<img
 					alt="background-map"
-					src={map_image}
-					className="about__backgroundImage"
+					src={desktop_map_image}
+					className="about__backgroundImage about__backgroundImage--desktop"
 				/>
 				<img
-					alt="background-line"
-					src={line_image}
-					className="about__backgroundImage about__backgroundImage--line"
+					alt="background-map"
+					src={tablet_map_image}
+					className="about__backgroundImage about__backgroundImage--tablet"
 				/>
 				<img
-					alt="background-icons"
-					src={icons_image}
-					className="about__backgroundImage about__backgroundImage--icons"
+					alt="background-map"
+					src={mobile_map_image}
+					className="about__backgroundImage about__backgroundImage--mobile"
 				/>
 			</div>
 		</section>
