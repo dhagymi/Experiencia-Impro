@@ -10,7 +10,7 @@ import {
 import Message from "../components/Message";
 const Home = () => {
 	const [nextShow, setNextShow] = useState({});
-	const [isLoading, setIsLoading] = useState(false);
+	const [isLoading, setIsLoading] = useState(true);
 	const { setIsHome, setPageActive } = useHomeContext();
 
 	const titleOne = "Comedia en español -";
@@ -41,14 +41,18 @@ const Home = () => {
 
 				const { day, month, year } = getUsefulDate(date);
 
-				date
-					? setNextShow({ day, month, year, city })
-					: nextShowYear < new Date().getFullYear() + 2 &&
-					  getNextShow(
-							nextShowMonth === 12 ? 1 : nextShowMonth + 1,
-							nextShowMonth === 12 ? nextShowYear + 1 : nextShowYear
-					  );
-				setIsLoading(false);
+				if (date) {
+					setNextShow({ day, month, year, city });
+
+					setIsLoading(false);
+				} else {
+					nextShowYear < new Date().getFullYear() + 2
+						? getNextShow(
+								nextShowMonth === 12 ? 1 : nextShowMonth + 1,
+								nextShowMonth === 12 ? nextShowYear + 1 : nextShowYear
+						  )
+						: setIsLoading(false);
+				}
 			} catch (error) {
 				setIsLoading(false);
 				console.log(error);
