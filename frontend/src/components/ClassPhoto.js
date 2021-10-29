@@ -20,8 +20,8 @@ const ClassPhoto = ({ source, alternative, animationOptions }) => {
 
 				if (
 					mouseX <= x + offsetWidth * 1.2 &&
-					mouseX >= x &&
-					mouseY >= y &&
+					mouseX >= x - offsetWidth * 0.2 &&
+					mouseY >= y - offsetHeight * 0.2 &&
 					mouseY <= y + offsetHeight * 1.2
 				) {
 					setIsMouseOver(true);
