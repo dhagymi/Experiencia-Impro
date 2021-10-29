@@ -9,7 +9,7 @@ export const useHomeContext = () => {
 export const HomeContextProvider = ({ children }) => {
 	const [pageActive, setPageActive] = useState(1);
 	const [isHome, setIsHome] = useState(false);
-	const [mainReference, setMainReference] = useState(false);
+	const [homeMainReference, setHomeMainReference] = useState(false);
 	const [containerReference, setContainerReference] = useState(false);
 
 	return (
@@ -19,8 +19,8 @@ export const HomeContextProvider = ({ children }) => {
 				setIsHome,
 				pageActive,
 				setPageActive,
-				mainReference,
-				setMainReference,
+				homeMainReference,
+				setHomeMainReference,
 				containerReference,
 				setContainerReference,
 			}}

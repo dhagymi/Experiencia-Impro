@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import routes from "./utils/routes";
 
 import { HomeContextProvider } from "./contexts/HomeContext";
+import { ClassesContextProvider } from "./contexts/ClassesContext";
 import { MenuContextProvider } from "./contexts/MenuContext";
 
 function App() {
@@ -16,18 +17,20 @@ function App() {
 				<MenuContextProvider>
 					<Header />
 					<HomeContextProvider>
-						<Main>
-							{/* Se mapean todas las rutas traídas del fichero */}
-							<Switch>
-								{routes.map(({ component, path, exact }) => {
-									return (
-										<Route key={path} path={path} exact={exact}>
-											{component}
-										</Route>
-									);
-								})}
-							</Switch>
-						</Main>
+						<ClassesContextProvider>
+							<Main>
+								{/* Se mapean todas las rutas traídas del fichero */}
+								<Switch>
+									{routes.map(({ component, path, exact }) => {
+										return (
+											<Route key={path} path={path} exact={exact}>
+												{component}
+											</Route>
+										);
+									})}
+								</Switch>
+							</Main>
+						</ClassesContextProvider>
 					</HomeContextProvider>
 					<Footer />
 				</MenuContextProvider>
