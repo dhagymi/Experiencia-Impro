@@ -2,9 +2,9 @@ import { memo, useMemo } from "react";
 
 import ClassPhoto from "../components/ClassPhoto";
 
-import photo1 from "../assets/photos/photo (1).webp";
-import photo2 from "../assets/photos/photo (3).webp";
-import photo3 from "../assets/photos/photo (4).webp";
+import photo1 from "../assets/photos/class_photo_1.webp";
+import photo2 from "../assets/photos/class_photo_3.webp";
+import photo3 from "../assets/photos/class_photo_4.webp";
 
 const ClassesPhotos = () => {
 	const animationOptions1 = useMemo(() => {

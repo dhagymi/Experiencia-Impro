@@ -7,6 +7,7 @@ const ClassPhoto = ({
 	alternative,
 	animationOptions,
 	onlyHover = true,
+	hoverClass = "",
 }) => {
 	const [isMouseOver, setIsMouseOver] = useState(false);
 	const [photoElement, setPhotoElement] = useState(null);
@@ -42,7 +43,9 @@ const ClassPhoto = ({
 
 	return (
 		<img
-			className={`classPhoto ${isMouseOver ? "classPhoto--mouseover" : ""}`}
+			className={`classPhoto ${isMouseOver ? "classPhoto--mouseover" : ""} ${
+				hoverClass ? `classPhoto--${hoverClass}` : ""
+			}`}
 			ref={photoReference}
 			src={source}
 			alt={alternative}
