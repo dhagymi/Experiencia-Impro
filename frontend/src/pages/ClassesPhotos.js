@@ -3,6 +3,7 @@ import ClassPhoto from "../components/ClassPhoto";
 import useFloatingAnimation from "../hooks/useFloatingAnimation";
 
 import photo from "../assets/photos/photo.png";
+import { memo } from "react";
 const ClassesPhotos = () => {
 	const { style: style1 } = useFloatingAnimation({
 		angularPositionInitial: -20,
@@ -24,18 +25,18 @@ const ClassesPhotos = () => {
 	return (
 		<section className="classesPhotos">
 			<div className="classesPhotos__photosBody">
-				<div className="classesPhotos__photoContainer">
+				<figure className="classesPhotos__photoContainer">
 					<ClassPhoto source={photo} alternative="improv" style={style1} />
-				</div>
-				<div className="classesPhotos__photoContainer">
+				</figure>
+				<figure className="classesPhotos__photoContainer">
 					<ClassPhoto source={photo} alternative="improv" style={style2} />
-				</div>
-				<div className="classesPhotos__photoContainer">
+				</figure>
+				<figure className="classesPhotos__photoContainer">
 					<ClassPhoto source={photo} alternative="improv" style={style3} />
-				</div>
+				</figure>
 			</div>
 		</section>
 	);
 };
 
-export default ClassesPhotos;
+export default memo(ClassesPhotos);

@@ -23,9 +23,9 @@ const ClassesMain = () => {
 	});
 	return (
 		<section className="classesMain">
-			<div className="classesMain__imageContainer">
+			<figure className="classesMain__imageContainer">
 				<ClassPhoto alternative="ph" source={photo} style={style} />
-			</div>
+			</figure>
 			<div className="classesMain__body">
 				<h1 className="classesMain__title">Clases</h1>
 				<p className="classesMain__subtitle">Para actores y no actores</p>

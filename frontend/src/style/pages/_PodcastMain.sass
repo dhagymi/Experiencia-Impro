@@ -1,0 +1,28 @@
+.podcastMain
+    height: calc(100vh - 4.5vh - 2.2rem - 4rem)
+    padding: 2rem 0
+    align-content: center
+    z-index: 1
+    display: flex
+    flex-flow: column nowrap
+    justify-content: center
+    position: relative
+    gap: 4vh
+
+    &__title
+        @extend %h2
+        color: $lightBlue
+        text-transform: uppercase
+
+    &__mainText
+        @extend %tinyText
+        line-height: 2em
+
+    &__finalText
+        white-space: nowrap
+
+    &__subtitle
+        @include typography(Roboto, 2rem, normal, $lightBlue)
+
+    &__iframe
+        height: 30vh

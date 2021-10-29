@@ -23,7 +23,7 @@
         text-transform: uppercase
 
     &__subtitle
-        @include typography(Roboto, 2rem,bold,  $white)
+        @include typography(Roboto, 2rem, bold, $white)
         text-transform: uppercase
 
     &__hashtag
@@ -32,6 +32,9 @@
     &__mainText
         @extend %tinyText
         line-height: 2em
+
+    &__finalText
+        white-space: nowrap
 
     &__imageContainer
         position: absolute
