@@ -19,15 +19,14 @@ const Home = () => {
 	useEffect(() => {
 		setIsHome(true);
 		setIsLoading(true);
-		const getNextShow = async () => {
+		const getNextShow = async (nextShowMonth, nextShowYear) => {
 			try {
 				const { begin, finish } = getMonthBeginingAndFinishingDate(
-					new Date().getMonth() + 1
+					nextShowMonth,
+					nextShowYear
 				);
 
-				const {
-					data: [{ date, city }],
-				} = await axios.post("/api/shows", {
+				const response = await axios.post("/api/shows", {
 					where: [
 						{ field: "date", operator: ">=", value: begin },
 						{ field: "date", operator: "<", value: finish },
@@ -36,10 +35,19 @@ const Home = () => {
 					limit: 1,
 					orderBy: [{ field: "date" }],
 				});
+				const data = response?.data[0];
+				const date = data?.date || null;
+				const city = data?.city || null;
 
 				const { day, month, year } = getUsefulDate(date);
 
-				setNextShow({ day, month, year, city });
+				date
+					? setNextShow({ day, month, year, city })
+					: nextShowYear < new Date().getFullYear() + 2 &&
+					  getNextShow(
+							nextShowMonth === 12 ? 1 : nextShowMonth + 1,
+							nextShowMonth === 12 ? nextShowYear + 1 : nextShowYear
+					  );
 				setIsLoading(false);
 			} catch (error) {
 				setIsLoading(false);
@@ -47,7 +55,7 @@ const Home = () => {
 			}
 		};
 
-		getNextShow();
+		getNextShow(new Date().getMonth() + 1, new Date().getFullYear());
 
 		return () => {
 			setIsHome(false);
