@@ -27,6 +27,10 @@ const useScrollTransition = (
 			);
 		};
 		window.addEventListener("scroll", scrollWindowHandler);
+
+		return () => {
+			window.scrollTo(0, 0);
+		};
 	}, [containerReference, mainReference, screens, setPageActive]);
 };
 
