@@ -4,7 +4,7 @@ import ClassPhoto from "../components/ClassPhoto";
 
 import { useClassesContext } from "../contexts/ClassesContext";
 
-import photo from "../assets/photos/photo.png";
+import photo from "../assets/photos/photo (2).webp";
 
 const ClassesMain = () => {
 	const { setIsClasses } = useClassesContext();

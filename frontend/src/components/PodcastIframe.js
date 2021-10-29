@@ -9,7 +9,7 @@ const PodcastIframe = () => {
 			height="232"
 			frameBorder="0"
 			allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-			title="La paella podcast"
+			title="La paeya podcast"
 		></iframe>
 	);
 };

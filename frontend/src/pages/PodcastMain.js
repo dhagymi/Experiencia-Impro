@@ -16,7 +16,7 @@ const PodcastMain = () => {
 
 	return (
 		<section className="podcastMain">
-			<h1 className="podcastMain__title">La Paella Podcast</h1>
+			<h1 className="podcastMain__title">La Paeya Podcast</h1>
 			<p className="podcastMain__mainText">
 				Somos improvisación teatral en formato podcast. En cada episodio,
 				debatiremos temáticas de actualidad, analizaremos banalidades y

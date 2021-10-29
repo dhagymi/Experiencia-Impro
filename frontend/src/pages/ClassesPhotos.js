@@ -2,7 +2,10 @@ import { memo, useMemo } from "react";
 
 import ClassPhoto from "../components/ClassPhoto";
 
-import photo from "../assets/photos/photo.png";
+import photo1 from "../assets/photos/photo (1).webp";
+import photo2 from "../assets/photos/photo (3).webp";
+import photo3 from "../assets/photos/photo (4).webp";
+
 const ClassesPhotos = () => {
 	const animationOptions1 = useMemo(() => {
 		return {
@@ -33,21 +36,21 @@ const ClassesPhotos = () => {
 			<div className="classesPhotos__photosBody">
 				<figure className="classesPhotos__photoContainer">
 					<ClassPhoto
-						source={photo}
+						source={photo1}
 						alternative="improv"
 						animationOptions={animationOptions1}
 					/>
 				</figure>
 				<figure className="classesPhotos__photoContainer">
 					<ClassPhoto
-						source={photo}
+						source={photo2}
 						alternative="improv"
 						animationOptions={animationOptions2}
 					/>
 				</figure>
 				<figure className="classesPhotos__photoContainer">
 					<ClassPhoto
-						source={photo}
+						source={photo3}
 						alternative="improv"
 						animationOptions={animationOptions3}
 					/>
