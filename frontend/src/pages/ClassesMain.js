@@ -1,8 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 
 import ClassPhoto from "../components/ClassPhoto";
-
-import useFloatingAnimation from "../hooks/useFloatingAnimation";
 
 import { useClassesContext } from "../contexts/ClassesContext";
 
@@ -18,13 +16,18 @@ const ClassesMain = () => {
 		};
 	}, [setIsClasses]);
 
-	const { style } = useFloatingAnimation({
-		angularPositionInitial: -10,
-	});
+	const animationOptions = useMemo(() => {
+		return { angularPositionInitial: -10 };
+	}, []);
+
 	return (
 		<section className="classesMain">
 			<figure className="classesMain__imageContainer">
-				<ClassPhoto alternative="ph" source={photo} style={style} />
+				<ClassPhoto
+					alternative="ph"
+					source={photo}
+					animationOptions={animationOptions}
+				/>
 			</figure>
 			<div className="classesMain__body">
 				<h1 className="classesMain__title">Clases</h1>

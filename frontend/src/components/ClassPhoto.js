@@ -1,6 +1,8 @@
 import { useEffect, useState, useRef, memo } from "react";
 
-const ClassPhoto = ({ source, alternative, style }) => {
+import useFloatingAnimation from "../hooks/useFloatingAnimation";
+
+const ClassPhoto = ({ source, alternative, animationOptions }) => {
 	const [isMouseOver, setIsMouseOver] = useState(false);
 	const [photoElement, setPhotoElement] = useState(null);
 
@@ -29,13 +31,15 @@ const ClassPhoto = ({ source, alternative, style }) => {
 			});
 	}, [current, isMouseOver, photoElement]);
 
+	const { style } = useFloatingAnimation(animationOptions);
+
 	return (
 		<img
 			className={`classPhoto ${isMouseOver ? "classPhoto--mouseover" : ""}`}
 			ref={photoReference}
 			src={source}
 			alt={alternative}
-			style={{ ...style }}
+			style={style}
 		/>
 	);
 };

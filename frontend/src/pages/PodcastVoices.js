@@ -1,43 +1,62 @@
-import ClassPhoto from "../components/ClassPhoto";
+import { useMemo } from "react";
 
-import useFloatingAnimation from "../hooks/useFloatingAnimation";
+import ClassPhoto from "../components/ClassPhoto";
 
 import photo from "../assets/photos/photo.png";
 
 const PodcastVoices = () => {
-	const { style: style1 } = useFloatingAnimation({
-		maxDeltaDegAngularPos: 5,
-		linearPositionXInitial: -5,
-		linearPositionYInitial: -5,
-		maxDeltaPorcLinearPos: 5,
-	});
-	const { style: style2 } = useFloatingAnimation({
-		maxDeltaDegAngularPos: 5,
-		linearPositionXInitial: -5,
-		linearPositionYInitial: -5,
-		maxDeltaPorcLinearPos: 5,
-	});
-	const { style: style3 } = useFloatingAnimation({
-		maxDeltaDegAngularPos: 5,
-		linearPositionXInitial: -5,
-		linearPositionYInitial: -5,
-		maxDeltaPorcLinearPos: 5,
-	});
+	const animationOptions1 = useMemo(() => {
+		return {
+			maxDeltaDegAngularPos: 5,
+			linearPositionXInitial: -5,
+			linearPositionYInitial: -5,
+			maxDeltaPorcLinearPos: 5,
+		};
+	}, []);
+
+	const animationOptions2 = useMemo(() => {
+		return {
+			maxDeltaDegAngularPos: 5,
+			linearPositionXInitial: -5,
+			linearPositionYInitial: -5,
+			maxDeltaPorcLinearPos: 5,
+		};
+	}, []);
+	const animationOptions3 = useMemo(() => {
+		return {
+			maxDeltaDegAngularPos: 5,
+			linearPositionXInitial: -5,
+			linearPositionYInitial: -5,
+			maxDeltaPorcLinearPos: 5,
+		};
+	}, []);
 
 	return (
 		<section className="podcastVoices">
 			<h1 className="podcastVoices__title">Las voces</h1>
 			<div className="podcastVoices__body">
 				<figure className="podcastVoices__photoContainer">
-					<ClassPhoto alternative="mati" source={photo} style={style1} />
+					<ClassPhoto
+						alternative="mati"
+						source={photo}
+						animationOptions={animationOptions1}
+					/>
 					<p className="podcastVoices__photoText">mati</p>
 				</figure>
 				<figure className="podcastVoices__photoContainer">
-					<ClassPhoto alternative="sandra" source={photo} style={style2} />
+					<ClassPhoto
+						alternative="sandra"
+						source={photo}
+						animationOptions={animationOptions2}
+					/>
 					<p className="podcastVoices__photoText">sandra</p>
 				</figure>
 				<figure className="podcastVoices__photoContainer">
-					<ClassPhoto alternative="emi" source={photo} style={style3} />
+					<ClassPhoto
+						alternative="emi"
+						source={photo}
+						animationOptions={animationOptions3}
+					/>
 					<p className="podcastVoices__photoText">emi</p>
 				</figure>
 			</div>
