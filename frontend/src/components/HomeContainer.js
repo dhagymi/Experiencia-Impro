@@ -11,13 +11,13 @@ import useScrollTransition from "../hooks/useScrollTransition";
 const HomeContainer = () => {
 	const {
 		containerReference,
-		mainReference,
+		homeMainReference,
 		setPageActive,
 		setContainerReference,
 		pageActive,
 	} = useHomeContext();
 
-	useScrollTransition(setPageActive, containerReference, mainReference, 3);
+	useScrollTransition(setPageActive, containerReference, homeMainReference, 3);
 
 	const reference = useRef(null);
 

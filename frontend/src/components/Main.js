@@ -1,22 +1,38 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { ModalContextProvider } from "../contexts/ModalContext";
 import { ShowsContextProvider } from "../contexts/ShowsContext";
 import { useHomeContext } from "../contexts/HomeContext";
+import { useClassesContext } from "../contexts/ClassesContext";
 
 const Main = ({ children }) => {
-	const { isHome, setMainReference } = useHomeContext();
+	const [page, setPage] = useState("");
+
+	const { isHome, setHomeMainReference } = useHomeContext();
+	const { isClasses, setClassesMainReference } = useClassesContext();
 
 	const reference = useRef();
 
 	useEffect(() => {
-		setMainReference(reference.current);
-	}, [setMainReference]);
+		setHomeMainReference(reference.current);
+		setClassesMainReference(reference.current);
+	}, [setClassesMainReference, setHomeMainReference]);
+
+	useEffect(() => {
+		console.log("alo");
+		if (isHome) {
+			setPage("home");
+		} else if (isClasses) {
+			setPage("classes");
+		} else {
+			setPage("");
+		}
+	}, [isHome, isClasses]);
 
 	return (
 		<ShowsContextProvider>
 			<ModalContextProvider>
-				<main ref={reference} className={`main ${isHome ? "main--home" : ""}`}>
+				<main ref={reference} className={`main ${page ? `main--${page}` : ""}`}>
 					{children}
 				</main>
 			</ModalContextProvider>
