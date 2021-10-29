@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 
+import ClassPhoto from "../components/ClassPhoto";
+
 import useFloatingAnimation from "../hooks/useFloatingAnimation";
 
 import { useClassesContext } from "../contexts/ClassesContext";
 
-import image from "../assets/img.jpg";
+import photo from "../assets/photos/photo.png";
 
 const ClassesMain = () => {
 	const { setIsClasses } = useClassesContext();
@@ -17,20 +19,25 @@ const ClassesMain = () => {
 	}, [setIsClasses]);
 
 	const { style } = useFloatingAnimation({
-		maxDeltaDegAngularAccForCs: 0.002,
-		maxDeltaPorcLinearAccForCs: 0.002,
-		maxDeltaDegAngularVelForCs: 0.2,
-		maxDeltaPorcLinearVelForCs: 0.2,
-		maxDeltaDegAngularPos: 20,
-		maxDeltaPorcLinearPos: 20,
-		deltaTimeMs: 2000,
-		expCoeficient: 4,
-		angularPositionInitial: 30,
+		angularPositionInitial: -10,
 	});
 	return (
 		<section className="classesMain">
 			<div className="classesMain__imageContainer">
-				<img className="classesMain__image" alt="" src={image} style={style} />
+				<ClassPhoto alternative="ph" source={photo} style={style} />
+			</div>
+			<div className="classesMain__body">
+				<h1 className="classesMain__title">Clases</h1>
+				<p className="classesMain__subtitle">Para actores y no actores</p>
+				<p className="classesMain__hashtag">#noexperiencerequired</p>
+				<p className="classesMain__mainText">
+					No es necesario tener experiencia previa para participar y divertirse.
+					Nuestro objetivo es generar un espacio de integración entre personas
+					de diferentes nacionalidades, mediente la improvisación, la creación
+					de escenas, personajes y juegos. Los talleres tienen capacidad para 10
+					y 15 persona, se dictan una vez por semana y la duración de las{" "}
+					<span className="classesMain__finalText">clases es de 2 horas</span>
+				</p>
 			</div>
 		</section>
 	);

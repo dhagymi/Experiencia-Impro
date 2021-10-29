@@ -3,10 +3,37 @@
     padding: 2rem 0
     align-content: center
     z-index: 1
-    &__imageContainer
-        height: 50vh
-        max-width: 40vh
+    display: flex
+    flex-flow: row nowrap
+    justify-content: center
+    align-items: center
+    position: relative
 
-        img
-            object-fit: contain
-            width: 100%
+    &__body
+        position: relative
+        display: flex
+        flex-flow: column nowrap
+        justify-content: center
+        gap: 4vh
+        z-index: 2
+
+    &__title
+        @extend %h2
+        color: $lightBlue
+        text-transform: uppercase
+
+    &__subtitle
+        @include typography(Roboto, 2rem,bold,  $white)
+        text-transform: uppercase
+
+    &__hashtag
+        @include typography(Roboto, 1.2rem, normal, $lightBlue)
+
+    &__mainText
+        @extend %tinyText
+        line-height: 2em
+
+    &__imageContainer
+        position: absolute
+        max-width: 50%
+        right: 0
