@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 
+import PodcastIframe from "../components/PodcastIframe";
+
 import { usePodcastContext } from "../contexts/PodcastContext";
 
 const PodcastMain = () => {
@@ -26,15 +28,7 @@ const PodcastMain = () => {
 			<h2 className="podcastMain__subtitle">
 				Escuchá nuestros episodios en Spotify
 			</h2>
-			<iframe
-				src="https://open.spotify.com/embed/show/2G0HRZba65w6T9NDNScNK2?utm_source=generator&theme=0"
-				width="100%"
-				height="232"
-				frameBorder="0"
-				allowFullScreen=""
-				allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-				title="La paella podcast"
-			></iframe>
+			<PodcastIframe />
 		</section>
 	);
 };

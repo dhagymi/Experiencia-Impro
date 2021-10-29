@@ -1,28 +1,28 @@
 .podcastVoices
     height: calc(100vh - 4.5vh - 2.2rem - 4rem)
     padding: 2rem 0
-    align-content: center
+    align-items: center
     z-index: 1
     display: flex
     flex-flow: column nowrap
     justify-content: center
     position: relative
     gap: 7vh
+    width: 70vmax
 
     &__title
         @extend %h2
         color: $lightBlue
         text-transform: uppercase
+        width: 65vmax
 
     &__body
         display: flex
-        flex-wrap: wrap
-        justify-content: center
+        justify-content: space-between
         align-items: center
-        width: 120%
+        width: 100%
         min-height: 45vh
         gap: 10%
-        transform: translateX(-10%)
 
     &__photoContainer
         position: relative

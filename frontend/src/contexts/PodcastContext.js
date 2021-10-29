@@ -9,7 +9,7 @@ export const usePodcastContext = () => {
 export const PodcastContextProvider = ({ children }) => {
 	const [pageActive, setPageActive] = useState(1);
 	const [isPodcast, setIsPodcast] = useState(false);
-	const [classesMainReference, setPodcastMainReference] = useState(false);
+	const [podcastMainReference, setPodcastMainReference] = useState(false);
 	const [containerReference, setContainerReference] = useState(false);
 
 	return (
@@ -19,7 +19,7 @@ export const PodcastContextProvider = ({ children }) => {
 				setIsPodcast,
 				pageActive,
 				setPageActive,
-				classesMainReference,
+				podcastMainReference,
 				setPodcastMainReference,
 				containerReference,
 				setContainerReference,

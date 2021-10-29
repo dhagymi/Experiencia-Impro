@@ -10,7 +10,7 @@ import useScrollTransition from "../hooks/useScrollTransition";
 const PodcastContainer = () => {
 	const {
 		containerReference,
-		classesMainReference,
+		podcastMainReference,
 		setPageActive,
 		setContainerReference,
 		pageActive,
@@ -19,7 +19,7 @@ const PodcastContainer = () => {
 	useScrollTransition(
 		setPageActive,
 		containerReference,
-		classesMainReference,
+		podcastMainReference,
 		2
 	);
 
@@ -29,18 +29,18 @@ const PodcastContainer = () => {
 		setContainerReference(reference.current);
 	}, [setContainerReference]);
 	return (
-		<div className="classesContainer">
+		<div className="podcastContainer">
 			<div
-				className="classesContainer__pagesContainer"
+				className="podcastContainer__pagesContainer"
 				style={{ top: `-${(pageActive - 1) * 100}vh` }}
 			>
 				<div
 					ref={reference}
-					className="classesContainer__pages classesContainer__pages--1"
+					className="podcastContainer__pages podcastContainer__pages--1"
 				>
 					<PodcastMain />
 				</div>
-				<div className="classesContainer__pages classesContainer__pages--2">
+				<div className="podcastContainer__pages podcastContainer__pages--2">
 					<PodcastVoices />
 				</div>
 			</div>
