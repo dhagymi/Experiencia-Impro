@@ -27,6 +27,7 @@ const ClassesMain = () => {
 					alternative="ph"
 					source={photo}
 					animationOptions={animationOptions}
+					onlyHover={false}
 				/>
 			</figure>
 			<div className="classesMain__body">
