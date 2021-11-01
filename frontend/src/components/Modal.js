@@ -94,10 +94,14 @@ const Modal = () => {
 		try {
 			const getShows = async () => {
 				const { data } = await axios.post("/api/shows", {
-					where: [{ field: "stock", operator: ">", value: 0 }],
+					where: [{ field: "date", operator: ">=", value: new Date() }],
 				});
 
-				setShows(data);
+				console.log(data);
+				const finalData = data.filter((show) => show.stock);
+				console.log(finalData);
+
+				setShows(finalData);
 			};
 
 			getShows();
