@@ -49,11 +49,46 @@
         text-transform: uppercase
         line-height: 2vh
         height: 2vh
+        &--desktop
+            display: block
+        &--mobile
+            white-space: nowrap
+            display: none
 
 @media (max-width: 500px)
     .showCard
+        height: 100%
+        &__date
+            justify-content: space-evenly
+            max-width: 40%
         &__stock
+            flex-direction: column
+            justify-content: space-evenly
+            max-width: 55%
+            &:before
+                height: 85%
+
             &Number
-                font-size: 5rem
+                font-size: 4rem
+                text-align: left
+                width: 45%
+                line-height: 1em
             &Text
-                font-size: 1.8rem
+                font-size: 1rem
+                text-align: left
+                width: 45%
+
+        &__mainInfo
+            height: 20vmin
+
+        &__dateItem
+            font-size: 1.2rem
+
+        &__place
+            text-overflow: ellipsis
+            overflow: hidden
+            font-size: .9rem
+            &--desktop
+                display: none
+            &--mobile
+                display: block

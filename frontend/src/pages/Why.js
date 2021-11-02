@@ -4,7 +4,7 @@ const Why = () => {
 	return (
 		<section className="why">
 			<div className="why__titleContainer">
-				<h1 className="why__title">Por qué Impro</h1>
+				<h2 className="why__title">Por qué Impro</h2>
 			</div>
 			<div className="why__listContainer">
 				<ul className="why__list">

@@ -22,3 +22,17 @@
 
     &__subtitle
         @include typography(Roboto, 2rem, normal, $lightBlue)
+@media ( max-width: 1100px ) and (min-width: 700px)
+    .podcastMain
+        &__mainText
+            font-size: 1.5rem
+
+@media ( max-width: 1100px ) and (min-width: 1000px) and (min-width: 100vh)
+    .podcastMain
+        &__mainText
+            font-size: 1.4rem
+
+@media (max-width: 500px)
+    .podcastMain
+        &__title
+            font-size: 4rem

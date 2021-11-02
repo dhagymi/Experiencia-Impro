@@ -4,6 +4,8 @@ import ClassPhoto from "../components/ClassPhoto";
 
 import { useClassesContext } from "../contexts/ClassesContext";
 
+import useSEO from "../hooks/useSEO";
+
 import photo from "../assets/photos/class_photo_2.webp";
 
 const ClassesMain = () => {
@@ -15,6 +17,8 @@ const ClassesMain = () => {
 			setIsClasses(false);
 		};
 	}, [setIsClasses]);
+
+	useSEO({ title: "Clases" });
 
 	const animationOptions = useMemo(() => {
 		return { angularPositionInitial: -10 };
@@ -43,6 +47,14 @@ const ClassesMain = () => {
 					<span className="classesMain__finalText">clases es de 2 horas</span>
 				</p>
 			</div>
+			<p
+				className="classesMain__toDownLink"
+				onClick={() => {
+					window.scrollTo(0, 3000);
+				}}
+			>
+				+fotos
+			</p>
 		</section>
 	);
 };

@@ -13,5 +13,13 @@
         align-items: center
 
     &__photoContainer
-        max-width: 28rem
+        max-width: 45%
         object-fit: contain
+
+@media  (max-width: 100vh)
+    .classesPhotos
+        &__photosBody
+            flex-flow: column nowrap
+
+        &__photoContainer
+            max-width: 70%

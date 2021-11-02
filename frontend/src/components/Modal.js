@@ -97,9 +97,7 @@ const Modal = () => {
 					where: [{ field: "date", operator: ">=", value: new Date() }],
 				});
 
-				console.log(data);
 				const finalData = data.filter((show) => show.stock);
-				console.log(finalData);
 
 				setShows(finalData);
 			};

@@ -35,8 +35,13 @@ const PodcastVoices = () => {
 
 	return (
 		<section className="podcastVoices">
-			<h1 className="podcastVoices__title">Las voces</h1>
+			<h2 className="podcastVoices__title podcastVoices__title--desktop">
+				Las voces
+			</h2>
 			<div className="podcastVoices__body">
+				<h2 className="podcastVoices__title podcastVoices__title--mobile">
+					Las voces
+				</h2>
 				<figure className="podcastVoices__photoContainer">
 					<ClassPhoto
 						alternative="mati"

@@ -4,6 +4,8 @@ import PodcastIframe from "../components/PodcastIframe";
 
 import { usePodcastContext } from "../contexts/PodcastContext";
 
+import useSEO from "../hooks/useSEO";
+
 const PodcastMain = () => {
 	const { setIsPodcast } = usePodcastContext();
 	useEffect(() => {
@@ -13,6 +15,8 @@ const PodcastMain = () => {
 			setIsPodcast(false);
 		};
 	}, [setIsPodcast]);
+
+	useSEO({ title: "Podcast" });
 
 	return (
 		<section className="podcastMain">

@@ -5,7 +5,7 @@ import mobile_map_image from "../assets/background/mobile_map.svg";
 const About = () => {
 	return (
 		<section className="about">
-			<h1 className="about__title">¿De qué se trata?</h1>
+			<h2 className="about__title">¿De qué se trata?</h2>
 			<div className="about__body">
 				<div className="about__textContainer">
 					<p className="about__text">
@@ -18,10 +18,10 @@ const About = () => {
 							lúdicas y por supuesto, el público.
 						</span>
 					</p>
-					<h2 className="about__subtitle about__subtitle--desktop">
+					<h3 className="about__subtitle about__subtitle--desktop">
 						EN EL 2018...{" "}
 						<span className="about__finalText">TODO EMPEZABA</span>
-					</h2>
+					</h3>
 					<p className="about__text about__text--desktop">
 						Hola! Somos Mica y Mati, nos encanta la comedia, el teatro y
 						enseñar. Si bien somos oriundos de Buenos Aires, durante el año 2018

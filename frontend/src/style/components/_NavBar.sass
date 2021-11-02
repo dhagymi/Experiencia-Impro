@@ -40,28 +40,40 @@
             background-size: 100% .15rem
             background-position: 50% 100%
 
+    &__arrow
+        display: none
+    &__extraText
+        display: none
+
 @media (max-width: 780px)
     .navbar
         display: none
+        background: $background
         position: fixed
         top: calc(4.4rem + 4.5vh)
         left: 0
         width: 100%
+        min-width: 100%
         height: calc(100vh - 4.5vh - 4.4rem )
         transition: opacity .3s
         opacity: 0
         z-index: 0
+        justify-content: center
+        flex-direction: column
+        align-items: center
 
         &--init
             display: block
+            display: flex
 
         &--open
-            display: block
+            display: flex
             opacity: 1
             z-index: 5
 
         &--closing
             display: block
+            display: flex
             opacity: 0
             z-index: 5
 
@@ -69,36 +81,58 @@
             display: flex
             background: $background
             flex-direction: column
-            justify-content: space-evenly
-            padding: 0 1rem 0 0
-            width: 100%
+            justify-content: center
+            width: 80%
             height: 100%
             position: relative
+            margin-bottom: 2.2rem
 
             &Item
                 width: 100%
+                height: 12%
+                justify-content: flex-start
                 &:active
-                    background: $black
+                    background: $background
 
         &__link
             width: 100%
             position: relative
+            height: 80%
+            display: flex
+            text-align: left
+            justify-content: flex-start
             &:hover
                 background: none
+                color: $lightBlue
 
+                & .navbar
+                    &__arrow
+                        display: inline
+                        height: 50%
+                    &__extraText
+                        display: inline
+                        @include typography(Roboto, 2rem, normal, $grey)
+                        text-transform: uppercase
             &:focus-visible
                 outline: none
             &:link
-                @include typography(Roboto, 2.2rem, normal, $white)
-                text-align: center
+                @include typography(Roboto, 3.6rem, bold, $white)
 
             &:visited
-                @include typography(Roboto, 2.2rem, normal, $white)
+                @include typography(Roboto, 3.3rem, bold, $white)
 
             &--active
                 background: none
                 &:link
-                    font-size: 2.6rem
-
+                    color: $lightBlue
                 &:visited
-                    font-size: 2.6rem
+                    color: $lightBlue
+
+                & .navbar
+                    &__arrow
+                        display: inline
+                        height: 50%
+                    &__extraText
+                        display: inline
+                        @include typography(Roboto, 2rem, normal, $grey)
+                        text-transform: uppercase

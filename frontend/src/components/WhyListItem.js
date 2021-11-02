@@ -12,8 +12,8 @@ const WhyListItem = ({ dotClassModifier }) => {
 				<p className="whyListItem__itemTitle">Creatividad</p>
 			</div>
 			<p className="whyListItem__itemBody">
-				Es una disciplina ligada al teatro pero con un carácter principalmente{" "}
-				<span className="whyListItem__finalText">cómico en dónde los</span>
+				Es una disciplina ligada al teatro pero con un{" "}
+				<span className="whyListItem__finalText">carácter principalmente</span>
 			</p>
 		</li>
 	);

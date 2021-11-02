@@ -38,11 +38,20 @@
     &__finalText
         white-space: nowrap
 
+@media (min-width: 500px) and (max-width: 800px)
+    .whyListItem
+
+        &__itemBody
+            font-size: 1.2rem
+
 @media (max-width: 500px)
     .whyListItem
 
         &__itemTitle
             font-size: 2rem
+        &__itemBody
+            font-size: 1.2rem
+            line-height: 1.4em
 
 @media (max-width: 60vh)
     .whyListItem

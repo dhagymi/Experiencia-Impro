@@ -8,17 +8,22 @@
     justify-content: center
     position: relative
     gap: 7vh
-    width: 70vmax
+    width: 65vmax
 
     &__title
         @extend %h2
         color: $lightBlue
         text-transform: uppercase
-        width: 65vmax
+        min-width: 60vmax
+        max-width: 100%
+        &--mobile
+            display: none
+        &--desktop
+            display: block
 
     &__body
         display: flex
-        justify-content: space-between
+        justify-content: space-evenly
         align-items: center
         width: 100%
         min-height: 45vh
@@ -41,3 +46,55 @@
         left: 10%
         bottom: 10%
         z-index: 6
+
+@media  (max-width: 100vh)
+    .podcastVoices
+        &__body
+            height: 90%
+            width: 90%
+            column-count: 2
+            column-gap: 14%
+            display: inline-block
+            justify-items: center
+
+        &__photoContainer
+            margin-top: 30%
+            min-height: 40%
+            max-height: 40%
+            width: 100%
+
+        &__title
+            &--mobile
+                display: inline-block
+                max-width: 100%
+                min-width: unset
+
+            &--desktop
+                display: none
+
+@media (min-width: 1000px) and (max-width: 1300px) and (min-width: 100vh)
+    .podcastVoices
+        &__body
+            min-height: unset
+            height: unset
+
+        &__photoContainer
+            height: 20rem
+            width: unset
+@media (min-width: 1000px) and (max-width: 1300px) and (max-width: 100vh)
+    .podcastVoices
+        &__title
+            &--mobile
+                margin-bottom: 30%
+@media (max-width: 500px)
+    .podcastVoices
+        &__title
+            font-size: 4rem
+            margin-bottom: 0
+        &__body
+            column-gap: 4%
+            height: 70%
+        &__photoContainer
+            margin-top: 6%
+            min-height: 44%
+            max-height: 44%

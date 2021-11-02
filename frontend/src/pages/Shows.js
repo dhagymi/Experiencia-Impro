@@ -3,8 +3,12 @@ import ShowsBody from "../components/ShowsBody";
 
 import { useModalContext } from "../contexts/ModalContext";
 
+import useSEO from "../hooks/useSEO";
+
 const Shows = () => {
 	const { isModalVisible } = useModalContext();
+
+	useSEO({ title: "Shows" });
 
 	return (
 		<section className="shows">
