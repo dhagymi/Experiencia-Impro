@@ -7,6 +7,8 @@ import { useModalContext } from "../contexts/ModalContext";
 
 import { createOrderEmailTemplate } from "../utils/auxFuntions";
 
+import cross from "../assets/icons/cross.svg";
+
 const Modal = () => {
 	const [shows, setShows] = useState([]);
 	const [currentShow, setCurrentShow] = useState("");
@@ -207,6 +209,12 @@ const Modal = () => {
 						Finalizar reserva
 					</button>
 				</fieldset>
+				<button
+					className="modal__closeButton"
+					onClick={() => toggleIsModalVisible()}
+				>
+					<img alt="cerrar" src={cross} className="modal__closeIcon" />
+				</button>
 			</form>
 		</div>
 	);
