@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
+import Cursor from "./components/Cursor";
 
 import routes from "./utils/routes";
 
@@ -15,6 +16,7 @@ function App() {
 	return (
 		<Router>
 			<div className="App">
+				<Cursor />
 				<MenuContextProvider>
 					<Header />
 					<HomeContextProvider>
