@@ -61,6 +61,13 @@
         gap: 1rem
         @extend %tinyText
 
+    &__copyright
+        @include typography(Roboto, .7rem, normal,  $white)
+        position: absolute
+        right: 2vmin
+        bottom: 2vmin
+        text-align: center
+
 @media (max-width: 100vh)
     .footer
         min-height: 25vh
@@ -133,6 +140,14 @@
 
         &__button
             display: none
+
+        &__copyright
+            @include typography(Roboto, .7rem, normal,  $white)
+            position: absolute
+            width: 100%
+            right: 0
+            bottom: 3vmin
+            text-align: center
 
 @media (max-width: 100vh) and (min-width: 1000px) and (max-width: 1300px)
     .footer

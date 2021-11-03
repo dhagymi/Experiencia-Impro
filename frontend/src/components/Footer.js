@@ -79,6 +79,9 @@ const Footer = () => {
 					</ul>
 				</div>
 			</div>
+			<p className="footer__copyright">
+				© 2021 Copyright Design: Micaela Zayas - Develop: Agustín Andreacchi
+			</p>
 		</footer>
 	);
 };
