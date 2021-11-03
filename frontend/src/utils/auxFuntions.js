@@ -1,13 +1,16 @@
 /* Get begining and finishing date of current month */
-export const getMonthBeginingAndFinishingDate = (month) => {
+export const getMonthBeginingAndFinishingDate = (month, year) => {
 	const date = new Date();
 	const currentMonth = date.getMonth();
 
-	const year =
-		month < currentMonth + 1 ? date.getFullYear() + 1 : date.getFullYear();
-	const monthBegining = new Date(year, month - 1, 1, 0, 0);
+	const currentYear = year
+		? year
+		: month < currentMonth + 1
+		? date.getFullYear() + 1
+		: date.getFullYear();
+	const monthBegining = new Date(currentYear, month - 1, 1, 0, 0);
 	const monthFinishing = new Date(
-		month === 12 ? year + 1 : year,
+		month === 12 ? currentYear + 1 : currentYear,
 		month === 12 ? 0 : month,
 		1,
 		0,

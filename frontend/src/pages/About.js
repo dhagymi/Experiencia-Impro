@@ -1,11 +1,11 @@
-import map_image from "../assets/background/map.svg";
-import line_image from "../assets/background/line.svg";
-import icons_image from "../assets/background/icons.svg";
+import desktop_map_image from "../assets/background/desktop_map.svg";
+import tablet_map_image from "../assets/background/tablet_map.svg";
+import mobile_map_image from "../assets/background/mobile_map.svg";
 
 const About = () => {
 	return (
 		<section className="about">
-			<h1 className="about__title">De qué se trata?</h1>
+			<h2 className="about__title">¿De qué se trata?</h2>
 			<div className="about__body">
 				<div className="about__textContainer">
 					<p className="about__text">
@@ -18,8 +18,11 @@ const About = () => {
 							lúdicas y por supuesto, el público.
 						</span>
 					</p>
-					<h2 className="about__subtitle">EN EL 2018...TODO EMPEZABA</h2>
-					<p className="about__text">
+					<h3 className="about__subtitle about__subtitle--desktop">
+						EN EL 2018...{" "}
+						<span className="about__finalText">TODO EMPEZABA</span>
+					</h3>
+					<p className="about__text about__text--desktop">
 						Hola! Somos Mica y Mati, nos encanta la comedia, el teatro y
 						enseñar. Si bien somos oriundos de Buenos Aires, durante el año 2018
 						vivimos una temporada en el sur de Argentina. Durante ese tiempo
@@ -37,21 +40,37 @@ const About = () => {
 					</p>
 				</div>
 			</div>
+			<h2 className="about__title about__title--mobile">La escuela</h2>
+			<div className="about__body about__body--mobile">
+				<div className="about__textContainer">
+					<p className="about__text">
+						ola, somos Mica y Mati (argentinos) y en el 2018 surgió la primer
+						aparición de Experiencia Impro en la Patagonia Argentina ante la
+						falta de este tipo de espacios. Creemos que es fundamental expandir
+						la improvisación por cada lugar en el que vivimos y es por eso que
+						dimos inicio a las clases en Múnich en el año 2019, siendo la primer
+						escuela{" "}
+						<span className="about__finalText">
+							hispanohablante en la ciudad.
+						</span>
+					</p>
+				</div>
+			</div>
 			<div className="about__background">
 				<img
 					alt="background-map"
-					src={map_image}
-					className="about__backgroundImage"
+					src={desktop_map_image}
+					className="about__backgroundImage about__backgroundImage--desktop"
 				/>
 				<img
-					alt="background-line"
-					src={line_image}
-					className="about__backgroundImage about__backgroundImage--line"
+					alt="background-map"
+					src={tablet_map_image}
+					className="about__backgroundImage about__backgroundImage--tablet"
 				/>
 				<img
-					alt="background-icons"
-					src={icons_image}
-					className="about__backgroundImage about__backgroundImage--icons"
+					alt="background-map"
+					src={mobile_map_image}
+					className="about__backgroundImage about__backgroundImage--mobile"
 				/>
 			</div>
 		</section>

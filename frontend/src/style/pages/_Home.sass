@@ -71,6 +71,25 @@
             flex-flow: column nowrap
             justify-content: center
             gap: 1rem
+            align-items: center
+
+@media ( min-width: 700px ) and ( max-width: 900px )
+    .home
+        &__title
+            font-size: 6rem
+            grid-column: 1/9
+
+        &__nextShowInfo
+            grid-column: 9/13
+
+        &__nextShowText
+            font-size: 1.4rem
+            gap: .8rem
+
+@media  ( max-width: 700px )
+    .home
+        &__title
+            font-size: 5.5rem
 
 @keyframes translateToLeft
     0%

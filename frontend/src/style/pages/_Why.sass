@@ -38,6 +38,7 @@
             right: -5vmax
 
     &__titleContainer
+        position: relative
         height: 90%
         grid-column: 1/7
         display: flex
@@ -65,4 +66,10 @@
 @media (max-width: 500px)
     .why
         &__mark
-            font-size: 50rem
+            font-size: 45rem
+        &__title
+            font-size: 4rem
+        &__titleContainer
+            grid-column: 1/7
+        &__listContainer
+            grid-column: 7/13

@@ -1,0 +1,27 @@
+.cursor
+    position: absolute
+    border-radius: 50%
+    height: 1.5rem
+    width: 1.5rem
+    border: solid 2px $blue
+    background: transparent
+    transform: translate(-50%,-50%)
+    z-index: 7
+    pointer-events: none
+
+    &__innerCircle
+        position: absolute
+        border-radius: 50%
+        height: .3rem
+        width: .3rem
+        background: $blue
+        transform: translate(-50%,-50%)
+        z-index: 7
+        pointer-events: none
+
+@media (pointer: coarse)
+    .cursor
+        display: none
+
+        &__innerCircle
+            display: none

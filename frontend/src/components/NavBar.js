@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 
 import { useMenuContext } from "../contexts/MenuContext";
 
+import arrow from "../assets/icons/navbar_arrow.svg";
+
 const NavBar = () => {
 	const { navBarClassActive, setNavBarClassActive, setOpen, open } =
 		useMenuContext();
@@ -16,17 +18,22 @@ const NavBar = () => {
 	}, [open, setNavBarClassActive, setOpen]);
 
 	const links = [
-		{ to: "/", exact: true, innerText: "Home" },
-		{ to: "/classes", exact: true, innerText: "Clases" },
-		{ to: "/podcast", exact: true, innerText: "Podcast" },
-		{ to: "/shows", exact: true, innerText: "Shows" },
-		{ to: "/contact", exact: true, innerText: "Contacto" },
+		{ to: "/", exact: true, innerText: "Home", extraText: "Conocenos" },
+		{ to: "/classes", exact: true, innerText: "Clases", extraText: "Anotate" },
+		{
+			to: "/podcast",
+			exact: true,
+			innerText: "Podcast",
+			extraText: "Escuchanos",
+		},
+		{ to: "/shows", exact: true, innerText: "Shows", extraText: "Tickets" },
+		{ to: "/contact", exact: true, innerText: "Contacto", extraText: "+Info" },
 	];
 
 	return (
 		<nav className={`navbar ${navBarClassActive}`}>
 			<ul className="navbar__list">
-				{links.map(({ to, exact, innerText }) => {
+				{links.map(({ to, exact, innerText, extraText }) => {
 					return (
 						<li className="navbar__listItem" key={to}>
 							<NavLink
@@ -37,6 +44,8 @@ const NavBar = () => {
 								exact={exact}
 							>
 								{innerText}
+								<img alt="navegar" src={arrow} className="navbar__arrow" />
+								<span className="navbar__extraText">{extraText}</span>
 							</NavLink>
 						</li>
 					);

@@ -7,6 +7,8 @@ import { useModalContext } from "../contexts/ModalContext";
 
 import { createOrderEmailTemplate } from "../utils/auxFuntions";
 
+import cross from "../assets/icons/cross.svg";
+
 const Modal = () => {
 	const [shows, setShows] = useState([]);
 	const [currentShow, setCurrentShow] = useState("");
@@ -94,10 +96,12 @@ const Modal = () => {
 		try {
 			const getShows = async () => {
 				const { data } = await axios.post("/api/shows", {
-					where: [{ field: "stock", operator: ">", value: 0 }],
+					where: [{ field: "date", operator: ">=", value: new Date() }],
 				});
 
-				setShows(data);
+				const finalData = data.filter((show) => show.stock);
+
+				setShows(finalData);
 			};
 
 			getShows();
@@ -205,6 +209,12 @@ const Modal = () => {
 						Finalizar reserva
 					</button>
 				</fieldset>
+				<button
+					className="modal__closeButton"
+					onClick={() => toggleIsModalVisible()}
+				>
+					<img alt="cerrar" src={cross} className="modal__closeIcon" />
+				</button>
 			</form>
 		</div>
 	);

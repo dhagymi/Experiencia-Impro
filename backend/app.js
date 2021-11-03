@@ -22,7 +22,8 @@ app.use(morgan("dev"));
 app.use(compression());
 
 // Public
-app.use(express.static(resolve(__dirname, "../frontend/build")));
+app.use("/", express.static(resolve(__dirname, "../frontend/build")));
+app.use("/*", express.static(resolve(__dirname, "../frontend/build")));
 
 // Routes
 app.use("/api", router);

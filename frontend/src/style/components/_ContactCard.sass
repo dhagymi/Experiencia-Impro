@@ -1,9 +1,9 @@
 .contactCard
     grid-column: 1/7
-    background: $white
+    background: $blue
     display: flex
     flex-flow: column nowrap
-    justify-content: center
+    justify-content: space-evenly
     align-items: center
     gap: 2vmin
     margin-right: 4.11vw
@@ -18,7 +18,7 @@
 
     &__title
         @extend %h3
-        color: $black
+        color: $white
         margin-bottom: 5%
         width: 80%
 
@@ -30,7 +30,7 @@
 
     &__info
         @extend %text
-        color: $black
+        color: $white
 
     &__dots
         display: flex
@@ -46,6 +46,10 @@
         border-radius: 50%
         background: $lightBlue
 
-@media ( min-height: 60vw )
+@media ( max-width: 160vh )
+    .contactCard
+        margin-right: 1.38vw
+
+@media ( max-width: 65vh )
     .contactCard
         margin-right: 0

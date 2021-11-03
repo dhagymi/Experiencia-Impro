@@ -3,8 +3,8 @@
     flex-flow: column nowrap
     justify-content: center
     gap: 6vh
-    height: calc(100vh - 4.5vh - 2.2rem - 4rem)
-    padding: 2rem 0
+    min-height: calc(100vh - 4.5vh - 2.2rem - 4rem)
+    padding: 0
     &__title
         @extend %h2
         text-transform: uppercase
@@ -16,8 +16,20 @@
         grid-template-columns: repeat(12, 1fr)
         gap: 1.7%
 
-@media ( min-height: 60vw )
+@media  (max-width: 850px)
     .contact
+        padding: 2rem 0
+
+@media ( max-width: 160vh )
+    .contact
+        gap: 5vh
+
+        &__body
+            gap: 5vh
+
+@media ( max-width: 65vh )
+    .contact
+        padding: 2rem 8vw
         gap: 5vh
         min-height: calc(100vh - 4.5vh - 2.2rem)
         height: unset
@@ -26,3 +38,8 @@
             display: flex
             flex-flow: column nowrap
             gap: 5vh
+
+@media (max-width: 500px)
+    .contact
+        &__title
+            font-size: 4rem

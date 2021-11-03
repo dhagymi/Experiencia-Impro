@@ -1,7 +1,7 @@
 const ContactCard = () => {
 	return (
 		<div className="contactCard">
-			<h2 className="contactCard__title">En qué podemos ayudarte?</h2>
+			<h2 className="contactCard__title">¿En qué podemos ayudarte?</h2>
 			<div className="contactCard__infoContainer">
 				<h3 className="contactCard__subtitle">WhatsApp</h3>
 				<p className="contactCard__info">1234567890</p>

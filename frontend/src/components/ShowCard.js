@@ -31,13 +31,15 @@ const ShowCard = ({ date, stock, place, city }) => {
 					<p className="showCard__dateItem">
 						{hours}:{minutes} hs.
 					</p>
+					<p className="showCard__place showCard__place--mobile">{place}</p>
+					<p className="showCard__place showCard__place--mobile">{city}</p>
 				</div>
 				<div className="showCard__stock">
 					<p className="showCard__stockNumber">{stock}</p>
 					<p className="showCard__stockText">Entradas disponibles</p>
 				</div>
 			</div>
-			<p className="showCard__place">
+			<p className="showCard__place showCard__place--desktop">
 				{place} - {city}
 			</p>
 		</div>

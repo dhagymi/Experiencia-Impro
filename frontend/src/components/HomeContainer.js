@@ -6,49 +6,18 @@ import About from "../pages/About";
 
 import { useHomeContext } from "../contexts/HomeContext";
 
+import useScrollTransition from "../hooks/useScrollTransition";
+
 const HomeContainer = () => {
 	const {
 		containerReference,
-		mainReference,
+		homeMainReference,
 		setPageActive,
 		setContainerReference,
 		pageActive,
 	} = useHomeContext();
 
-	useEffect(() => {
-		const addScrollListener = () => {
-			const scrollWindowHandler = () => {
-				const distanceMainToViewportTop = mainReference
-					? -mainReference.getBoundingClientRect().top
-					: 0;
-
-				const viewportHeight = containerReference
-					? containerReference.offsetHeight
-					: 0;
-
-				switch (
-					viewportHeight &&
-					(distanceMainToViewportTop / (viewportHeight / 4)).toFixed(0)
-				) {
-					case "0":
-						setPageActive(1);
-						break;
-					case "1":
-						setPageActive(2);
-						break;
-					case "2":
-						setPageActive(3);
-						break;
-					default:
-						break;
-				}
-			};
-
-			window.addEventListener("scroll", scrollWindowHandler);
-		};
-
-		addScrollListener();
-	}, [containerReference, mainReference, setPageActive]);
+	useScrollTransition(setPageActive, containerReference, homeMainReference, 3);
 
 	const reference = useRef(null);
 
