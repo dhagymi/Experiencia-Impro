@@ -16,25 +16,31 @@
         justify-content: center
         gap: 4vh
         z-index: 2
+        pointer-events: none
 
     &__title
         @extend %h2
         color: $lightBlue
         text-transform: uppercase
+        pointer-events: none
 
     &__subtitle
         @include typography(Roboto, 2rem, bold, $white)
         text-transform: uppercase
+        pointer-events: none
 
     &__hashtag
         @include typography(Roboto, 1.2rem, normal, $lightBlue)
+        pointer-events: none
 
     &__mainText
         @extend %tinyText
         line-height: 2em
+        pointer-events: none
 
     &__finalText
         white-space: nowrap
+        pointer-events: none
 
     &__toDownLink
         position: absolute
