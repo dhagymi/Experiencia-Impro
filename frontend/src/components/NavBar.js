@@ -19,7 +19,7 @@ const NavBar = () => {
 
 	const links = [
 		{ to: "/", exact: true, innerText: "Home", extraText: "Conocenos" },
-		{ to: "/classes", exact: true, innerText: "Clases", extraText: "Anotate" },
+		{ to: "/clases", exact: true, innerText: "Clases", extraText: "Anotate" },
 		{
 			to: "/podcast",
 			exact: true,
@@ -27,7 +27,7 @@ const NavBar = () => {
 			extraText: "Escuchanos",
 		},
 		{ to: "/shows", exact: true, innerText: "Shows", extraText: "Tickets" },
-		{ to: "/contact", exact: true, innerText: "Contacto", extraText: "+Info" },
+		{ to: "/contacto", exact: true, innerText: "Contacto", extraText: "+Info" },
 	];
 
 	return (

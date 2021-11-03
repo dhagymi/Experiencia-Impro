@@ -20,11 +20,11 @@ const PodcastIframe = () => {
 		<div className="podcastIframe">
 			<iframe
 				className="podcastIframe__iframe"
-				src="https://open.spotify.com/embed/show/2G0HRZba65w6T9NDNScNK2?utm_source=generator&theme=0"
+				src="https://open.spotify.com/embed/show/2qiEe52INU2Pq8mgnIfTcD?utm_source=generator&theme=0"
 				width="100%"
 				height="232"
 				frameBorder="0"
-				allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+				allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
 				title="La paeya podcast"
 				onLoad={loadingHanlde}
 				onError={errorHandle}

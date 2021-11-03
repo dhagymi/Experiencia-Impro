@@ -1,4 +1,6 @@
 .contact
+    position: fixed
+    top: 0
     display: flex
     flex-flow: column nowrap
     justify-content: center
@@ -30,16 +32,21 @@
 @media ( max-width: 65vh )
     .contact
         padding: 2rem 8vw
-        gap: 5vh
+        gap: 4vh
         min-height: calc(100vh - 4.5vh - 2.2rem)
         height: unset
 
         &__body
             display: flex
             flex-flow: column nowrap
-            gap: 5vh
+            gap: 4vh
 
 @media (max-width: 500px)
     .contact
+        max-height: calc(100vh - 4.5vh - 2.2rem - 4rem)
+        gap: 2vh
+        padding: 0 10vw
         &__title
             font-size: 4rem
+        &__body
+            gap: 2vh

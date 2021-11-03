@@ -12,13 +12,12 @@ import Message from "../components/Message";
 const Home = () => {
 	const [nextShow, setNextShow] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
-	const { setIsHome, setPageActive } = useHomeContext();
+	const { setPageActive } = useHomeContext();
 
 	const titleOne = "Comedia en español -";
 	const titleTwo = "Teatro sin guiones - no existen errores -";
 
 	useEffect(() => {
-		setIsHome(true);
 		setIsLoading(true);
 		const getNextShow = async (nextShowMonth, nextShowYear) => {
 			try {
@@ -63,11 +62,10 @@ const Home = () => {
 		getNextShow(new Date().getMonth() + 1, new Date().getFullYear());
 
 		return () => {
-			setIsHome(false);
 			setNextShow({});
 			setPageActive(1);
 		};
-	}, [setIsHome, setPageActive]);
+	}, [setPageActive]);
 
 	return (
 		<>

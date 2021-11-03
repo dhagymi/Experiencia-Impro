@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 import { ModalContextProvider } from "../contexts/ModalContext";
 import { ShowsContextProvider } from "../contexts/ShowsContext";
@@ -9,10 +10,11 @@ import { usePodcastContext } from "../contexts/PodcastContext";
 const Main = ({ children }) => {
 	const [page, setPage] = useState("");
 
-	const { isHome, setHomeMainReference } = useHomeContext();
-	const { isClasses, setClassesMainReference } = useClassesContext();
-	const { isPodcast, setPodcastMainReference } = usePodcastContext();
+	const { setHomeMainReference } = useHomeContext();
+	const { setClassesMainReference } = useClassesContext();
+	const { setPodcastMainReference } = usePodcastContext();
 
+	const { pathname } = useLocation();
 	const reference = useRef();
 
 	useEffect(() => {
@@ -22,16 +24,8 @@ const Main = ({ children }) => {
 	}, [setClassesMainReference, setHomeMainReference, setPodcastMainReference]);
 
 	useEffect(() => {
-		if (isHome) {
-			setPage("home");
-		} else if (isClasses) {
-			setPage("classes");
-		} else if (isPodcast) {
-			setPage("podcast");
-		} else {
-			setPage("");
-		}
-	}, [isHome, isClasses, isPodcast]);
+		setPage(pathname.slice(1) || "home");
+	}, [pathname]);
 
 	return (
 		<ShowsContextProvider>

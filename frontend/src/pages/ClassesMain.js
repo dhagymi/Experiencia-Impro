@@ -1,22 +1,11 @@
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import { Helmet } from "react-helmet";
 
 import ClassPhoto from "../components/ClassPhoto";
 
-import { useClassesContext } from "../contexts/ClassesContext";
-
 import photo from "../assets/photos/class_photo_2.webp";
 
 const ClassesMain = () => {
-	const { setIsClasses } = useClassesContext();
-	useEffect(() => {
-		setIsClasses(true);
-
-		return () => {
-			setIsClasses(false);
-		};
-	}, [setIsClasses]);
-
 	const animationOptions = useMemo(() => {
 		return { angularPositionInitial: -10 };
 	}, []);

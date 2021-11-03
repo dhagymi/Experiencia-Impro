@@ -6,13 +6,13 @@ const Error = () => {
 			<Helmet>
 				<title>Experiencia Impro | Error</title>
 			</Helmet>
-			<section class="error">
-				<h2 class="error__title">
+			<section className="error">
+				<h2 className="error__title">
 					Sorry <span className="error__titleSad"> =(</span>
 				</h2>
-				<div class="error__body">
-					<p class="error__paragraph">A veces hay errores en escena</p>
-					<p class="error__paragraph">
+				<div className="error__body">
+					<p className="error__paragraph">A veces hay errores en escena</p>
+					<p className="error__paragraph">
 						Por suerte tenemos un plan B, contactanos en{" "}
 						<span className="error__finalText">
 							@experienciaimpro o WhatsApp

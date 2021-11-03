@@ -5,7 +5,6 @@ const useCursor = (delay = 0) => {
 
 	useEffect(() => {
 		const mouseMoveHandle = (event) => {
-			console.log(event);
 			let yPosition;
 			let xPosition;
 			let newDisplay;
