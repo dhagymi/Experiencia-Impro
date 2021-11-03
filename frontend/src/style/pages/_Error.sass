@@ -1,0 +1,28 @@
+.error
+    align-items: center
+    display: flex
+    flex-flow: column nowrap
+    justify-content: center
+    gap: 6vh
+    min-height: calc(100vh - 4.5vh - 2.2rem - 4rem)
+    padding: 0
+
+    &__title
+        @extend %h2
+        text-transform: uppercase
+        color: $lightBlue
+
+    &__body
+        align-items: center
+        display: flex
+        flex-flow: column nowrap
+        justify-content: center
+        gap: 3vh
+
+    &__paragraph
+        @extend %text
+        font-size: 1.5rem
+        text-align: center
+
+    &__finalText
+        white-space: nowrap

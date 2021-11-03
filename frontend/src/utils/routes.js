@@ -1,5 +1,6 @@
 import Shows from "../pages/Shows";
 import Contact from "../pages/Contact";
+import Error from "../pages/Error";
 
 import HomeContainer from "../components/HomeContainer";
 import ClassesContainer from "../components/ClassesContainer";
@@ -13,6 +14,7 @@ const routes = [
 	{ component: <PodcastContainer />, path: "/podcast", exact: true },
 	{ component: <Contact />, path: "/contact", exact: true },
 	{ component: <Shows />, path: "/shows", exact: true },
+	{ component: <Error />, path: "*" },
 ];
 
 export default routes;
