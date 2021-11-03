@@ -8,7 +8,7 @@ const useFooterTransition = () => {
 			const { bottom } = document.body.getBoundingClientRect();
 
 			console.log(window.innerHeight, Math.floor(bottom));
-			if (Math.floor(bottom) <= window.innerHeight) {
+			if (Math.floor(bottom) - 1 <= window.innerHeight) {
 				setActive(true);
 			} else if (active) {
 				setActive(false);
