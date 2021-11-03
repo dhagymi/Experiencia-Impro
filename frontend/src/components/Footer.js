@@ -23,14 +23,6 @@ const Footer = () => {
 						<button className="footer__button">Contactanos</button>
 					</Link>
 				</div>
-				<div className="footer__listContainer footer__listContainer--info">
-					<ul className="footer__list">
-						<li className="footer__listItem">Calle Falsa 123</li>
-						<li className="footer__listItem">Múnich-Alemania</li>
-						<li className="footer__listItem">+54 1131061205</li>
-						<li className="footer__listItem">experienciaimpro@gmail.com</li>
-					</ul>
-				</div>
 				<div className="footer__listContainer footer__listContainer--nav">
 					<ul className="footer__list">
 						<li className="footer__listItem">
