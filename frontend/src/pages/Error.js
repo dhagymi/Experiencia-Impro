@@ -1,18 +1,26 @@
+import { Helmet } from "react-helmet";
+
 const Error = () => {
 	return (
-		<section class="error">
-			<h2 class="error__title">Error 404</h2>
-			<div class="error__body">
-				<p class="error__paragraph">
-					Lo siento, la página a la que está intentando{" "}
-					<span className="error__finalText">acceder no existe</span>
-				</p>
-				<p class="error__paragraph">
-					Por favor, corrobore la URL o vuelva{" "}
-					<span className="error__finalText">a la página anterior</span>
-				</p>
-			</div>
-		</section>
+		<>
+			<Helmet>
+				<title>Experiencia Impro | Error</title>
+			</Helmet>
+			<section class="error">
+				<h2 class="error__title">
+					Sorry <span className="error__titleSad"> =(</span>
+				</h2>
+				<div class="error__body">
+					<p class="error__paragraph">A veces hay errores en escena</p>
+					<p class="error__paragraph">
+						Por suerte tenemos un plan B, contactanos en{" "}
+						<span className="error__finalText">
+							@experienciaimpro o WhatsApp
+						</span>
+					</p>
+				</div>
+			</section>
+		</>
 	);
 };
 
