@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 import { useHomeContext } from "../contexts/HomeContext";
 
@@ -69,52 +70,57 @@ const Home = () => {
 	}, [setIsHome, setPageActive]);
 
 	return (
-		<section className="home">
-			<div className="home__heading">
-				<h1 className="home__title">
-					improv<span className="home__titleSmile"> =)</span>
-				</h1>
-				<div className="home__nextShowInfo">
-					{isLoading ? null : nextShow?.day ? (
-						<>
-							<h2 className="home__nextShowText home__nextShowText--pink">
-								Proximo show
-							</h2>
+		<>
+			<Helmet>
+				<title>Experiencia Impro</title>
+			</Helmet>
+			<section className="home">
+				<div className="home__heading">
+					<h1 className="home__title">
+						improv<span className="home__titleSmile"> =)</span>
+					</h1>
+					<div className="home__nextShowInfo">
+						{isLoading ? null : nextShow?.day ? (
+							<>
+								<h2 className="home__nextShowText home__nextShowText--pink">
+									Proximo show
+								</h2>
 
-							<p className="home__nextShowText">
-								{nextShow.day}.{nextShow.month}.{nextShow.year} -{" "}
-								{nextShow.city}
-							</p>
-						</>
-					) : (
-						<Message>No hay shows programados</Message>
-					)}
+								<p className="home__nextShowText">
+									{nextShow.day}.{nextShow.month}.{nextShow.year} -{" "}
+									{nextShow.city}
+								</p>
+							</>
+						) : (
+							<Message>No hay shows programados</Message>
+						)}
+					</div>
 				</div>
-			</div>
-			<div className="home__floatTitle">
-				<p className="home__floatTitleText home__floatTitleText--left">
-					<span className="home__floatTitleSpan home__floatTitleSpan--left">
-						{titleOne}
-					</span>
-					<span className="home__floatTitleSpan home__floatTitleSpan--left">
-						{titleOne}
-					</span>
-					<span className="home__floatTitleSpan home__floatTitleSpan--left">
-						{titleOne}
-					</span>
-				</p>
-			</div>
-			<div className="home__floatTitle">
-				<p className="home__floatTitleText home__floatTitleText--right">
-					<span className="home__floatTitleSpan home__floatTitleSpan--right">
-						{titleTwo}
-					</span>
-					<span className="home__floatTitleSpan home__floatTitleSpan--right">
-						{titleTwo}
-					</span>
-				</p>
-			</div>
-		</section>
+				<div className="home__floatTitle">
+					<p className="home__floatTitleText home__floatTitleText--left">
+						<span className="home__floatTitleSpan home__floatTitleSpan--left">
+							{titleOne}
+						</span>
+						<span className="home__floatTitleSpan home__floatTitleSpan--left">
+							{titleOne}
+						</span>
+						<span className="home__floatTitleSpan home__floatTitleSpan--left">
+							{titleOne}
+						</span>
+					</p>
+				</div>
+				<div className="home__floatTitle">
+					<p className="home__floatTitleText home__floatTitleText--right">
+						<span className="home__floatTitleSpan home__floatTitleSpan--right">
+							{titleTwo}
+						</span>
+						<span className="home__floatTitleSpan home__floatTitleSpan--right">
+							{titleTwo}
+						</span>
+					</p>
+				</div>
+			</section>
+		</>
 	);
 };
 
