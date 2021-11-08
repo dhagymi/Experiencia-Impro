@@ -11,7 +11,7 @@ const Alert = ({
 	finalText,
 	onClose: closeButtonClickHandle,
 }) => {
-	const { alertClass } = useAlertContext();
+	const { alertClass, toggleIsAlertVisible } = useAlertContext();
 
 	const [alertClassVisibility, setAlertClassVisibility] = useState("alert");
 
@@ -19,8 +19,11 @@ const Alert = ({
 		setAlertClassVisibility(alertClass);
 	}, [alertClass]);
 	return (
-		<div className={alertClassVisibility}>
-			<div className="alert__body">
+		<div
+			className={alertClassVisibility}
+			onClick={() => toggleIsAlertVisible()}
+		>
+			<div className="alert__body" onClick={(event) => event.stopPropagation()}>
 				<h3 className="alert__title">{title}</h3>
 				<p className="alert__mainText">
 					{mainText}
