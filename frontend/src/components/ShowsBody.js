@@ -1,3 +1,4 @@
+import { memo } from "react";
 import MonthButtonContainer from "./MonthButtonContainer";
 import ShowsCarouselContainer from "./ShowsCarouselContainer";
 
@@ -10,4 +11,4 @@ const ShowsBody = () => {
 		</div>
 	);
 };
-export default ShowsBody;
+export default memo(ShowsBody);

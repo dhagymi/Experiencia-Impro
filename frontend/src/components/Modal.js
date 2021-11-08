@@ -5,6 +5,7 @@ import axios from "axios";
 import ShowOption from "./ShowOption";
 
 import { useModalContext } from "../contexts/ModalContext";
+import { useAlertContext } from "../contexts/AlertContext";
 
 import { createOrderEmailTemplate } from "../utils/auxFuntions";
 
@@ -18,10 +19,14 @@ const Modal = () => {
 	const [modalClassVisibility, setModalClassVisibility] = useState("modal");
 
 	const { modalClass, toggleIsModalVisible } = useModalContext();
+	const { setIsLoading, setIsError, toggleIsAlertVisible } = useAlertContext();
 
 	const submitFormHandler = useCallback(
 		async (event) => {
 			try {
+				toggleIsModalVisible();
+				setIsLoading(true);
+				setIsError(false);
 				event.preventDefault();
 
 				const formData = new FormData(event.target);
@@ -57,18 +62,26 @@ const Modal = () => {
 					html: htmlTemplate,
 				});
 
-				if (response.status === 200) {
-					alert("Enviamos tu reserva por correo electrónico!");
-				} else {
-					alert("La reserva no pudo realizarse");
-				}
+				response.status === 200 || setIsError(true);
 
-				toggleIsModalVisible();
+				toggleIsAlertVisible(true);
+				setIsLoading(false);
 			} catch (error) {
+				setIsError(true);
+				toggleIsAlertVisible(true);
+				setIsLoading(false);
 				console.log(error);
 			}
 		},
-		[currentShow, quantity, shows, toggleIsModalVisible]
+		[
+			currentShow,
+			quantity,
+			setIsError,
+			setIsLoading,
+			shows,
+			toggleIsAlertVisible,
+			toggleIsModalVisible,
+		]
 	);
 	useEffect(() => {
 		try {

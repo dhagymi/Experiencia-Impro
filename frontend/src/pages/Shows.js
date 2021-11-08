@@ -1,12 +1,21 @@
+import { memo } from "react";
+import { createPortal } from "react-dom";
 import { Helmet } from "react-helmet";
+
+import Alert from "../components/Alert";
+import Loading from "../components/Loading";
 
 import Modal from "../components/Modal";
 import ShowsBody from "../components/ShowsBody";
 
 import { useModalContext } from "../contexts/ModalContext";
+import { useAlertContext } from "../contexts/AlertContext";
 
 const Shows = () => {
 	const { isModalVisible } = useModalContext();
+
+	const { isLoading, isError, isAlertVisible, toggleIsAlertVisible } =
+		useAlertContext();
 
 	return (
 		<>
@@ -26,10 +35,35 @@ const Shows = () => {
 					</p>
 				</div>
 				<ShowsBody />
-				{isModalVisible && <Modal />}
+				{isLoading ? (
+					createPortal(
+						<div className="shows__loading">
+							<Loading />
+						</div>,
+						document.getElementById("loading")
+					)
+				) : isAlertVisible ? (
+					isError ? (
+						<Alert
+							title="Lo sentimos"
+							mainText="La reserva no pudo realizarse con éxito. Intente de nuevo más tarde. "
+							finalText="Muchas gracias por entender."
+							onClose={() => toggleIsAlertVisible(false)}
+						/>
+					) : (
+						<Alert
+							title="Reserva confirmada"
+							mainText="Hemos recibido su reserva con éxito. Le enviaremos la confirmación a la brevedad al correo eléctronico proporcionado. "
+							finalText="Muchas gracias."
+							onClose={() => toggleIsAlertVisible(false)}
+						/>
+					)
+				) : (
+					isModalVisible && <Modal />
+				)}
 			</section>
 		</>
 	);
 };
 
-export default Shows;
+export default memo(Shows);

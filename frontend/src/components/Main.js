@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import { ModalContextProvider } from "../contexts/ModalContext";
+import { AlertContextProvider } from "../contexts/AlertContext";
 import { ShowsContextProvider } from "../contexts/ShowsContext";
 import { useHomeContext } from "../contexts/HomeContext";
 import { useClassesContext } from "../contexts/ClassesContext";
@@ -29,11 +30,16 @@ const Main = ({ children }) => {
 
 	return (
 		<ShowsContextProvider>
-			<ModalContextProvider>
-				<main ref={reference} className={`main ${page ? `main--${page}` : ""}`}>
-					{children}
-				</main>
-			</ModalContextProvider>
+			<AlertContextProvider>
+				<ModalContextProvider>
+					<main
+						ref={reference}
+						className={`main ${page ? `main--${page}` : ""}`}
+					>
+						{children}
+					</main>
+				</ModalContextProvider>
+			</AlertContextProvider>
 		</ShowsContextProvider>
 	);
 };
