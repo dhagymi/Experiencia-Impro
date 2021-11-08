@@ -70,7 +70,7 @@ const Home = () => {
 	return (
 		<>
 			<Helmet>
-				<title>Experiencia Impro</title>
+				<title>Experiencia Impro | Teatro sin guiones</title>
 			</Helmet>
 			<section className="home">
 				<div className="home__heading">

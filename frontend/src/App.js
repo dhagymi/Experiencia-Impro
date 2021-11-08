@@ -1,11 +1,10 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 import Cursor from "./components/Cursor";
-
-import routes from "./utils/routes";
+import AppRouter from "./components/Router";
 
 import { HomeContextProvider } from "./contexts/HomeContext";
 import { ClassesContextProvider } from "./contexts/ClassesContext";
@@ -23,16 +22,7 @@ function App() {
 						<ClassesContextProvider>
 							<PodcastContextProvider>
 								<Main>
-									{/* Se mapean todas las rutas traídas del fichero */}
-									<Switch>
-										{routes.map(({ component, path, exact }) => {
-											return (
-												<Route key={path} path={path} exact={exact}>
-													{component}
-												</Route>
-											);
-										})}
-									</Switch>
+									<AppRouter />
 								</Main>
 							</PodcastContextProvider>
 						</ClassesContextProvider>
