@@ -31,6 +31,7 @@ const ContactForm = () => {
 				});
 
 				response.status === 200 || setIsError(true);
+				response.status === 200 && event.target.reset();
 
 				toggleIsAlertVisible(true);
 				setIsLoading(false);
