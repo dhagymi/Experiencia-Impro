@@ -26,8 +26,8 @@ const Shows = () => {
 					</p>
 				</div>
 				<ShowsBody />
+				{isModalVisible && <Modal />}
 			</section>
-			{isModalVisible && <Modal />}
 		</>
 	);
 };

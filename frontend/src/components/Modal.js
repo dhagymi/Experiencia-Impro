@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import axios from "axios";
 
 import ShowOption from "./ShowOption";
@@ -220,4 +221,8 @@ const Modal = () => {
 	);
 };
 
-export default Modal;
+const PortalModal = () => {
+	return createPortal(<Modal />, document.getElementById("modal"));
+};
+
+export default PortalModal;
