@@ -9,7 +9,6 @@ const useCursor = (delay = 0) => {
 			let xPosition;
 			let newDisplay;
 
-			console.log(event);
 			yPosition = event.clientY;
 			xPosition = event.clientX;
 
