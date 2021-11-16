@@ -1,13 +1,20 @@
 .cursor
-    position: absolute
-    border-radius: 50%
-    height: 1.5rem
-    width: 1.5rem
-    border: solid 2px $blue
-    background: transparent
-    transform: translate(-50%,-50%)
-    z-index: 9
+    position: fixed
+    top: 0
+    left: 0
+    width: 5rem
+    height: 5rem
     pointer-events: none
+    &__outerCircle
+        position: absolute
+        border-radius: 50%
+        height: 1.5rem
+        width: 1.5rem
+        border: solid 2px $blue
+        background: transparent
+        transform: translate(-50%,-50%)
+        z-index: 9
+        pointer-events: none
 
     &__innerCircle
         position: absolute
@@ -22,6 +29,8 @@
 @media (pointer: coarse)
     .cursor
         display: none !important
+        &__outerCircle
+            display: none !important
 
         &__innerCircle
             display: none !important

@@ -8,12 +8,10 @@ const useCursor = (delay = 0) => {
 			let yPosition;
 			let xPosition;
 			let newDisplay;
-			if (event.type === "mousemove") {
-				yPosition = event.pageY;
-				xPosition = event.pageX;
-			} else {
-				newDisplay = "none";
-			}
+
+			console.log(event);
+			yPosition = event.clientY;
+			xPosition = event.clientX;
 
 			setStyle({
 				top: `${yPosition}px`,
@@ -23,9 +21,6 @@ const useCursor = (delay = 0) => {
 			});
 		};
 		document.addEventListener("mousemove", mouseMoveHandle);
-		document
-			.querySelector("main")
-			.addEventListener("mousewheel", mouseMoveHandle);
 	}, [delay]);
 
 	return { style };
