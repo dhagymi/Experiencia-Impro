@@ -18,9 +18,7 @@ const PodcastMain = () => {
 						teatro totalmente improvisadas.
 					</span>
 				</p>
-				<h2 className="podcastMain__subtitle">
-					Escuchá nuestros episodios en Spotify
-				</h2>
+				<h2 className="podcastMain__subtitle">Escuchanos en Spotify</h2>
 				<PodcastIframe />
 			</section>
 		</>

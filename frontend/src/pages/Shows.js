@@ -24,14 +24,12 @@ const Shows = () => {
 			</Helmet>
 			<section className="shows">
 				<div className="shows__heading">
-					<h1 className="shows__title">Próximos shows</h1>
+					<h1 className="shows__title">Shows</h1>
 					<p className="shows__subtitle">
 						Un show en donde todo puede pasar. Por medio de las sugerencias del
-						publico, los actores realizaran escenas completamente improvisadas.
-						De la mano de 6 improvisadores,{" "}
-						<span className="shows__subtitleFinal">
-							te invitamos a que nos conozcas.
-						</span>
+						público, los actores realizaran escenas completamente improvisadas.
+						Te invitamos{" "}
+						<span className="shows__subtitleFinal">a que nos conozcas.</span>
 					</p>
 				</div>
 				<ShowsBody />

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useCursor = (delay = 0) => {
+const useCursor = () => {
 	const [style, setStyle] = useState({});
 
 	useEffect(() => {
@@ -15,12 +15,11 @@ const useCursor = (delay = 0) => {
 			setStyle({
 				top: `${yPosition}px`,
 				left: `${xPosition}px`,
-				transitionDuration: `${delay}s`,
 				display: `${newDisplay || "block"}`,
 			});
 		};
 		document.addEventListener("mousemove", mouseMoveHandle);
-	}, [delay]);
+	}, []);
 
 	return { style };
 };

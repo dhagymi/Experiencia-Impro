@@ -59,10 +59,14 @@
 
 @media (max-width: 500px)
     .contact
-        max-height: calc(100vh - 4.5vh - 2.2rem - 4rem)
-        gap: 2vh
-        padding: 0 10vw
+        max-height: unset
+        height: unset
+        position: static
+        top: unset
+        gap: 4vh
+        padding: 1rem 10vw 3rem
+        box-sizing: border-box
         &__title
             font-size: 4rem
         &__body
-            gap: 2vh
+            gap: 4vh

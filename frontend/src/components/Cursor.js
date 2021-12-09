@@ -2,7 +2,7 @@ import { createPortal } from "react-dom";
 import useCursor from "../hooks/useCursor";
 const Cursor = () => {
 	const { style: outterCircleStyle } = useCursor();
-	const { style: innerCircleStyle } = useCursor(0.2);
+	const { style: innerCircleStyle } = useCursor();
 	return (
 		<div className="cursor">
 			<div className="cursor__outerCircle" style={outterCircleStyle}></div>

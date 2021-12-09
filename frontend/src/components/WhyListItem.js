@@ -1,8 +1,18 @@
 import { memo } from "react";
 
-const WhyListItem = ({ dotClassModifier, title, mainText, finalText }) => {
+const WhyListItem = ({
+	dotClassModifier,
+	title,
+	mainText,
+	finalText,
+	mobile,
+}) => {
 	return (
-		<li className="whyListItem">
+		<li
+			className={`whyListItem whyListItem--${
+				mobile === "true" ? "mobile" : "desktop"
+			}`}
+		>
 			<div className="whyListItem__itemHeading">
 				<div
 					className={`whyListItem__dot ${
