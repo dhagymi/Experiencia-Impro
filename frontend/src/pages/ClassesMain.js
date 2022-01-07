@@ -30,11 +30,13 @@ const ClassesMain = () => {
 					<p className="classesMain__mainText">
 						No es necesario tener experiencia previa para participar y
 						divertirse. Nuestro objetivo es generar un espacio de integración
-						entre personas de diferentes nacionalidades, mediente la
+						entre personas de diferentes nacionalidades, mediante la
 						improvisación, la creación de escenas, personajes y juegos. Los
 						talleres tienen capacidad para 10 y 15 persona, se dictan una vez
 						por semana y la duración de las{" "}
-						<span className="classesMain__finalText">clases es de 2 horas</span>
+						<span className="classesMain__finalText">
+							clases es de 2 horas.
+						</span>
 					</p>
 				</div>
 				<p

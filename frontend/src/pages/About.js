@@ -22,8 +22,8 @@ const About = () => {
 						Hola! Somos Mica y Mati, nos encanta la comedia, el teatro y
 						enseñar. Si bien somos oriundos de Buenos Aires, durante el año 2018
 						vivimos una temporada en el sur de Argentina. Durante ese tiempo
-						queriamos seguir estudiando improvisación, pero nos encontramos con
-						una limitante, en el lugar en dónde estabamos viviendo la oferta de
+						queríamos seguir estudiando improvisación, pero nos encontramos con
+						una limitante, en el lugar en dónde estábamos viviendo la oferta de
 						clases era casi nula. Entonces se nos ocurrió la idea de dejar de
 						ser alumnos y comenzar a enseñar comedia improvisada. La experiencia
 						fue tan bien recibida por los alumnos que cuando llegamos a Múnich

@@ -12,21 +12,21 @@ const Why = () => {
 					<WhyListItem
 						dotClassModifier="purple"
 						title="Colaboración"
-						mainText="En improvisacion  trabajamos en equipo, buscamos que se luzca la creacion colectiva. En escena, somos todos uno y estamos para ayudar a"
+						mainText="En improvisación trabajamos en equipo, buscamos que se luzca la creación colectiva. En escena, somos todos uno y estamos para ayudar a "
 						finalText="quien lo necesite."
 						mobile="false"
 					/>
 					<WhyListItem
 						dotClassModifier="pink"
 						title="Creatividad"
-						mainText="Empujamos los limites de nuestra imaginacion lo mas lejos posible: en escena, las unicas barreras las ponemos"
+						mainText="Empujamos los límites de nuestra imaginación lo más lejos posible: en escena, las únicas barreras las ponemos "
 						finalText="nosotros mismos."
 						mobile="false"
 					/>
 					<WhyListItem
 						dotClassModifier="blue"
 						title="Integración"
-						mainText="Improvisar no es lo único: nos gusta pasarla bien y que el grupo termine en una sala de ensayo, sino que permita sus participantes encontrar un"
+						mainText="Improvisar no es lo único: nos gusta pasarla bien y que el grupo termine en una sala de ensayo, sino que permita a sus participantes encontrar un "
 						finalText="grupo de pertenencia."
 						mobile="false"
 					/>
@@ -41,7 +41,7 @@ const Why = () => {
 					<WhyListItem
 						dotClassModifier="pink"
 						title="Creatividad"
-						mainText="Empujamos los limites de nuestra imaginación lo más "
+						mainText="Empujamos los límites de nuestra imaginación lo más "
 						finalText="lejos posible."
 						mobile="true"
 					/>

@@ -173,7 +173,8 @@ button {
     pointer-events: none; }
   .classesMain__mainText {
     line-height: 2em;
-    pointer-events: none; }
+    pointer-events: none;
+    mix-blend-mode: difference; }
   .classesMain__finalText {
     white-space: nowrap;
     pointer-events: none; }
