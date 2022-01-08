@@ -173,8 +173,7 @@ button {
     pointer-events: none; }
   .classesMain__mainText {
     line-height: 2em;
-    pointer-events: none;
-    mix-blend-mode: difference; }
+    pointer-events: none; }
   .classesMain__finalText {
     white-space: nowrap;
     pointer-events: none; }
@@ -622,7 +621,6 @@ button {
       right: -5vmax; }
   .why__titleContainer {
     position: relative;
-    height: 90%;
     grid-column: 1/6;
     display: flex;
     align-items: flex-end;
@@ -1612,18 +1610,21 @@ button {
     color: #05c4d3; }
   .contactCard__info {
     color: #ffffff; }
-  .contactCard__dots {
+  .contactCard__social {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
     gap: 1.5rem;
     margin-top: 5%;
     width: 80%; }
-  .contactCard__dot {
+  .contactCard__socialLink {
+    color: white;
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
-    background: #05c4d3; }
+    text-align: center; }
+  .contactCard__socialIcon {
+    max-height: 100%; }
 
 @media (max-width: 160vh) {
   .contactCard {
@@ -1638,7 +1639,7 @@ button {
     gap: 1vmin; }
     .contactCard__title {
       font-size: 2rem; }
-    .contactCard__dot {
+    .contactCard__socialLink {
       width: 2rem;
       height: 2rem; } }
 
