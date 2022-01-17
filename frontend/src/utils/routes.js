@@ -10,9 +10,9 @@ import PodcastContainer from "../components/PodcastContainer";
 
 const routes = [
 	{ component: <HomeContainer />, path: "/", exact: true },
-	{ component: <ClassesContainer />, path: "/classes", exact: true },
+	{ component: <ClassesContainer />, path: "/clases", exact: true },
 	{ component: <PodcastContainer />, path: "/podcast", exact: true },
-	{ component: <Contact />, path: "/contact", exact: true },
+	{ component: <Contact />, path: "/contacto", exact: true },
 	{ component: <Shows />, path: "/shows", exact: true },
 	{ component: <Error />, path: "*" },
 ];

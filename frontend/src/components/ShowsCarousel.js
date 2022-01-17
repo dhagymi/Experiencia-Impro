@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 import Message from "./Message";
 import Loading from "./Loading";
 import CarouselDotContainer from "./CarouselDotContainer";
@@ -29,4 +31,4 @@ const ShowsCarousel = () => {
 	);
 };
 
-export default ShowsCarousel;
+export default memo(ShowsCarousel);

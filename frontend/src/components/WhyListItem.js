@@ -1,19 +1,28 @@
 import { memo } from "react";
 
-const WhyListItem = ({ dotClassModifier }) => {
+const WhyListItem = ({
+	dotClassModifier,
+	title,
+	mainText,
+	finalText,
+	mobile,
+}) => {
 	return (
-		<li className="whyListItem">
+		<li
+			className={`whyListItem whyListItem--${
+				mobile === "true" ? "mobile" : "desktop"
+			}`}
+		>
 			<div className="whyListItem__itemHeading">
 				<div
 					className={`whyListItem__dot ${
 						dotClassModifier && `whyListItem__dot--${dotClassModifier}`
 					}`}
 				></div>
-				<p className="whyListItem__itemTitle">Creatividad</p>
+				<p className="whyListItem__itemTitle">{title}</p>
 			</div>
 			<p className="whyListItem__itemBody">
-				Es una disciplina ligada al teatro pero con un{" "}
-				<span className="whyListItem__finalText">carácter principalmente</span>
+				{mainText} <span className="whyListItem__finalText">{finalText}</span>
 			</p>
 		</li>
 	);

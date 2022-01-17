@@ -39,28 +39,29 @@
 
     &__titleContainer
         position: relative
-        height: 90%
-        grid-column: 1/7
+        grid-column: 1/6
         display: flex
         align-items: flex-end
         z-index: 2
 
     &__title
         @extend %homeTitle
+        font-weight: bold
         letter-spacing: .01rem
         line-height: 1.3em
-        font-size: 6rem
+        font-size: 6.5rem
         text-transform: uppercase
 
     &__listContainer
         height: 80vh
-        grid-column: 8/13
+        grid-column: 6/13
 
     &__list
-        display: flex
-        flex-flow: column nowrap
-        gap: 3vh
-        justify-content: flex-end
+        display: grid
+        grid-template-rows: auto
+        gap: 5vh
+        justify-content: center
+        align-content: space-evenly
         height: 100%
 
 @media (max-width: 500px)
@@ -71,5 +72,11 @@
             font-size: 4rem
         &__titleContainer
             grid-column: 1/7
+
+        &__list
+            gap: 3vh
+
+@media (max-width: 800px)
+    .why
         &__listContainer
             grid-column: 7/13

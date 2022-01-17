@@ -1,39 +1,49 @@
 import axios from "axios";
 import { useCallback } from "react";
 
+import { useAlertContext } from "../contexts/AlertContext";
+
 const ContactForm = () => {
-	const formSubmitHandler = useCallback(async (event) => {
-		try {
-			event.preventDefault();
+	const { setIsLoading, setIsError, toggleIsAlertVisible } = useAlertContext();
+	const formSubmitHandler = useCallback(
+		async (event) => {
+			try {
+				setIsLoading(true);
+				setIsError(false);
+				event.preventDefault();
 
-			const formData = new FormData(event.target);
+				const formData = new FormData(event.target);
 
-			const usefulFormData = {
-				name: formData.get("name"),
-				email: formData.get("email"),
-				message: formData.get("message"),
-			};
+				const usefulFormData = {
+					name: formData.get("name"),
+					email: formData.get("email"),
+					message: formData.get("message"),
+				};
 
-			const htmlTemplate = `
+				const htmlTemplate = `
 			<p><b>Nombre y apellido:</b> ${usefulFormData.name}</p>
 			<p><b>E-mail:</b> ${usefulFormData.email}</p>
 			<p><b>Mensaje:</b> ${usefulFormData.message}</p>`;
 
-			const response = await axios.post("/api/mail", {
-				subject: `Mensaje de ${usefulFormData.name} - Experiencia Impro`,
-				html: htmlTemplate,
-			});
+				const response = await axios.post("/api/mail", {
+					subject: `Mensaje de ${usefulFormData.name} - Experiencia Impro`,
+					html: htmlTemplate,
+				});
 
-			if (response.status === 200) {
-				alert("Tu mensaje fue enviado correctamente!");
-				event.target.reset();
-			} else {
-				alert("El mensaje no pudo ser enviado.");
+				response.status === 200 || setIsError(true);
+				response.status === 200 && event.target.reset();
+
+				toggleIsAlertVisible(true);
+				setIsLoading(false);
+			} catch (error) {
+				setIsError(true);
+				toggleIsAlertVisible(true);
+				setIsLoading(false);
+				console.log(error);
 			}
-		} catch (error) {
-			console.log(error);
-		}
-	}, []);
+		},
+		[setIsError, setIsLoading, toggleIsAlertVisible]
+	);
 	return (
 		<form className="contactForm" onSubmit={formSubmitHandler}>
 			<fieldset className="contactForm__fieldset">

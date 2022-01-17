@@ -8,15 +8,12 @@ export const usePodcastContext = () => {
 
 export const PodcastContextProvider = ({ children }) => {
 	const [pageActive, setPageActive] = useState(1);
-	const [isPodcast, setIsPodcast] = useState(false);
 	const [podcastMainReference, setPodcastMainReference] = useState(false);
 	const [containerReference, setContainerReference] = useState(false);
 
 	return (
 		<PodcastContext.Provider
 			value={{
-				isPodcast,
-				setIsPodcast,
 				pageActive,
 				setPageActive,
 				podcastMainReference,

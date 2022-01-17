@@ -32,7 +32,7 @@
         @extend %text
         color: $white
 
-    &__dots
+    &__social
         display: flex
         flex-wrap: nowrap
         align-items: center
@@ -40,11 +40,15 @@
         margin-top: 5%
         width: 80%
 
-    &__dot
+    &__socialLink
+        color: white
         width: 3rem
         height: 3rem
         border-radius: 50%
-        background: $lightBlue
+        text-align: center
+
+    &__socialIcon
+        max-height: 100%
 
 @media ( max-width: 160vh )
     .contactCard
@@ -53,3 +57,12 @@
 @media ( max-width: 65vh )
     .contactCard
         margin-right: 0
+
+@media (max-width: 500px)
+    .contactCard
+        gap: 1vmin
+        &__title
+            font-size: 2rem
+        &__socialLink
+            width: 2rem
+            height: 2rem

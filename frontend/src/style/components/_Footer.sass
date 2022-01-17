@@ -1,0 +1,21 @@
+.footer
+    position: fixed
+    background: transparent
+    height: 2rem
+    bottom: 0
+    width: 100%
+    z-index: 7
+    display: flex
+    justify-content: center
+    align-items: center
+
+    &__copyright
+        @include typography(Roboto, .8rem, normal,  $white)
+        width: 97%
+        text-align: right
+
+@media (max-width: 800px)
+    .footer
+        position: sticky
+        &__copyright
+            text-align: center

@@ -8,15 +8,12 @@ export const useClassesContext = () => {
 
 export const ClassesContextProvider = ({ children }) => {
 	const [pageActive, setPageActive] = useState(1);
-	const [isClasses, setIsClasses] = useState(false);
 	const [classesMainReference, setClassesMainReference] = useState(false);
 	const [containerReference, setContainerReference] = useState(false);
 
 	return (
 		<ClassesContext.Provider
 			value={{
-				isClasses,
-				setIsClasses,
 				pageActive,
 				setPageActive,
 				classesMainReference,

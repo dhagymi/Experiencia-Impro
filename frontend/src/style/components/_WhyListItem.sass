@@ -1,10 +1,15 @@
 .whyListItem
     position: relative
     height: 17vh
-    display: flex
     flex-flow: column nowrap
     gap: 3vh
     z-index: 2
+
+    &--desktop
+        display: flex
+
+    &--mobile
+        display: none
 
     &__itemHeading
         display: flex
@@ -38,6 +43,12 @@
     &__finalText
         white-space: nowrap
 
+@media (min-width: 800px) and (max-width: 100vh)
+    .whyListItem
+
+        &__itemBody
+            font-size: 1.5rem
+
 @media (min-width: 500px) and (max-width: 800px)
     .whyListItem
 
@@ -46,14 +57,20 @@
 
 @media (max-width: 500px)
     .whyListItem
+        &--desktop
+            display: none
+
+        &--mobile
+            display: flex
 
         &__itemTitle
             font-size: 2rem
         &__itemBody
-            font-size: 1.2rem
-            line-height: 1.4em
+            font-size: 1.5rem
+            line-height: 1.5em
 
 @media (max-width: 60vh)
     .whyListItem
+        height: unset
         &__itemTitle
             font-size: 1.8rem

@@ -1,20 +1,8 @@
-import { useEffect } from "react";
 import { Helmet } from "react-helmet";
 
 import PodcastIframe from "../components/PodcastIframe";
 
-import { usePodcastContext } from "../contexts/PodcastContext";
-
 const PodcastMain = () => {
-	const { setIsPodcast } = usePodcastContext();
-	useEffect(() => {
-		setIsPodcast(true);
-
-		return () => {
-			setIsPodcast(false);
-		};
-	}, [setIsPodcast]);
-
 	return (
 		<>
 			<Helmet>
@@ -30,9 +18,7 @@ const PodcastMain = () => {
 						teatro totalmente improvisadas.
 					</span>
 				</p>
-				<h2 className="podcastMain__subtitle">
-					Escuchá nuestros episodios en Spotify
-				</h2>
+				<h2 className="podcastMain__subtitle">Escuchanos en Spotify</h2>
 				<PodcastIframe />
 			</section>
 		</>

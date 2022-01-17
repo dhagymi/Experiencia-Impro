@@ -6,6 +6,7 @@ import Arrow from "../components/Arrow";
 
 import { useModalContext } from "../contexts/ModalContext";
 import { useShowsContext } from "../contexts/ShowsContext";
+import { useAlertContext } from "../contexts/AlertContext";
 import {
 	CarouselContextProvider,
 	useCarouselContext,
@@ -14,6 +15,7 @@ import {
 import { getMonthBeginingAndFinishingDate } from "../utils/auxFuntions";
 const ShowsCarouselContainer = () => {
 	const { isModalVisible, toggleIsModalVisible } = useModalContext();
+	const { isAlertVisible, isLoading } = useAlertContext();
 	const { month, setShows, shows } = useShowsContext();
 	const { position, setIsLoading } = useCarouselContext();
 
@@ -42,16 +44,17 @@ const ShowsCarouselContainer = () => {
 				console.log(error);
 			}
 		};
-		if (!isModalVisible) {
+		if (!isModalVisible && !isAlertVisible && !isLoading) {
 			getShows();
 		}
-
-		return () => {
-			if (isModalVisible) {
-				setShows([]);
-			}
-		};
-	}, [isModalVisible, month, setIsLoading, setShows]);
+	}, [
+		isAlertVisible,
+		isLoading,
+		isModalVisible,
+		month,
+		setIsLoading,
+		setShows,
+	]);
 
 	return (
 		<div className="showsCarouselContainer">
@@ -72,12 +75,13 @@ const ShowsCarouselContainer = () => {
 	);
 };
 
+const MemoizedCarouselContainer = memo(ShowsCarouselContainer);
 const CarouselContainerWrapper = () => {
 	return (
 		<CarouselContextProvider>
-			<ShowsCarouselContainer />
+			<MemoizedCarouselContainer />
 		</CarouselContextProvider>
 	);
 };
 
-export default memo(CarouselContainerWrapper);
+export default CarouselContainerWrapper;
