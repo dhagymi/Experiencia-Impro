@@ -12,6 +12,10 @@ import { PodcastContextProvider } from "./contexts/PodcastContext";
 import { MenuContextProvider } from "./contexts/MenuContext";
 
 function App() {
+	console.log(
+		`%cDeveloped & Designed by DHATeam ${String.fromCodePoint(0x0270c)}`,
+		"color: #ffffff; background: #24617c; padding: 5px 10px; border-radius: 3px; font-family: 'Verdana'"
+	);
 	return (
 		<Router>
 			<div className="App">

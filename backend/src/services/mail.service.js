@@ -1,4 +1,7 @@
 import nodemailer from "nodemailer";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 class Mailer {
 	constructor(user, pass) {
@@ -16,8 +19,8 @@ class Mailer {
 	}
 
 	sendEmail = async ({
-		from = "amandreacchi@gmail.com",
-		to = "dhadesigners@gmail.com",
+		from = process.env.DELIVERY_MAIL,
+		to = process.env.RECEIVING_MAIL,
 		subject,
 		text = "",
 		html = "",
@@ -51,5 +54,8 @@ class Mailer {
 	};
 }
 
-const mailer = new Mailer("amandreacchi@gmail.com", "giladon95");
+const mailer = new Mailer(
+	process.env.DELIVERY_MAIL,
+	process.env.DELIVERY_MAIL_PASSWORD
+);
 export default mailer;

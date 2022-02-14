@@ -490,11 +490,11 @@ button {
       text-align: center;
       font-size: 8rem; }
       .home__floatTitleText--left {
-        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-width: 2px;
         -webkit-text-stroke-color: #d4009f;
         animation: translateToLeft 10s linear infinite; }
       .home__floatTitleText--right {
-        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-width: 2px;
         -webkit-text-stroke-color: #05c4d3;
         animation: translateToRight 15s linear infinite; }
     .home__floatTitleSpan {
@@ -1729,9 +1729,9 @@ button {
   .cursor__outerCircle {
     position: absolute;
     border-radius: 50%;
-    height: 1.5rem;
-    width: 1.5rem;
-    border: solid 2px #24617c;
+    height: 1rem;
+    width: 1rem;
+    border: 2px solid #05c4d3;
     background: transparent;
     transform: translate(-50%, -50%);
     z-index: 9;
@@ -1741,7 +1741,7 @@ button {
     border-radius: 50%;
     height: .3rem;
     width: .3rem;
-    background: #24617c;
+    background: #05c4d3;
     transform: translate(-50%, -50%);
     z-index: 9;
     pointer-events: none;
@@ -1800,7 +1800,8 @@ button {
   .footer {
     position: sticky; }
     .footer__copyright {
-      text-align: center; } }
+      text-align: center;
+      font-size: 1.2rem; } }
 
 .alert {
   position: absolute;
