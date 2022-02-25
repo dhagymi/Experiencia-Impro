@@ -4,11 +4,17 @@ const ContactCard = () => {
 			<h2 className="contactCard__title">¿En qué podemos ayudarte?</h2>
 			<div className="contactCard__infoContainer">
 				<h3 className="contactCard__subtitle">WhatsApp</h3>
-				<p className="contactCard__info">+54 1131061205</p>
-				<h3 className="contactCard__subtitle">Clases</h3>
+				<p className="contactCard__info">+54 9 11 2176 3009</p>
+				<h3 className="contactCard__subtitle">E-mail</h3>
 				<p className="contactCard__info">experienciaimpro@gmail.com</p>
-				<h3 className="contactCard__subtitle">Podcast</h3>
-				<p className="contactCard__info">experienciaimpro@gmail.com</p>
+				<h3 className="contactCard__subtitle">Ubicación</h3>
+				<a
+					href="https://www.google.com/maps/place/Belgradstra%C3%9Fe+66,+80804+M%C3%BCnchen,+Alemania/data=!4m2!3m1!1s0x479e75d1d5a0011b:0x38c20b604665ccd8?sa=X&ved=2ahUKEwiCwdTR0Jn2AhUlqpUCHerODIIQ8gF6BAgYEAE"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<p className="contactCard__info">Belgradstraße 66, 80804 München</p>
+				</a>
 			</div>
 			<div className="contactCard__social">
 				<a

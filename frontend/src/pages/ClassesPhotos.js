@@ -2,7 +2,7 @@ import { memo, useMemo } from "react";
 
 import ClassPhoto from "../components/ClassPhoto";
 
-import photo1 from "../assets/photos/class_photo_1.webp";
+import photo1 from "../assets/photos/class_photo_2.webp";
 import photo2 from "../assets/photos/class_photo_3.webp";
 import photo3 from "../assets/photos/class_photo_4.webp";
 

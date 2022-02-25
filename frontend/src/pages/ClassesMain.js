@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 
 import ClassPhoto from "../components/ClassPhoto";
 
-import photo from "../assets/photos/class_photo_2.webp";
+import photo from "../assets/photos/class_photo_1.webp";
 
 const ClassesMain = () => {
 	const animationOptions = useMemo(() => {
