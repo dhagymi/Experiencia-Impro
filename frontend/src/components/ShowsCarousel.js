@@ -23,7 +23,7 @@ const ShowsCarousel = () => {
 					{shows?.length > 1 && <CarouselDotContainer />}
 				</>
 			) : (
-				<Message style={{ marginBottom: "5vh" }}>
+				<Message style={{ marginBottom: "5vh", fontSize: "1rem" }}>
 					No hay shows en este mes.
 				</Message>
 			)}

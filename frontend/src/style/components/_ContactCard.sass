@@ -16,6 +16,9 @@
         gap: 2vmin
         width: 80%
 
+        a p
+            cursor: pointer
+
     &__title
         @extend %h3
         color: $white
@@ -42,13 +45,18 @@
 
     &__socialLink
         color: white
+        cursor: pointer
         width: 3rem
         height: 3rem
         border-radius: 50%
         text-align: center
 
     &__socialIcon
+        cursor: pointer
         max-height: 100%
+
+        & > *
+            cursor: pointer
 
 @media ( max-width: 160vh )
     .contactCard
