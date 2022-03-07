@@ -26,16 +26,16 @@ const ClassesMain = () => {
 				<div className="classesMain__body">
 					<h1 className="classesMain__title">Clases</h1>
 					<p className="classesMain__subtitle">Para actores y no actores</p>
-					<p className="classesMain__hashtag">#noexperiencerequired</p>
+					<p className="classesMain__hashtag">#experienciaimpro</p>
 					<p className="classesMain__mainText">
-						No es necesario tener experiencia previa para participar y
-						divertirse. Nuestro objetivo es generar un espacio de integración
-						entre personas de diferentes nacionalidades, mediante la
-						improvisación, la creación de escenas, personajes y juegos. Los
-						talleres tienen capacidad para 10 y 15 persona, se dictan una vez
-						por semana y la duración de las{" "}
+						¿Te interesa el teatro y la comedia? Nuestro objetivo es generar un
+						espacio de integración entre personas de diferentes nacionalidades
+						hispanohablantes, mediante la creación de escenas, personajes y
+						juegos (no es necesaria la experiencia previa). Las clases tienen
+						capacidad para 10/15 personas (según protocolo COVID) y se dictan
+						una vez por{" "}
 						<span className="classesMain__finalText">
-							clases es de 2 horas.
+							semana desde las 19:30.
 						</span>
 					</p>
 				</div>

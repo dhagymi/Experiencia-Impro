@@ -5,38 +5,37 @@ import mobile_map_image from "../assets/background/mobile_map.svg";
 const About = () => {
 	return (
 		<section className="about">
-			<h2 className="about__title">¿De qué se trata?</h2>
+			<h2 className="about__title">¿QUÉ ES IMPROVISACIÓN?</h2>
 			<div className="about__body">
 				<div className="about__textContainer">
 					<p className="about__text">
-						Es una disciplina ligada al teatro pero con un carácter
-						principalmente cómico en dónde los actores y actrices realizan
-						escenas sin guión y sin escenografía, tan solo con su mente y{" "}
+						La improvisación es una disciplinada del teatro en dónde los actores
+						y actrices realizan escenas sin guion ni escenografía, tan solo con
+						su mente y{" "}
 						<span className="about__finalText">a gran velocidad.</span>
 					</p>
 					<h3 className="about__subtitle about__subtitle--desktop">
-						EN EL 2018...{" "}
-						<span className="about__finalText">TODO EMPEZABA</span>
+						DE ARGENTINA <span className="about__finalText">A MÚNICH</span>
 					</h3>
 					<p className="about__text about__text--desktop">
-						Hola! Somos Mica y Mati, nos encanta la comedia, el teatro y
-						enseñar. Si bien somos oriundos de Buenos Aires, durante el año 2018
-						vivimos una temporada en el sur de Argentina. Durante ese tiempo
-						queríamos seguir estudiando improvisación, pero nos encontramos con
-						una limitante, en el lugar en dónde estábamos viviendo la oferta de
-						clases era casi nula. Entonces se nos ocurrió la idea de dejar de
-						ser alumnos y comenzar a enseñar comedia improvisada. La experiencia
-						fue tan bien recibida por los alumnos que cuando llegamos a Múnich
-						(y ante la inexistencia de espacios en donde practicar impro en
-						español) decidimos repetirla. Nuevamente nos llevamos la sorpresa de
-						una excelente{" "}
+						¡Hola! Somos Mica y Mati, nos encanta la comedia, el teatro y los
+						procesos creativos. Nacimos en Buenos Aires y en el año 2018 vivimos
+						una temporada en el sur de Argentina. Durante ese tiempo queríamos
+						continuar estudiando improvisación, pero en el lugar en dónde
+						viviamos la oferta de clases era casi nula. Fue ahí que surgió la
+						idea de dejar de ser alumnos y comenzar a enseñar comedia
+						improvisada. La experiencia fue un éxito y cuando llegamos a Múnich
+						en el 2019 (y ante la inexistencia de espacios en donde practicar
+						improvisación en español) decidimos repetirla y es así{" "}
 						<span className="about__finalText">
-							recepción por parte de los alumnos.
+							como nació EXPERIENCIA IMPRO.
 						</span>
 					</p>
 				</div>
 			</div>
-			<h2 className="about__title about__title--mobile">La escuela</h2>
+			<h2 className="about__title about__title--mobile">
+				DE ARGENTINA A MÚNICH
+			</h2>
 			<div className="about__body about__body--mobile">
 				<div className="about__textContainer">
 					<p className="about__text">
