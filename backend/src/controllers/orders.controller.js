@@ -33,7 +33,7 @@ export const sendXlsxOrder = async (req, res) => {
     try {
         const { id } = req.params;
 
-        const showRef = await showsService.getDocRef(id);
+        const showRef = await ordersService.getDocRef(id);
 
         const orders = await ordersService.getConditional([
             {

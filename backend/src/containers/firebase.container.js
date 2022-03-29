@@ -52,6 +52,7 @@ class Container {
             console.log(error);
         }
     }
+
     async getAll() {
         try {
             const snapshot = await this.ref.get();

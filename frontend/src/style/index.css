@@ -1470,7 +1470,7 @@ button {
     height: 100%; }
     .showCard__date {
       justify-content: space-evenly;
-      max-width: 40%; }
+      max-width: 60%; }
     .showCard__stock {
       flex-direction: column;
       justify-content: space-evenly;
