@@ -24,6 +24,7 @@ const Modal = () => {
 
     const submitFormHandler = useCallback(
         async (event) => {
+            let currentOrderId;
             try {
                 toggleIsModalVisible();
                 setIsLoading(true);
@@ -40,39 +41,48 @@ const Modal = () => {
                     show: { ref: documentRefId },
                 };
 
-                const { data: id } = await axios.post(
-                    "/api/orders",
-                    newDocument
-                );
+                const { data } = await axios.post("/api/orders", newDocument);
+                console.log(data);
 
+                currentOrderId = data;
+
+                console.log(currentOrderId);
                 const showObject = shows?.find(
                     (show) => show.id === documentRefId
                 );
 
-                if (id) {
-                    const oldStock = showObject.stock;
-                    await axios.put(`/api/shows/${currentShow}`, {
-                        stock: oldStock - quantity,
-                    });
-                }
-
                 const htmlTemplate = createOrderEmailTemplate(
-                    id,
+                    currentOrderId,
                     newDocument.quantity,
                     showObject
                 );
 
-                const response = await axios.post("/api/mail", {
-                    to: newDocument.email,
-                    subject: "Tu reserva - Experiencia Impro",
-                    html: htmlTemplate,
-                });
+                if (currentOrderId) {
+                    console.log("to send mail");
+                    const response = await axios.post("/api/mail", {
+                        to: newDocument.email,
+                        subject: "Tu reserva - Experiencia Impro",
+                        html: htmlTemplate,
+                    });
+                    console.log(response);
 
-                response.status === 200 || setIsError(true);
+                    if (response.status === 200) {
+                        const oldStock = showObject.stock;
+                        await axios.put(`/api/shows/${currentShow}`, {
+                            stock: oldStock - quantity,
+                        });
+                    }
+                } else {
+                    setIsError(true);
+                }
 
                 toggleIsAlertVisible(true);
                 setIsLoading(false);
             } catch (error) {
+                console.log("delete", currentOrderId);
+                currentOrderId &&
+                    (await axios.delete(`/api/orders/${currentOrderId}`));
+
                 setIsError(true);
                 toggleIsAlertVisible(true);
                 setIsLoading(false);

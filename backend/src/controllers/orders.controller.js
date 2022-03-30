@@ -4,7 +4,6 @@ import emoji from "node-emoji";
 import mailer from "../services/mail.service.js";
 
 import ordersService from "../services/orders.service.js";
-import showsService from "../services/shows.service.js";
 import xlsxManager from "../services/xlsx.service.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -78,7 +77,6 @@ export const sendXlsxOrder = async (req, res) => {
                           path: resolve(__dirname, "../data/Ordenes.xlsx"),
                       },
             ],
-            to: "amandreacchi@gmail.com",
         });
 
         if (info) {
@@ -105,6 +103,29 @@ export const sendXlsxOrder = async (req, res) => {
                 "There was an error, the orders couldn't be getted."
             );
         } */
+    } catch (error) {
+        res.status(404).send(error.message);
+        console.log(emoji.get("x"), ` ${error.message}`);
+    }
+};
+
+export const deleteOrder = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const data = await ordersService.deleteById(id);
+
+        if (data) {
+            console.log(
+                emoji.get("heavy_check_mark"),
+                ` The order was deleted with success: ${id}`
+            );
+            return res.status(200).send(data);
+        } else {
+            throw new Error(
+                "There was an error, the order couldn't be deleted."
+            );
+        }
     } catch (error) {
         res.status(404).send(error.message);
         console.log(emoji.get("x"), ` ${error.message}`);

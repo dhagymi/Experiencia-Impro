@@ -170,6 +170,16 @@ class Container {
             console.log(error);
         }
     }
+
+    async deleteById(id) {
+        try {
+            const docRef = await this.getDocRef(id);
+            const data = await docRef.delete();
+            return data;
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }
 
 export default Container;
