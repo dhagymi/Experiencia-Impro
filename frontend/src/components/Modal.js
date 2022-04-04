@@ -42,11 +42,9 @@ const Modal = () => {
                 };
 
                 const { data } = await axios.post("/api/orders", newDocument);
-                console.log(data);
 
                 currentOrderId = data;
 
-                console.log(currentOrderId);
                 const showObject = shows?.find(
                     (show) => show.id === documentRefId
                 );
@@ -58,13 +56,11 @@ const Modal = () => {
                 );
 
                 if (currentOrderId) {
-                    console.log("to send mail");
                     const response = await axios.post("/api/mail", {
                         to: newDocument.email,
                         subject: "Tu reserva - Experiencia Impro",
                         html: htmlTemplate,
                     });
-                    console.log(response);
 
                     if (response.status === 200) {
                         const oldStock = showObject.stock;
@@ -79,7 +75,6 @@ const Modal = () => {
                 toggleIsAlertVisible(true);
                 setIsLoading(false);
             } catch (error) {
-                console.log("delete", currentOrderId);
                 currentOrderId &&
                     (await axios.delete(`/api/orders/${currentOrderId}`));
 
@@ -226,8 +221,8 @@ const Modal = () => {
                             const newValue =
                                 value > currentShowStock && value
                                     ? currentShowStock
-                                    : value < 1
-                                    ? 1
+                                    : value < 0
+                                    ? 0
                                     : value;
                             return setQuantity(newValue);
                         }}
@@ -247,12 +242,17 @@ const Modal = () => {
                         </p>
                     </div>
 
-                    <button className="modal__submitButton" type="submit">
+                    <button
+                        className="modal__submitButton"
+                        disabled={quantity < 1 || quantity === ""}
+                        type="submit"
+                    >
                         Finalizar reserva
                     </button>
                 </fieldset>
                 <button
                     className="modal__closeButton"
+                    type="button"
                     onClick={() => toggleIsModalVisible()}
                 >
                     <img

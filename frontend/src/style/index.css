@@ -1074,7 +1074,14 @@ button {
     white-space: nowrap; }
   .modal__submitButton {
     color: #000000;
-    height: 10%; }
+    height: 10%;
+    border: solid 1px #05c4d3;
+    cursor: pointer;
+    line-height: 2.5em;
+    background: transparent;
+    text-transform: uppercase; }
+    .modal__submitButton:hover {
+      background: #05c4d3; }
   .modal__closeButton {
     position: absolute;
     border: none;
