@@ -8,12 +8,9 @@ class Mailer {
         this.user = user;
         this.pass = pass;
         this.transporter = nodemailer.createTransport({
-            host: "smtp-mail.outlook.com",
-            secureConnection: false,
-            port: 587,
-            tls: {
-                ciphers: "SSLv3",
-            },
+            host: "smtp.hostinger.com",
+            secureConnection: true,
+            port: 465,
             auth: {
                 user,
                 pass,
