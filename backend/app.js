@@ -21,11 +21,11 @@ app.use(urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(compression());
 
+// Routes
+app.use("/api", router);
+
 // Public
 app.use("/", express.static(resolve(__dirname, "../frontend/build")));
 app.use("/*", express.static(resolve(__dirname, "../frontend/build")));
-
-// Routes
-app.use("/api", router);
 
 export default app;

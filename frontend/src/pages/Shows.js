@@ -16,7 +16,6 @@ const Shows = () => {
 
 	const { isLoading, isError, isAlertVisible, toggleIsAlertVisible } =
 		useAlertContext();
-
 	return (
 		<>
 			<Helmet>
@@ -24,12 +23,12 @@ const Shows = () => {
 			</Helmet>
 			<section className="shows">
 				<div className="shows__heading">
-					<h1 className="shows__title">Shows</h1>
+					<h1 className="shows__title">Impro Shows</h1>
 					<p className="shows__subtitle">
 						Un show en donde todo puede pasar. Por medio de las sugerencias del
 						público, los actores realizaran escenas completamente improvisadas.
-						Te invitamos{" "}
-						<span className="shows__subtitleFinal">a que nos conozcas.</span>
+						Súmate a esta experiencia única, te esperamos en{" "}
+						<span className="shows__subtitleFinal">las próximas fechas.</span>
 					</p>
 				</div>
 				<ShowsBody />
@@ -48,14 +47,12 @@ const Shows = () => {
 							finalText="Muchas gracias por entender."
 							onClose={() => toggleIsAlertVisible(false)}
 						/>
-					) : (
-						<Alert
-							title="Reserva confirmada"
-							mainText="Hemos recibido su reserva con éxito. Le enviaremos la confirmación a la brevedad al correo eléctronico proporcionado. "
-							finalText="Muchas gracias."
-							onClose={() => toggleIsAlertVisible(false)}
-						/>
-					)
+					) : (<Alert
+						title="Reserva confirmada"
+						mainText="Hemos recibido su reserva con éxito. Le enviaremos la confirmación a la brevedad al correo eléctronico proporcionado (revisar también el correo no deseado). "
+						finalText="Muchas gracias."
+						onClose={() => toggleIsAlertVisible(false)}
+					/>)
 				) : (
 					isModalVisible && <Modal />
 				)}

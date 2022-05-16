@@ -10,12 +10,14 @@
     align-items: center
 
     &__copyright
-        @include typography(Roboto, .8rem, normal,  $white)
+        @include typography(Roboto, .8rem, normal, $white)
         width: 97%
         text-align: right
 
 @media (max-width: 800px)
     .footer
         position: sticky
+        display: none
         &__copyright
             text-align: center
+            font-size: 1.2rem

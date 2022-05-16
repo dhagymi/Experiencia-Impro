@@ -65,27 +65,42 @@
         text-overflow: ellipsis
         max-width: 100%
 
-    &__info
-        &Title
+    &__privatePolicy
+        display: flex
+        align-items: center
+        gap: 1rem
+
+        &Input
             @extend %tinyText
-            color: $lightBlue
+            accent-color: $lightBlue
             text-transform: uppercase
             font-weight: bold
+            height: 1rem
+            width: 1rem
 
-        &Body
+        &Label
             @extend %tinyText
             color: $black
 
-        &ImportantText
-            text-transform: uppercase
+        &Link
+            font-weight: bold
 
-        &FinalText
-            white-space: nowrap
+            &:link
+                color: $black
+
+            &:visited
+                color: $black
 
     &__submitButton
         @extend %button
         color: $black
         height: 10%
+
+        &:disabled
+            background: grey
+            color: lightgray
+            border: solid 1px lightgray
+            cursor: not-allowed
 
     &__closeButton
         position: absolute
@@ -112,3 +127,9 @@
             height: 1.8rem
             right: 1.5rem
             top: 1.5rem
+
+        &__privatePolicy
+
+            &Input
+                height: 1.5rem
+                width: 1.5rem

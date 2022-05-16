@@ -26,7 +26,7 @@ const Why = () => {
 					<WhyListItem
 						dotClassModifier="blue"
 						title="Integración"
-						mainText="Improvisar no es lo único: nos gusta pasarla bien y que el grupo termine en una sala de ensayo, sino que permita a sus participantes encontrar un "
+						mainText="Improvisar no es lo único: nos gusta pasarla bien y que el grupo no termine en una sala de ensayo, sino que permita a sus participantes encontrar un "
 						finalText="grupo de pertenencia."
 						mobile="false"
 					/>
@@ -48,8 +48,8 @@ const Why = () => {
 					<WhyListItem
 						dotClassModifier="blue"
 						title="Integración"
-						mainText="Improvisar no es lo único: nos gusta pasarla bien y que el grupo termine en una sala de ensayo, sino que permita a sus participantes encontrar un grupo "
-						finalText="de pertenencia."
+						mainText="Improvisar no es lo único: nos gusta pasarla bien y que el grupo no termine en una sala de ensayo, sino que permita a sus participantes encontrar un "
+						finalText="grupo de pertenencia."
 						mobile="true"
 					/>
 				</ul>

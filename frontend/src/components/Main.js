@@ -9,38 +9,43 @@ import { useClassesContext } from "../contexts/ClassesContext";
 import { usePodcastContext } from "../contexts/PodcastContext";
 
 const Main = ({ children }) => {
-	const [page, setPage] = useState("");
+    const [page, setPage] = useState("");
 
-	const { setHomeMainReference } = useHomeContext();
-	const { setClassesMainReference } = useClassesContext();
-	const { setPodcastMainReference } = usePodcastContext();
+    const { setHomeMainReference } = useHomeContext();
+    const { setClassesMainReference } = useClassesContext();
+    const { setPodcastMainReference } = usePodcastContext();
 
-	const { pathname } = useLocation();
-	const reference = useRef();
+    const { pathname } = useLocation();
+    const reference = useRef();
 
-	useEffect(() => {
-		setHomeMainReference(reference.current);
-		setClassesMainReference(reference.current);
-		setPodcastMainReference(reference.current);
-	}, [setClassesMainReference, setHomeMainReference, setPodcastMainReference]);
+    useEffect(() => {
+        setHomeMainReference(reference.current);
+        setClassesMainReference(reference.current);
+        setPodcastMainReference(reference.current);
+    }, [
+        setClassesMainReference,
+        setHomeMainReference,
+        setPodcastMainReference,
+    ]);
 
-	useEffect(() => {
-		setPage(pathname.slice(1) || "home");
-	}, [pathname]);
+    useEffect(() => {
+        const path = pathname.split("/");
+        setPage(path[1] || "home");
+    }, [pathname]);
 
-	return (
-		<ShowsContextProvider>
-			<AlertContextProvider>
-				<ModalContextProvider>
-					<main
-						ref={reference}
-						className={`main ${page ? `main--${page}` : ""}`}
-					>
-						{children}
-					</main>
-				</ModalContextProvider>
-			</AlertContextProvider>
-		</ShowsContextProvider>
-	);
+    return (
+        <ShowsContextProvider>
+            <AlertContextProvider>
+                <ModalContextProvider>
+                    <main
+                        ref={reference}
+                        className={`main ${page ? `main--${page}` : ""}`}
+                    >
+                        {children}
+                    </main>
+                </ModalContextProvider>
+            </AlertContextProvider>
+        </ShowsContextProvider>
+    );
 };
 export default Main;

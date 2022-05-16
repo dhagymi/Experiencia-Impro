@@ -35,7 +35,7 @@ const ShowsCarouselContainer = () => {
 					],
 				});
 
-				const showsWithStock = data.filter((show) => show.stock > 0);
+				const showsWithStock = data;
 
 				setShows(showsWithStock);
 				setIsLoading(false);
