@@ -16,7 +16,6 @@ const Shows = () => {
 
 	const { isLoading, isError, isAlertVisible, toggleIsAlertVisible } =
 		useAlertContext();
-
 	return (
 		<>
 			<Helmet>
@@ -48,14 +47,12 @@ const Shows = () => {
 							finalText="Muchas gracias por entender."
 							onClose={() => toggleIsAlertVisible(false)}
 						/>
-					) : (
-						<Alert
-							title="Reserva confirmada"
-							mainText="Hemos recibido su reserva con éxito. Le enviaremos la confirmación a la brevedad al correo eléctronico proporcionado. "
-							finalText="Muchas gracias."
-							onClose={() => toggleIsAlertVisible(false)}
-						/>
-					)
+					) : (<Alert
+						title="Reserva confirmada"
+						mainText="Hemos recibido su reserva con éxito. Le enviaremos la confirmación a la brevedad al correo eléctronico proporcionado (revisar también el correo no deseado). "
+						finalText="Muchas gracias."
+						onClose={() => toggleIsAlertVisible(false)}
+					/>)
 				) : (
 					isModalVisible && <Modal />
 				)}

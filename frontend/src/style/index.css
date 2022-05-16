@@ -40,7 +40,7 @@
   font-size: 1.25rem;
   color: #ffffff; }
 
-.classesMain__mainText, .podcastMain__mainText, .shows__subtitle, .about__text, .modal__infoTitle, .modal__infoBody, .showCard__place, .whyListItem__itemBody, .alert__mainText, .alert__staff {
+.classesMain__mainText, .podcastMain__mainText, .shows__subtitle, .about__text, .modal__privatePolicyInput, .modal__privatePolicyLabel, .showCard__place, .contactForm__privatePolicyInput, .contactForm__privatePolicyLabel, .whyListItem__itemBody, .alert__mainText, .alert__staff {
   font-family: Roboto;
   font-weight: normal;
   font-size: 1rem;
@@ -1062,26 +1062,32 @@ button {
   .modal__showOption {
     text-overflow: ellipsis;
     max-width: 100%; }
-  .modal__infoTitle {
-    color: #05c4d3;
-    text-transform: uppercase;
-    font-weight: bold; }
-  .modal__infoBody {
-    color: #000000; }
-  .modal__infoImportantText {
-    text-transform: uppercase; }
-  .modal__infoFinalText {
-    white-space: nowrap; }
+  .modal__privatePolicy {
+    display: flex;
+    align-items: center;
+    gap: 1rem; }
+    .modal__privatePolicyInput {
+      accent-color: #05c4d3;
+      text-transform: uppercase;
+      font-weight: bold;
+      height: 1rem;
+      width: 1rem; }
+    .modal__privatePolicyLabel {
+      color: #000000; }
+    .modal__privatePolicyLink {
+      font-weight: bold; }
+      .modal__privatePolicyLink:link {
+        color: #000000; }
+      .modal__privatePolicyLink:visited {
+        color: #000000; }
   .modal__submitButton {
     color: #000000;
-    height: 10%;
-    border: solid 1px #05c4d3;
-    cursor: pointer;
-    line-height: 2.5em;
-    background: transparent;
-    text-transform: uppercase; }
-    .modal__submitButton:hover {
-      background: #05c4d3; }
+    height: 10%; }
+    .modal__submitButton:disabled {
+      background: grey;
+      color: lightgray;
+      border: solid 1px lightgray;
+      cursor: not-allowed; }
   .modal__closeButton {
     position: absolute;
     border: none;
@@ -1104,7 +1110,10 @@ button {
     width: 1.8rem;
     height: 1.8rem;
     right: 1.5rem;
-    top: 1.5rem; } }
+    top: 1.5rem; }
+  .modal__privatePolicyInput {
+    height: 1.5rem;
+    width: 1.5rem; } }
 
 .homeContainer {
   position: fixed;
@@ -1572,13 +1581,30 @@ button {
     background: transparent;
     padding: 0 .3em; }
     .contactForm__input--textArea {
-      height: 80%;
+      height: 60%;
       resize: none; }
     .contactForm__input:focus {
       outline: none; }
+  .contactForm__privatePolicy {
+    display: flex;
+    align-items: center;
+    gap: 1rem; }
+    .contactForm__privatePolicyInput {
+      accent-color: #05c4d3;
+      text-transform: uppercase;
+      font-weight: bold;
+      height: 1rem;
+      width: 1rem; }
+    .contactForm__privatePolicyLink {
+      font-weight: bold; }
   .contactForm__button {
     line-height: 3em;
     width: 50%; }
+    .contactForm__button:disabled {
+      background: grey;
+      color: lightgray;
+      border: solid 1px #202020;
+      cursor: not-allowed; }
 
 @media (max-width: 60vh) {
   .contactForm__fieldset {
@@ -1592,7 +1618,10 @@ button {
     gap: 2rem; }
   .contactForm__button {
     width: 100%;
-    line-height: 2em; } }
+    line-height: 2em; }
+  .contactForm__privatePolicyInput {
+    height: 1.5rem;
+    width: 1.5rem; } }
 
 .contactCard {
   grid-column: 1/7;
@@ -1812,7 +1841,8 @@ button {
 
 @media (max-width: 800px) {
   .footer {
-    position: sticky; }
+    position: sticky;
+    display: none; }
     .footer__copyright {
       text-align: center;
       font-size: 1.2rem; } }

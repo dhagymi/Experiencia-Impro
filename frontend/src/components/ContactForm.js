@@ -1,9 +1,11 @@
 import axios from "axios";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 import { useAlertContext } from "../contexts/AlertContext";
 
 const ContactForm = () => {
+	const [isPrivatePolicyChecked, setIsPrivatePolicyChecked] = useState(false);
+
 	const { setIsLoading, setIsError, toggleIsAlertVisible } = useAlertContext();
 	const formSubmitHandler = useCallback(
 		async (event) => {
@@ -77,7 +79,13 @@ const ContactForm = () => {
 						required
 					/>
 				</label>
-				<button className="contactForm__button" type="submit">
+				<div className="contactForm__privatePolicy">
+					<input type="checkbox" id="privatePolicy" className="contactForm__privatePolicyInput" value={isPrivatePolicyChecked} onChange={() => {
+						setIsPrivatePolicyChecked(!isPrivatePolicyChecked);
+					}} />
+					<label className="contactForm__privatePolicyLabel" htmlFor="privatePolicy">He leído y acepto la <a rel="noreferrer" target="_blank" href="https://www.privacypolicies.com/live/c7ea3138-a793-467b-8226-f11d8d44f2a8" className="contactForm__privatePolicyLink">Política de Privacidad</a>.</label>
+				</div>
+				<button className="contactForm__button" type="submit" disabled={!isPrivatePolicyChecked}>
 					Enviar
 				</button>
 			</fieldset>

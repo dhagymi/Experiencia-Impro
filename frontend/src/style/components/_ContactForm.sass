@@ -30,15 +30,41 @@
         padding: 0 .3em
 
         &--textArea
-            height: 80%
+            height: 60%
             resize: none
 
         &:focus
             outline: none
+
+    &__privatePolicy
+        display: flex
+        align-items: center
+        gap: 1rem
+
+        &Input
+            @extend %tinyText
+            accent-color: $lightBlue
+            text-transform: uppercase
+            font-weight: bold
+            height: 1rem
+            width: 1rem
+
+        &Label
+            @extend %tinyText
+
+        &Link
+            font-weight: bold
+
     &__button
         @extend %button
         line-height: 3em
         width: 50%
+
+        &:disabled
+            background: grey
+            color: lightgray
+            border: solid 1px $background
+            cursor: not-allowed
 
 @media (max-width: 60vh)
     .contactForm
@@ -59,3 +85,9 @@
         &__button
             width: 100%
             line-height: 2em
+
+        &__privatePolicy
+
+            &Input
+                height: 1.5rem
+                width: 1.5rem

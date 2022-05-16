@@ -16,6 +16,7 @@ const Modal = () => {
     const [currentShow, setCurrentShow] = useState("");
     const [currentShowStock, setCurrentShowStock] = useState(0);
     const [quantity, setQuantity] = useState(1);
+    const [isPrivatePolicyChecked, setIsPrivatePolicyChecked] = useState(false);
     const [modalClassVisibility, setModalClassVisibility] = useState("modal");
 
     const { modalClass, toggleIsModalVisible } = useModalContext();
@@ -222,29 +223,21 @@ const Modal = () => {
                                 value > currentShowStock && value
                                     ? currentShowStock
                                     : value < 0
-                                    ? 0
-                                    : value;
+                                        ? 0
+                                        : value;
                             return setQuantity(newValue);
                         }}
                     />
-                    <div className="modal__info">
-                        <p className="modal__infoTitle">Importante</p>
-                        <p className="modal__infoBody">
-                            <span className="modal__infoImportantText">
-                                SE APLICARÁ LA POLÍTICA 2G PARA ESTE
-                                ESPECTÁCULO.
-                            </span>{" "}
-                            Para el ingreso es obligatorio presentar comprobante
-                            de vacunación o recuperación{" "}
-                            <span className="modal__infoFinalText">
-                                y una identificación personal.
-                            </span>
-                        </p>
+                    <div className="modal__privatePolicy">
+                        <input type="checkbox" id="privatePolicy" className="modal__privatePolicyInput" value={isPrivatePolicyChecked} onChange={() => {
+                            setIsPrivatePolicyChecked(!isPrivatePolicyChecked);
+                        }} />
+                        <label className="modal__privatePolicyLabel" htmlFor="privatePolicy">He leído y acepto la <a rel="noreferrer" target="_blank" href="https://www.privacypolicies.com/live/c7ea3138-a793-467b-8226-f11d8d44f2a8" className="modal__privatePolicyLink">Política de Privacidad</a>.</label>
                     </div>
 
                     <button
                         className="modal__submitButton"
-                        disabled={quantity < 1 || quantity === ""}
+                        disabled={quantity < 1 || quantity === "" || !isPrivatePolicyChecked || currentShow === ""}
                         type="submit"
                     >
                         Finalizar reserva

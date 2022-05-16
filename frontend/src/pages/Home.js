@@ -48,9 +48,9 @@ const Home = () => {
 				} else {
 					nextShowYear < new Date().getFullYear() + 2
 						? getNextShow(
-								nextShowMonth === 12 ? 1 : nextShowMonth + 1,
-								nextShowMonth === 12 ? nextShowYear + 1 : nextShowYear
-						  )
+							nextShowMonth === 12 ? 1 : nextShowMonth + 1,
+							nextShowMonth === 12 ? nextShowYear + 1 : nextShowYear
+						)
 						: setIsLoading(false);
 				}
 			} catch (error) {
