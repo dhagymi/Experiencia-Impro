@@ -25,14 +25,14 @@ jobs:
             git pull origin master
             rm -f .env
             touch .env
-            echo 'PORT=${{ env.PORT }}' >> .env
+            echo 'PORT=${{ vars.PORT }}' >> .env
             echo 'PROJECT_ID=${{ secrets.PROJECT_ID }}' >> .env
             echo 'PRIVATE_KEY_ID=${{ secrets.PRIVATE_KEY_ID }}' >> .env
             echo 'PRIVATE_KEY=${{ secrets.PRIVATE_KEY }}' >> .env
             echo 'CLIENTE_EMAIL=${{ secrets.CLIENTE_EMAIL }}' >> .env
-            echo 'DELIVERY_MAIL=${{ env.DELIVERY_MAIL }}' >> .env
+            echo 'DELIVERY_MAIL=${{ vars.DELIVERY_MAIL }}' >> .env
             echo 'DELIVERY_MAIL_PASSWORD=${{ secrets.DELIVERY_MAIL_PASSWORD }}' >> .env
-            echo 'RECEIVING_MAIL=${{ env.RECEIVING_MAIL }}' >> .env
+            echo 'RECEIVING_MAIL=${{ vars.RECEIVING_MAIL }}' >> .env
             yarn install
             yarn build
             pm2 restart app
