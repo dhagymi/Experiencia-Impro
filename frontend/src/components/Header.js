@@ -1,6 +1,6 @@
 import Logo from "./Logo";
-import NavBar from "./NavBar";
-import BurguerMenu from "./BurguerMenu";
+// import NavBar from './NavBar';
+// import BurguerMenu from './BurguerMenu';
 import { useMenuContext } from "../contexts/MenuContext";
 
 const Header = () => {
