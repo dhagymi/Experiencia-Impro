@@ -9,8 +9,8 @@ const Header = () => {
 	return (
 		<header className={`header ${open && "header--activedMenu"}`}>
 			<Logo />
-			<BurguerMenu />
-			<NavBar />
+			{/* <BurguerMenu /> */}
+			{/* <NavBar /> */}
 		</header>
 	);
 };
