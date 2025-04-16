@@ -20,7 +20,7 @@ jobs:
           password: ${{ secrets.CD_PASSWORD }}
           port: 22
           script: |
-            export PATH=$PATH:/root/.nvm/versions/node/v18.18.0/bin
+            export PATH=/root/.nvm/versions/node/v18.18.0/bin
 
             cd ~
             cd ../repos/Experiencia-Impro
@@ -35,7 +35,6 @@ jobs:
             echo 'DELIVERY_MAIL=${{ vars.DELIVERY_MAIL }}' >> .env
             echo 'DELIVERY_MAIL_PASSWORD=${{ secrets.DELIVERY_MAIL_PASSWORD }}' >> .env
             echo 'RECEIVING_MAIL=${{ vars.RECEIVING_MAIL }}' >> .env
-            nvm use
             yarn install
             yarn build
             pm2 restart app
