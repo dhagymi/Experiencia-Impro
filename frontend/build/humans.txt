@@ -1,0 +1,10 @@
+/* SITE INFORMATION */
+
+	Site name:  	Experiencia Impro
+	Site URL:   	https://experienciaimpro.com/
+	Web design: 	Micaela Zayas
+	Web develop:	Agustín Andreacchi
+	Contact:    	https://dhaweb.com/contact/
+	Location:   	Germany
+	Built with: 	React, Sass, Node, Express, Firebase
+	Launched:   	2021
