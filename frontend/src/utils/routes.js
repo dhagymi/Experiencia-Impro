@@ -1,6 +1,7 @@
 import Shows from "../pages/Shows";
 import Contact from "../pages/Contact";
 import Error from "../pages/Error";
+import WeAreWorking from "../pages/WeAreWorking";
 
 import HomeContainer from "../components/HomeContainer";
 import ClassesContainer from "../components/ClassesContainer";
@@ -14,6 +15,7 @@ const routes = [
 	{ component: <PodcastContainer />, path: "/podcast", exact: true },
 	{ component: <Contact />, path: "/contacto", exact: true },
 	{ component: <Shows />, path: "/shows", exact: true },
+	{ component: <WeAreWorking />, path: "/muypronto", exact: true },
 	{ component: <Error />, path: "*" },
 ];
 

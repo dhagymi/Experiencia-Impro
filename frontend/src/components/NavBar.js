@@ -28,6 +28,8 @@ const NavBar = () => {
 		},
 		{ to: "/shows", exact: true, innerText: "Shows", extraText: "Tickets" },
 		{ to: "/contacto", exact: true, innerText: "Contacto", extraText: "+Info" },
+		{ to: "/muypronto", exact: true, innerText: "Sitio en construcción", extraText: "Muy pronto" },
+
 	];
 
 	return (

@@ -24,7 +24,7 @@ jobs:
           password: ${{ secrets.CD_PASSWORD }}
           port: 22
           script: |
-            export PATH=$PATH:/root/.nvm/versions/node/v16.13.1/bin
+            export PATH=/root/.nvm/versions/node/v18.18.0/bin
 
             cd ~
             cd ../repos/Experiencia-Impro@dev

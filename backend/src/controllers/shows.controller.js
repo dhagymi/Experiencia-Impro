@@ -1,4 +1,4 @@
-import emoji from "node-emoji";
+import * as emoji from "node-emoji";;
 
 import showsService from "../services/shows.service.js";
 
