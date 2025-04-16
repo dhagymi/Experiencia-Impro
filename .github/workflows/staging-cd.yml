@@ -35,6 +35,7 @@ jobs:
             echo 'DELIVERY_MAIL=${{ vars.DELIVERY_MAIL }}' >> .env
             echo 'DELIVERY_MAIL_PASSWORD=${{ secrets.DELIVERY_MAIL_PASSWORD }}' >> .env
             echo 'RECEIVING_MAIL=${{ vars.RECEIVING_MAIL }}' >> .env
+            nvm use
             yarn install
             yarn build
             pm2 restart app@stg
