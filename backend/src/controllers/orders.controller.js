@@ -1,6 +1,6 @@
 import { dirname, resolve } from "path";
 import { fileURLToPath } from "url";
-import emoji from "node-emoji";
+import * as emoji from "node-emoji";;
 import mailer from "../services/mail.service.js";
 
 import ordersService from "../services/orders.service.js";

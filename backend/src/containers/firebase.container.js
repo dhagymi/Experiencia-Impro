@@ -1,5 +1,5 @@
 import admin from "firebase-admin";
-import emoji from "node-emoji";
+import * as emoji from "node-emoji";;
 import { Timestamp } from "@google-cloud/firestore";
 
 import serviceAccount from "../db/experiencia-impro-firebase.js";
