@@ -60,7 +60,7 @@
 .error__title, .why__title, .why__mark, .home__floatTitleText, .home__title {
   font-family: Poppins;
   font-weight: bold;
-  font-size: clamp(4rem, 10vw, 7rem);
+  font-size: clamp(4rem, 10vw, 6rem);
   color: #ffffff;
 }
 
