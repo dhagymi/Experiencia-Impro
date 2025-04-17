@@ -60,7 +60,7 @@
 .error__title, .why__title, .why__mark, .home__floatTitleText, .home__title {
   font-family: Poppins;
   font-weight: bold;
-  font-size: 7rem;
+  font-size:  clamp(4rem, 10vw, 7rem);
   color: #ffffff;
 }
 
@@ -975,6 +975,7 @@ button:hover {
 .error__paragraph {
   font-size: 1.5rem;
   text-align: center;
+  padding: 0px 50px;
 }
 .error__finalText {
   white-space: nowrap;
