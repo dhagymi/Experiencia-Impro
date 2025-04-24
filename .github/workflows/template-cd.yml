@@ -4,11 +4,34 @@ on:
   workflow_call:
     inputs:
       ENV_SUFFIX:
-        required: true
+        required: false
         type: string
       PORT:
         required: true
         type: string
+      DELIVERY_MAIL:
+        required: true
+        type: string
+      RECEIVING_MAIL:
+        required: true
+        type: string
+    secrets:
+      DELIVERY_MAIL_PASSWORD:
+        required: true
+      PROJECT_ID:
+        required: true
+      PRIVATE_KEY_ID:
+        required: true
+      PRIVATE_KEY:
+        required: true
+      CLIENTE_EMAIL:
+        required: true
+      CD_HOST:
+        required: true
+      CD_USERNAME:
+        required: true
+      CD_PASSWORD:
+        required: true
 
 jobs:
   # This workflow contains a single job called "build"
@@ -40,9 +63,9 @@ jobs:
             echo 'PRIVATE_KEY_ID=${{ secrets.PRIVATE_KEY_ID }}' >> .env
             echo 'PRIVATE_KEY=${{ secrets.PRIVATE_KEY }}' >> .env
             echo 'CLIENTE_EMAIL=${{ secrets.CLIENTE_EMAIL }}' >> .env
-            echo 'DELIVERY_MAIL=${{ vars.DELIVERY_MAIL }}' >> .env
+            echo 'DELIVERY_MAIL=${{ inputs.DELIVERY_MAIL }}' >> .env
             echo 'DELIVERY_MAIL_PASSWORD=${{ secrets.DELIVERY_MAIL_PASSWORD }}' >> .env
-            echo 'RECEIVING_MAIL=${{ vars.RECEIVING_MAIL }}' >> .env
+            echo 'RECEIVING_MAIL=${{ inputs.RECEIVING_MAIL }}' >> .env
             npm install -g yarn
             yarn install
             yarn build

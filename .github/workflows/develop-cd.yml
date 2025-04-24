@@ -10,3 +10,14 @@ jobs:
     with:
       ENV_SUFFIX: "@dev"
       PORT: ${{ vars.PORT_DEV }}
+      DELIVERY_MAIL: ${{ vars.DELIVERY_MAIL }}
+      RECEIVING_MAIL: ${{ vars.RECEIVING_MAIL }}
+    secrets:
+      DELIVERY_MAIL_PASSWORD: ${{ secrets.DELIVERY_MAIL_PASSWORD }}
+      PROJECT_ID: ${{ secrets.PROJECT_ID }}
+      PRIVATE_KEY_ID: ${{ secrets.PRIVATE_KEY_ID }}
+      PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+      CLIENTE_EMAIL: ${{ secrets.CLIENTE_EMAIL }}
+      CD_HOST: ${{ secrets.CD_HOST }}
+      CD_USERNAME: ${{ secrets.CD_USERNAME }}
+      CD_PASSWORD: ${{ secrets.CD_PASSWORD }}
