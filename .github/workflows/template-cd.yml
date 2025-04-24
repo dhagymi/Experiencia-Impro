@@ -1,0 +1,74 @@
+name: Node.js CI
+
+on:
+  workflow_call:
+    inputs:
+      ENV_SUFFIX:
+        required: false
+        type: string
+      PORT:
+        required: true
+        type: string
+      DELIVERY_MAIL:
+        required: true
+        type: string
+      RECEIVING_MAIL:
+        required: true
+        type: string
+    secrets:
+      DELIVERY_MAIL_PASSWORD:
+        required: true
+      PROJECT_ID:
+        required: true
+      PRIVATE_KEY_ID:
+        required: true
+      PRIVATE_KEY:
+        required: true
+      CLIENTE_EMAIL:
+        required: true
+      CD_HOST:
+        required: true
+      CD_USERNAME:
+        required: true
+      CD_PASSWORD:
+        required: true
+
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Deploy using ssh
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.CD_HOST }}
+          username: ${{ secrets.CD_USERNAME }}
+          password: ${{ secrets.CD_PASSWORD }}
+          port: 22
+          script: |
+            set -eo pipefail
+
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            nvm use 18.18.0
+
+            command -v yarn >/dev/null 2>&1 || npm install -g yarn
+
+            cd ~/../repos/Experiencia-Impro${{ inputs.ENV_SUFFIX }}
+            git pull origin develop
+            rm -f .env
+            touch .env
+            echo 'PORT=${{ inputs.PORT }}' >> .env
+            echo 'PROJECT_ID=${{ secrets.PROJECT_ID }}' >> .env
+            echo 'PRIVATE_KEY_ID=${{ secrets.PRIVATE_KEY_ID }}' >> .env
+            echo 'PRIVATE_KEY=${{ secrets.PRIVATE_KEY }}' >> .env
+            echo 'CLIENTE_EMAIL=${{ secrets.CLIENTE_EMAIL }}' >> .env
+            echo 'DELIVERY_MAIL=${{ inputs.DELIVERY_MAIL }}' >> .env
+            echo 'DELIVERY_MAIL_PASSWORD=${{ secrets.DELIVERY_MAIL_PASSWORD }}' >> .env
+            echo 'RECEIVING_MAIL=${{ inputs.RECEIVING_MAIL }}' >> .env
+            yarn install
+            yarn build
+            pm2 restart app${{ inputs.ENV_SUFFIX }}
