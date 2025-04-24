@@ -5,7 +5,7 @@ on:
     branches: [master]
 
 jobs:
-  deploy-stg:
+  deploy-prod:
     uses: ./.github/workflows/template-cd.yml
     with:
       ENV_SUFFIX: ""

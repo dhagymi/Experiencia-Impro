@@ -5,7 +5,7 @@ on:
     branches: [develop]
 
 jobs:
-  deploy-stg:
+  deploy-dev:
     uses: ./.github/workflows/template-cd.yml
     with:
       ENV_SUFFIX: "@dev"
