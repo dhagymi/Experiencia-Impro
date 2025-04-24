@@ -60,8 +60,9 @@
 .error__title, .why__title, .why__mark, .home__floatTitleText, .home__title {
   font-family: Poppins;
   font-weight: bold;
-  font-size: 7rem;
+  font-size: 4rem;
   color: #ffffff;
+  text-align: center;
 }
 
 .home__nextShowText {
@@ -960,7 +961,6 @@ button:hover {
 }
 .error__title {
   line-height: 1em;
-  text-align:center;
 }
 .error__titleSad {
   color: #05c4d3;
