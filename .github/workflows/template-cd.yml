@@ -69,6 +69,6 @@ jobs:
             echo 'DELIVERY_MAIL=${{ inputs.DELIVERY_MAIL }}' >> .env
             echo 'DELIVERY_MAIL_PASSWORD=${{ secrets.DELIVERY_MAIL_PASSWORD }}' >> .env
             echo 'RECEIVING_MAIL=${{ inputs.RECEIVING_MAIL }}' >> .env
-            npx yarn install
-            npx yarn build
+            yarn install
+            yarn build
             pm2 restart app${{ inputs.ENV_SUFFIX }}
