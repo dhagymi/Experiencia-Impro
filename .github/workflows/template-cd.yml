@@ -50,9 +50,12 @@ jobs:
           port: 22
           script: |
             set -eo pipefail
-            export SSH_NODE_VERSION="v18.18.0"
-            export SSH_NVM_PATH="/root/.nvm/versions/node/$SSH_NODE_VERSION/bin"
-            export PATH=$(echo $PATH | tr ':' '\n' | grep -v '/root/.nvm/versions/node/' | paste -sd: -):$SSH_NVM_PATH
+
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            nvm use 18.18.0
+
+            command -v yarn >/dev/null 2>&1 || npm install -g yarn
 
             cd ~/../repos/Experiencia-Impro${{ inputs.ENV_SUFFIX }}
             git pull origin develop
